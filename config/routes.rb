@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   end
     # devise_for :users
-    resources :sessions, only: [:create, :destroy]
-  
-  
+    post '/login' => 'sessions#login'
+    delete '/logout' => 'sessions#logout' 
+    get '/auth-check' => 'sessions#auth_check' 
 end
