@@ -9,6 +9,7 @@ import DashboardPage from "./containers/DashboardPage";
 import SideBar from "./components/SideBar";
 import { fetchToken } from "./actions/userActions";
 import NoMatch from "./components/NoMatch";
+import RegistrationPage from "./containers/RegistrationPage";
 
 function App() {
   const [user, setUser] = useState("");
@@ -58,6 +59,7 @@ function App() {
               <Route path="/profile" component={ProfilePage} />
               <Route path="/dashboard" component={DashboardPage} />
               <Route path="/login" component={LoginPage} />
+              <Route path="/registration" component={RegistrationPage} />
               <Route component={NoMatch} />
             </Switch>
           </main>

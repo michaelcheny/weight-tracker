@@ -8,6 +8,7 @@ import {
   faSignInAlt,
   faSignOutAlt,
   faSearch,
+  faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route } from "react-router-dom";
@@ -136,6 +137,16 @@ const SideBar = ({ theme }) => {
                       />
                     </NavIcon>
                     <NavText>Log In</NavText>
+                  </NavItem>
+
+                  <NavItem eventKey="registration">
+                    <NavIcon>
+                      <FontAwesomeIcon
+                        icon={faUserPlus}
+                        style={{ fontSize: "1.75em", marginTop: 12 }}
+                      />
+                    </NavIcon>
+                    <NavText>Registration</NavText>
                   </NavItem>
                 </SideNav.Nav>
               </SideNav>
