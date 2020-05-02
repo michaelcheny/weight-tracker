@@ -3,26 +3,20 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
 import HomePage from "./containers/HomePage";
-// import LoginPage from "./containers/LoginPage";
+import LoginPage from "./containers/LoginPage";
 import ProfilePage from "./containers/ProfilePage";
-import Dashboard from "./containers/Dashboard";
+import DashboardPage from "./containers/DashboardPage";
 import SideBar from "./components/SideBar";
+import { fetchToken } from "./actions/userActions";
 
 function App() {
   const [user, setUser] = useState("");
   const [token, setToken] = useState("");
-
-  const fetchToken = async () => {
-    const res = await fetch("http://localhost:3001/auth-check", {
-      credentials: "include",
-    });
-    const data = await res.json();
-    setToken(data.csrf_auth_token);
-    return data.csrf_auth_token;
-  };
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
     fetchToken().then((token) => {
+      setToken(token);
       fetch("http://localhost:3001/auto-login", {
         method: "POST",
         headers: {
@@ -34,8 +28,11 @@ function App() {
       })
         .then((res) => res.json())
         .then((data) => {
-          setUser(data);
-          console.log(data);
+          if (!Object.keys(data).includes("errors")) {
+            console.log(data);
+            setUser(data);
+            setAuthenticated(true);
+          }
         });
     });
   }, []);
@@ -47,7 +44,8 @@ function App() {
         setUser,
         token,
         setToken,
-        authenticated: !Object.keys(user).includes("errors"),
+        authenticated,
+        setAuthenticated,
       }}
     >
       <div className="App">
@@ -57,7 +55,8 @@ function App() {
             <main>
               <Route path="/" exact component={HomePage} />
               <Route path="/profile" component={ProfilePage} />
-              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/dashboard" component={DashboardPage} />
+              <Route path="/login" component={LoginPage} />
             </main>
           </Switch>
         </Router>

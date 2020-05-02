@@ -11,11 +11,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route } from "react-router-dom";
-import { logOut } from "../actions/userActions/userActions";
+import { logOut } from "../actions/userActions";
 import { UserContext } from "../context/UserContext";
 
 const SideBar = ({ theme }) => {
-  const { setUser, token, authenticated } = useContext(UserContext);
+  const { setUser, token, authenticated, setAuthenticated } = useContext(UserContext);
 
   const renderLoggedInLinks = () => {
     if (authenticated) {
@@ -29,6 +29,7 @@ const SideBar = ({ theme }) => {
                     setUser("");
                     console.log(token);
                     logOut(token);
+                    setAuthenticated(false);
                   } else {
                     const to = "/" + selected;
                     if (location.pathname !== to) {
@@ -105,15 +106,9 @@ const SideBar = ({ theme }) => {
             <>
               <SideNav
                 onSelect={(selected) => {
-                  if (selected === "logout") {
-                    setUser("");
-                    console.log(token);
-                    logOut(token);
-                  } else {
-                    const to = "/" + selected;
-                    if (location.pathname !== to) {
-                      history.push(to);
-                    }
+                  const to = "/" + selected;
+                  if (location.pathname !== to) {
+                    history.push(to);
                   }
                 }}
                 style={{
@@ -122,7 +117,7 @@ const SideBar = ({ theme }) => {
                 }}
               >
                 <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="dashboard">
+                <SideNav.Nav defaultSelected="search">
                   <NavItem eventKey="search">
                     <NavIcon>
                       <FontAwesomeIcon

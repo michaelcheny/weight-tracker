@@ -1,3 +1,11 @@
+export const fetchToken = async () => {
+  const res = await fetch("http://localhost:3001/auth-check", {
+    credentials: "include",
+  });
+  const data = await res.json();
+  return data.csrf_auth_token;
+};
+
 export const logOut = async (token) => {
   const res = await fetch("http://localhost:3001/logout", {
     method: "DELETE",
