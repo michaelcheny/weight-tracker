@@ -41,7 +41,15 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, token }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        token,
+        setToken,
+        authenticated: !Object.keys(user).includes("errors"),
+      }}
+    >
       <div className="App">
         <Router>
           <SideBar theme="#282A36" />
