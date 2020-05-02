@@ -32,7 +32,5 @@ export const logIn = async (token, email, password) => {
     credentials: "include",
   });
   const data = await res.json();
-  // if (!Object.keys(data).includes("error")) {
   return data;
-  // }
 };

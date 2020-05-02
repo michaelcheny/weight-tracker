@@ -8,6 +8,7 @@ import ProfilePage from "./containers/ProfilePage";
 import DashboardPage from "./containers/DashboardPage";
 import SideBar from "./components/SideBar";
 import { fetchToken } from "./actions/userActions";
+import NoMatch from "./components/NoMatch";
 
 function App() {
   const [user, setUser] = useState("");
@@ -51,14 +52,15 @@ function App() {
       <div className="App">
         <Router>
           <SideBar theme="#282A36" />
-          <Switch>
-            <main>
+          <main>
+            <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/profile" component={ProfilePage} />
               <Route path="/dashboard" component={DashboardPage} />
               <Route path="/login" component={LoginPage} />
-            </main>
-          </Switch>
+              <Route component={NoMatch} />
+            </Switch>
+          </main>
         </Router>
       </div>
     </UserContext.Provider>
