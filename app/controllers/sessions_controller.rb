@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def auto_login
+    binding.pry
     if user_signed_in?
       # binding.pry
       render json: current_user
