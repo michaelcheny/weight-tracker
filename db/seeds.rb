@@ -10,6 +10,8 @@ Meal.destroy_all
 
 michael = User.create(
   email: "michael@michael.com", 
+  first_name: "michael",
+  last_name: "chen",
   password: "password", 
   gender: "male", 
   age: 28, 

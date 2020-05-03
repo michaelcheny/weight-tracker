@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :password_confirmation, presence: true, on: :create
+  validates_presence_of :password_confirmation, if: :password_changed?
+
+
   has_many :meals       
 end
