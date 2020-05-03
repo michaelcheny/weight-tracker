@@ -1,4 +1,4 @@
-class Api::V1::HomeController < ApplicationController
+class V1::HomeController < ApplicationController
 
   def index
     render json: { message: "Hello" }
