@@ -20,7 +20,7 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     logIn(token, email, password).then((data) => {
-      if (!Object.keys(data).includes("error")) {
+      if (!Object.keys(data).includes("errors")) {
         setUser(data);
         setAuthenticated(true);
       } else {
