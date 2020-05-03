@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { register } from "../actions/userActions";
+import { UserContext } from "../context/UserContext";
 
 const RegistrationPage = () => {
   const [email, setEmail] = useState("");
@@ -7,7 +9,9 @@ const RegistrationPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const handleSubmit = (event) => {
+  const { token, setUser, authenticated, setAuthenticated } = useContext(UserContext);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log();
     const newUser = {
@@ -18,6 +22,8 @@ const RegistrationPage = () => {
       lastName,
     };
     console.log(newUser);
+    const user = await register(token, newUser);
+    console.log(user);
   };
 
   return (

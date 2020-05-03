@@ -34,3 +34,18 @@ export const logIn = async (token, email, password) => {
   const data = await res.json();
   return data;
 };
+
+export const register = async (token, user) => {
+  const res = await fetch("http://localhost:3001/v1/users", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "X-CSRF-TOKEN": token,
+    },
+    body: JSON.stringify({ user }),
+    credentials: "include",
+  });
+  const data = await res.json();
+  return data;
+};
