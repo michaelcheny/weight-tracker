@@ -18,12 +18,14 @@ const RegistrationPage = () => {
       email,
       password,
       password_confirmation: passwordConfirmation,
-      firstName,
-      lastName,
+      first_name: firstName,
+      last_name: lastName,
     };
     console.log(newUser);
     const user = await register(token, newUser);
     console.log(user);
+    setUser(user);
+    setAuthenticated(true);
   };
 
   return (

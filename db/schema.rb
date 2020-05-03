@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_225741) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "first_name"
+    t.string "last_name"
     t.integer "weight"
     t.integer "age"
     t.integer "height"
