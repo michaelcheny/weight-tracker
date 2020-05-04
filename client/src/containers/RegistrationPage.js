@@ -17,7 +17,6 @@ const RegistrationPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log();
     const newUser = {
       email,
       password,
@@ -26,7 +25,6 @@ const RegistrationPage = () => {
       last_name: lastName,
     };
     const data = await register(token, newUser);
-    console.log(data);
     if (!Object.keys(data).includes("errors")) {
       setUser(data);
       setAuthenticated(true);

@@ -13,8 +13,7 @@ class V1::UsersController < ApplicationController
     if user.save
       log_in(user)
       cookies['logged_in'] = true
-      binding.pry
-      render json: user, except: [:password_digest], status: 200
+      render json: user, status: 200
     else
       render json: { errors: user.errors.full_messages }, status: 400
     end
