@@ -131,7 +131,7 @@ const SideBar = ({ theme }) => {
                 }}
               >
                 <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="search">
+                <SideNav.Nav defaultSelected="dashboard">
                   <NavItem eventKey="search">
                     <NavIcon>
                       <FontAwesomeIcon

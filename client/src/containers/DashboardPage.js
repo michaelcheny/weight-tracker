@@ -6,10 +6,13 @@ const DashboardPage = () => {
   const { user, authenticated, token } = useContext(UserContext);
 
   return (
-    <pre>
-      {!authenticated ? <Redirect to="/login" /> : null}
-      {JSON.stringify(useContext(UserContext), null, 2)}
-    </pre>
+    <>
+      <h1>Dashboard</h1>
+      <pre>
+        {!authenticated ? <Redirect to="/login" /> : null}
+        {JSON.stringify(useContext(UserContext), null, 2)}
+      </pre>
+    </>
   );
 };
 
