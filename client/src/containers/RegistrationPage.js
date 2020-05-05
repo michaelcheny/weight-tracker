@@ -77,6 +77,7 @@ const RegistrationPage = () => {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             value={passwordConfirmation}
             placeholder="Confirm Password"
+            onKeyPress={(event) => (event.keyCode === 13 ? handleSubmit : null)}
             required
           />
           {/* <input type="submit" /> */}

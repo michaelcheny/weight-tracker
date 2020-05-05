@@ -71,6 +71,7 @@ const LoginPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
+            onKeyPress={(event) => (event.keyCode === 13 ? handleSubmit : null)}
             required
           />
 
