@@ -4,6 +4,7 @@ import { logIn, fetchToken } from "../actions/userActions";
 import ErrorMessages from "../components/ErrorMessages";
 import { Redirect } from "react-router-dom";
 
+// TODO: Incoporate this thing as a Modal from the side nav - click on log in or register to pop up a form
 const LoginPage = () => {
   const { setUser, token, setToken, authenticated, setAuthenticated } = useContext(
     UserContext
@@ -33,19 +34,21 @@ const LoginPage = () => {
   return (
     <div>
       {authenticated ? <Redirect to="/dashboard" /> : null}
-      {authenticated}
+
       <form onSubmit={handleSubmit}>
         {errors ? <ErrorMessages errors={errorMessages} /> : null}
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
           required
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
         />
         <input type="submit" value="Log In" />

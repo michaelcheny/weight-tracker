@@ -17,6 +17,8 @@ import { UserContext } from "../context/UserContext";
 
 const SideBar = ({ theme }) => {
   const { setUser, token, authenticated, setAuthenticated } = useContext(UserContext);
+  // TODO: set up a Modal component for Log In and Sign Up
+  // const { showModal, setShowModal } = useState(false)
 
   const renderLoggedInLinks = () => {
     if (authenticated) {
