@@ -10,7 +10,7 @@ import SideBar from "./components/SideBar";
 import { fetchToken } from "./actions/userActions";
 import NoMatch from "./components/NoMatch";
 import RegistrationPage from "./containers/RegistrationPage";
-import NavBar from "./components/NavBar";
+import { NavBar, Footer } from "./components/NavBar";
 
 function App() {
   const [user, setUser] = useState("");
@@ -61,9 +61,16 @@ function App() {
         }
       >
         <Router>
-          <NavBar />
           <SideBar theme="#282A36" />
-          <main>
+          <main
+            style={{
+              minHeight: "95vh",
+              display: "flex",
+              flexDirection: "column",
+              // alignItems: "stretch",
+            }}
+          >
+            <NavBar />
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/profile" component={ProfilePage} />
@@ -73,6 +80,7 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
           </main>
+          <Footer />
         </Router>
       </div>
     </UserContext.Provider>
