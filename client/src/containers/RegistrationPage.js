@@ -3,6 +3,7 @@ import { register } from "../actions/userActions";
 import { UserContext } from "../context/UserContext";
 import ErrorMessages from "../components/ErrorMessages";
 import { Redirect } from "react-router-dom";
+import { StyledDiv, StyledInput, StyledButton } from "../styles/Forms";
 
 const RegistrationPage = () => {
   const [email, setEmail] = useState("");
@@ -35,50 +36,52 @@ const RegistrationPage = () => {
   };
 
   return (
-    <>
+    <StyledDiv>
       {authenticated ? <Redirect to="/dashboard" /> : null}
 
       <form onSubmit={handleSubmit}>
+        <h3>Registration</h3>
         {/* render error stuff here */}
         {errors ? <ErrorMessages errors={errorMsgs} /> : null}
-        <input
+        <StyledInput
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           placeholder="Email"
           required
         />
-        <input
+        <StyledInput
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           placeholder="First Name"
           required
         />
-        <input
+        <StyledInput
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           placeholder="Last Name"
           required
         />
-        <input
+        <StyledInput
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           placeholder="Password"
           required
         />
-        <input
+        <StyledInput
           type="password"
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           value={passwordConfirmation}
           placeholder="Confirm Password"
           required
         />
-        <input type="submit" />
+        {/* <input type="submit" /> */}
+        <StyledButton onClick={handleSubmit}>Register</StyledButton>
       </form>
-    </>
+    </StyledDiv>
   );
 };
 

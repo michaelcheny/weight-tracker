@@ -3,8 +3,7 @@ import { UserContext } from "../context/UserContext";
 import { logIn, fetchToken } from "../actions/userActions";
 import ErrorMessages from "../components/ErrorMessages";
 import { Redirect } from "react-router-dom";
-import styled from "styled-components";
-import useFocus from "styled-components";
+import { StyledDiv, StyledInput, StyledButton } from "../styles/Forms";
 
 // TODO: Incoporate this thing as a Modal from the side nav - click on log in or register to pop up a form
 const LoginPage = () => {
@@ -36,7 +35,7 @@ const LoginPage = () => {
   };
 
   return (
-    <StyledLogin>
+    <StyledDiv>
       {authenticated ? <Redirect to="/dashboard" /> : null}
 
       <form onSubmit={handleSubmit}>
@@ -64,7 +63,6 @@ const LoginPage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          // autoFocus
           required
         />
 
@@ -73,42 +71,14 @@ const LoginPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          // autoFocus
           required
         />
 
         {/* <input type="submit" value="Log In" /> */}
         <StyledButton onClick={handleSubmit}>Log In</StyledButton>
       </form>
-    </StyledLogin>
+    </StyledDiv>
   );
 };
 
 export default LoginPage;
-
-const StyledLogin = styled.div`
-  border: 3px solid #f1f1f1;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-`;
-
-const StyledButton = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-`;

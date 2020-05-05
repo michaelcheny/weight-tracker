@@ -50,7 +50,15 @@ function App() {
         setAuthenticated,
       }}
     >
-      <div className="App">
+      <div
+        className="App"
+        style={
+          {
+            // display: "flex",
+            //  justifyContent: "center"
+          }
+        }
+      >
         <Router>
           <SideBar theme="#282A36" />
           <main>

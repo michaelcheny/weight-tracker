@@ -43,6 +43,8 @@ const SideBar = ({ theme }) => {
                 }}
                 style={{
                   backgroundColor: theme,
+                  // display: "flex",
+                  // justifyContent: "space-around",
                   // #44475A
                 }}
               >
