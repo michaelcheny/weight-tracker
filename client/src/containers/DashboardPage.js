@@ -12,6 +12,7 @@ const DashboardPage = () => {
         {!authenticated ? <Redirect to="/login" /> : null}
         {JSON.stringify(useContext(UserContext), null, 2)}
       </pre>
+      <h3>Stats for {user.first_name}</h3>
     </>
   );
 };

@@ -10,6 +10,7 @@ import SideBar from "./components/SideBar";
 import { fetchToken } from "./actions/userActions";
 import NoMatch from "./components/NoMatch";
 import RegistrationPage from "./containers/RegistrationPage";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [user, setUser] = useState("");
@@ -60,6 +61,7 @@ function App() {
         }
       >
         <Router>
+          <NavBar />
           <SideBar theme="#282A36" />
           <main>
             <Switch>
