@@ -35,11 +35,14 @@ const LoginPage = () => {
   };
 
   return (
-    <StyledDiv>
+    <>
       {authenticated ? <Redirect to="/dashboard" /> : null}
 
-      <form onSubmit={handleSubmit}>
-        {/* <input
+      <h3>Log In</h3>
+      {errors ? <ErrorMessages errors={errorMessages} /> : null}
+      <StyledDiv>
+        <form onSubmit={handleSubmit}>
+          {/* <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -55,29 +58,27 @@ const LoginPage = () => {
           required
         /> */}
 
-        <h3>Log In</h3>
+          <StyledInput
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
 
-        {errors ? <ErrorMessages errors={errorMessages} /> : null}
-        <StyledInput
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
+          <StyledInput
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
 
-        <StyledInput
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-
-        {/* <input type="submit" value="Log In" /> */}
-        <StyledButton onClick={handleSubmit}>Log In</StyledButton>
-      </form>
-    </StyledDiv>
+          {/* <input type="submit" value="Log In" /> */}
+          <StyledButton onClick={handleSubmit}>Log In</StyledButton>
+        </form>
+      </StyledDiv>
+    </>
   );
 };
 

@@ -28,3 +28,16 @@ export const StyledButton = styled.button`
   cursor: pointer;
   width: 100%;
 `;
+
+export const StyledErrorBox = styled.div`
+  width: 40%;
+  border: 2px solid #6272a4;
+  // background-color: #6272a4;
+  padding: 12px;
+  list-style-type: none;
+  margin: auto;
+`;
+
+export const StyledLi = styled.li`
+  color: red;
+`;

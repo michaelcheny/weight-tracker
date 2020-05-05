@@ -36,52 +36,54 @@ const RegistrationPage = () => {
   };
 
   return (
-    <StyledDiv>
+    <>
+      <h3>Registration</h3>
+      {errors ? <ErrorMessages errors={errorMsgs} /> : null}
       {authenticated ? <Redirect to="/dashboard" /> : null}
 
-      <form onSubmit={handleSubmit}>
-        <h3>Registration</h3>
-        {/* render error stuff here */}
-        {errors ? <ErrorMessages errors={errorMsgs} /> : null}
-        <StyledInput
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          placeholder="Email"
-          required
-        />
-        <StyledInput
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name"
-          required
-        />
-        <StyledInput
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Last Name"
-          required
-        />
-        <StyledInput
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          placeholder="Password"
-          required
-        />
-        <StyledInput
-          type="password"
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          value={passwordConfirmation}
-          placeholder="Confirm Password"
-          required
-        />
-        {/* <input type="submit" /> */}
-        <StyledButton onClick={handleSubmit}>Register</StyledButton>
-      </form>
-    </StyledDiv>
+      <StyledDiv>
+        <form onSubmit={handleSubmit}>
+          {/* render error stuff here */}
+          <StyledInput
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="Email"
+            required
+          />
+          <StyledInput
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First Name"
+            required
+          />
+          <StyledInput
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Last Name"
+            required
+          />
+          <StyledInput
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            placeholder="Password"
+            required
+          />
+          <StyledInput
+            type="password"
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            value={passwordConfirmation}
+            placeholder="Confirm Password"
+            required
+          />
+          {/* <input type="submit" /> */}
+          <StyledButton onClick={handleSubmit}>Register</StyledButton>
+        </form>
+      </StyledDiv>
+    </>
   );
 };
 
