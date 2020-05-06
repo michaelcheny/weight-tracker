@@ -80,7 +80,7 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </div>
     </UserContext.Provider>
