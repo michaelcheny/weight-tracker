@@ -17,3 +17,6 @@ Settings page:
 
 Log in / registration
 [] set up modals that show middle of page when clicked in side bar
+
+Add more associations
+Meals have proteins carbs and fats, total calories, etc
