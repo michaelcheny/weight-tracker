@@ -17,9 +17,10 @@ const DashboardPage = () => {
         <StyledLi>Weight: {user.weight}</StyledLi>
         <StyledLi>Height: {user.height}</StyledLi>
         <StyledLi>Gender: {user.gender}</StyledLi>
-        <StyledLi>Gender: {user.gender}</StyledLi>
-        <StyledLi>Gender: {user.gender}</StyledLi>
-        <StyledLi>Gender: {user.gender}</StyledLi>
+        <StyledLi>Caloric Maintenence: {user.tdee}</StyledLi>
+        <StyledLi>BMR: {user.bmr}</StyledLi>
+        <StyledLi>Activity Level: {user.activity_level}</StyledLi>
+        <StyledLi>Goal: {user.goal}</StyledLi>
       </StyledDiv>
       <pre>
         {!authenticated ? <Redirect to="/login" /> : null}
@@ -42,5 +43,5 @@ const StyledDiv = styled.div`
 const StyledLi = styled.li`
   border: 2px dotted orange;
   list-style: none;
-  padding: 8px 0px;
+  padding: 10px 0px;
 `;

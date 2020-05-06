@@ -11,6 +11,7 @@ import { fetchToken } from "./actions/userActions";
 import NoMatch from "./components/NoMatch";
 import RegistrationPage from "./containers/RegistrationPage";
 import { NavBar, Footer } from "./components/NavBar";
+import SettingsPage from "./containers/SettingsPage";
 
 function App() {
   const [user, setUser] = useState("");
@@ -77,6 +78,7 @@ function App() {
               <Route path="/dashboard" component={DashboardPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/registration" component={RegistrationPage} />
+              <Route path="/settings" component={SettingsPage} />
               <Route component={NoMatch} />
             </Switch>
           </main>
