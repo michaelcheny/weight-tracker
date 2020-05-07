@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <StyledNav>
       <h3>Weight Tracker</h3>
     </StyledNav>
   );
 };
+
+export default NavBar;
 
 export const Footer = () => {
   return (

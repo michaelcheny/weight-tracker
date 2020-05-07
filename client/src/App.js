@@ -10,7 +10,7 @@ import SideBar from "./components/SideBar";
 import { fetchToken } from "./actions/userActions";
 import NoMatch from "./components/NoMatch";
 import RegistrationPage from "./containers/RegistrationPage";
-import { NavBar, Footer } from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import SettingsPage from "./containers/SettingsPage";
 
 function App() {
