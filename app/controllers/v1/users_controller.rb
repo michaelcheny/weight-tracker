@@ -5,7 +5,8 @@ class V1::UsersController < ApplicationController
   end
 
   def show
-
+    user = current_user
+    render json: user, status: 200
   end
 
   def create 
@@ -25,6 +26,11 @@ class V1::UsersController < ApplicationController
 
   def destroy
 
+  end
+
+  def current_user
+    user = current_user
+    render json: user, status: 200
   end
 
   private
