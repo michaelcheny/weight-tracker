@@ -32,6 +32,7 @@ const DashboardPage = () => {
 
 export default DashboardPage;
 
+// borders to test placement
 const StyledDiv = styled.div`
   width: 50%;
   display: flex;

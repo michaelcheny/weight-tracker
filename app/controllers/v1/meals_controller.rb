@@ -2,7 +2,8 @@ class V1::MealsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    meals = Meal.all
+    user = current_user
+    meals = user.meals
     render json: meals, status: 200
   end
 
