@@ -1,5 +1,5 @@
 class V1::MealsController < ApplicationController
-  # before_filter :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     user = User.find(params[:user_id])
@@ -24,11 +24,18 @@ class V1::MealsController < ApplicationController
   end
 
   def update
-
+    meal = Meal.find(params[:id])
+    if meal.update(meal_params)
+      render json: meal, status: 200
+    else
+      render json: { errors: meal.errors.full_messages }, status: 400
+    end
   end
 
   def destroy
-
+    meal = Meal.find(params[:id])
+    meal.destroy
+    render json: meal, status: 200
   end
 
   private
