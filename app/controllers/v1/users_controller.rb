@@ -29,10 +29,10 @@ class V1::UsersController < ApplicationController
 
   end
 
-  def current_user
-    user = current_user
-    render json: user, status: 200
-  end
+  # def current_user
+  #   user = current_user
+  #   render json: user, status: 200
+  # end
 
   private
 

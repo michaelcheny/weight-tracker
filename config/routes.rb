@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   namespace :v1 do
     
-    get '/current_user' => 'users#current_user'
+    # get '/current_user' => 'users#current_user'
     
     resources :users do
       resources :meals
