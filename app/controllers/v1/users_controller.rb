@@ -22,17 +22,19 @@ class V1::UsersController < ApplicationController
   end
 
   def update
-    
+    user = current_user
+    if user.update(user_params)
+      render json: user, status: 200
+    else
+      render json: { errors: user.errors.full_messages }, status: 400
+    end
   end
 
   def destroy
-
+    user = User.find(params[:id])
+    user.destroy
+    render json: user, status: 200
   end
-
-  # def current_user
-  #   user = current_user
-  #   render json: user, status: 200
-  # end
 
   private
 
