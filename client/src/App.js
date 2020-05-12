@@ -12,6 +12,7 @@ import NoMatch from "./components/NoMatch";
 import RegistrationPage from "./containers/RegistrationPage";
 import NavBar from "./components/NavBar";
 import SettingsPage from "./containers/SettingsPage";
+import FoodSearchPage from "./containers/FoodSearchPage";
 
 function App() {
   const [user, setUser] = useState("");
@@ -79,6 +80,7 @@ function App() {
               <Route path="/login" component={LoginPage} />
               <Route path="/registration" component={RegistrationPage} />
               <Route path="/settings" component={SettingsPage} />
+              <Route path="/search" component={FoodSearchPage} />
               <Route component={NoMatch} />
             </Switch>
           </main>
