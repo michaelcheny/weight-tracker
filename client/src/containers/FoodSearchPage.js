@@ -11,11 +11,12 @@ const FoodSearchPage = () => {
     fetchFoodInfo();
   }, [search]);
 
-  const fetchFoodInfo = async (query = "aunt jemima") => {
+  const fetchFoodInfo = async (query = search) => {
     let url = `https://api.edamam.com/api/food-database/parser?ingr=${query}&app_id=${apiId}&app_key=${apiKey}`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
+    setFoodResult(data);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,12 +26,12 @@ const FoodSearchPage = () => {
   return (
     <div>
       hi{apiKey}
-      {console.log(process.env)}
+      {/* {console.log(process.env)} */}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={search}
-          onChange={(e) => setSearch(e)}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="Enter Food"
         />
       </form>
