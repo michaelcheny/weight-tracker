@@ -36,6 +36,12 @@ const FoodSearchPage = () => {
         />
       </form>
       <input type="submit" />
+      <hr />
+      {foodResult.hints
+        ? foodResult.hints.map((result) => {
+            return <pre>{JSON.stringify(result)}</pre>;
+          })
+        : null}
     </div>
   );
 };
