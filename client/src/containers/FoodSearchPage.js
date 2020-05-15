@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FoodSearchItem from "../components/FoodSearchItem";
 const apiId = process.env.REACT_APP_FOOD_DB_ID;
 const apiKey = process.env.REACT_APP_FOOD_DB_API_KEY;
 
@@ -12,8 +13,10 @@ const FoodSearchPage = () => {
   }, [search]);
 
   const fetchFoodInfo = async (query = search) => {
-    let url = `https://api.edamam.com/api/food-database/parser?ingr=${query}&app_id=${apiId}&app_key=${apiKey}`;
-    const res = await fetch(url);
+    // let url = `https://api.edamam.com/api/food-database/parser?ingr=${query}&app_id=${apiId}&app_key=${apiKey}`;
+    const res = await fetch(
+      `https://api.edamam.com/api/food-database/parser?ingr=${query}&app_id=${apiId}&app_key=${apiKey}`
+    );
     const data = await res.json();
     console.log(data);
     setFoodResult(data);
@@ -40,6 +43,8 @@ const FoodSearchPage = () => {
       {foodResult.hints
         ? foodResult.hints.map((result) => {
             return <pre>{JSON.stringify(result)}</pre>;
+            // make a new component to render out each item
+            // <FoodSearchItem item={result} />;
           })
         : null}
     </div>
