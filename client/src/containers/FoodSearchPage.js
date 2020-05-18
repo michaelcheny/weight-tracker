@@ -7,10 +7,10 @@ const FoodSearchPage = () => {
   const [search, setSearch] = useState("");
   const [foodResult, setFoodResult] = useState([]);
 
-  useEffect(() => {
-    // update foodResult whenever the search input changes for that good good\
-    fetchFoodInfo();
-  }, [search]);
+  // useEffect(() => {
+  //   // update foodResult whenever the search input changes for that good good\
+  //   fetchFoodInfo();
+  // }, [search]);
 
   const fetchFoodInfo = async (query = search) => {
     // let url = `https://api.edamam.com/api/food-database/parser?ingr=${query}&app_id=${apiId}&app_key=${apiKey}`;
@@ -21,9 +21,10 @@ const FoodSearchPage = () => {
     console.log(data);
     setFoodResult(data);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(search);
+    fetchFoodInfo(search);
   };
 
   return (
