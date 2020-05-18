@@ -29,7 +29,7 @@ const FoodSearchPage = () => {
 
   return (
     <div>
-      hi{apiKey}
+      {/* hi{apiKey} */}
       {/* {console.log(process.env)} */}
       <form onSubmit={handleSubmit}>
         <input

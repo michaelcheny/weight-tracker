@@ -1,4 +1,5 @@
 class V1::MealsController < ApplicationController
+  # add before action for auth user stuff
   # before_action :authenticate_user!
 
   def index
