@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
 
 const HomePage = () => {
-  const user = useContext(UserContext);
+  const user = useContext(AuthContext);
   return <pre>{JSON.stringify(user, null, 2)}</pre>;
 };
 

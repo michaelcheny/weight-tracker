@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
-import { register } from "../actions/userActions";
-import { UserContext } from "../context/UserContext";
+import userActions from "../actions/userActions";
+// import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
 import ErrorMessages from "../components/ErrorMessages";
 import { Redirect } from "react-router-dom";
 import { StyledDiv, StyledInput, StyledButton } from "../styles/Forms";
@@ -14,7 +15,7 @@ const RegistrationPage = () => {
   const [errors, setErrors] = useState(false);
   const [errorMsgs, setErrorMsgs] = useState([]);
 
-  const { token, setUser, authenticated, setAuthenticated } = useContext(UserContext);
+  const { token, setUser, authenticated, setAuthenticated } = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,7 +26,7 @@ const RegistrationPage = () => {
       first_name: firstName,
       last_name: lastName,
     };
-    const data = await register(token, newUser);
+    const data = await userActions.register(token, newUser);
     if (!Object.keys(data).includes("errors")) {
       setUser(data);
       setAuthenticated(true);

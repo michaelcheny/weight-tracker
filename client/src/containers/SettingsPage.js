@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
 import { Redirect } from "react-router-dom";
 
 const SettingsPage = () => {
-  const { user, setUser, authenticated, token } = useContext(UserContext);
+  const { user, setUser, authenticated, token } = useContext(AuthContext);
   const [email, setEmail] = useState("");
 
   // useEffect(() => {
@@ -37,7 +37,7 @@ const SettingsPage = () => {
 
       <p style={{ textDecoration: "underline" }}>Email</p>
       <p>{user.email}</p>
-      <pre>{JSON.stringify(useContext(UserContext), null, 2)}</pre>
+      <pre>{JSON.stringify(useContext(AuthContext), null, 2)}</pre>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
 import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 
 const DashboardPage = () => {
-  const { user, authenticated, token } = useContext(UserContext);
+  const { user, authenticated, token } = useContext(AuthContext);
 
   return (
     <>
@@ -24,7 +24,7 @@ const DashboardPage = () => {
       </StyledDiv>
       <pre>
         {!authenticated ? <Redirect to="/login" /> : null}
-        {JSON.stringify(useContext(UserContext), null, 2)}
+        {JSON.stringify(useContext(AuthContext), null, 2)}
       </pre>
     </>
   );

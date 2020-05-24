@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { UserContext } from "./context/UserContext";
+// import { UserContext } from "./context/UserContext";
 import HomePage from "./containers/HomePage";
 import LoginPage from "./containers/LoginPage";
 import ProfilePage from "./containers/ProfilePage";
 import DashboardPage from "./containers/DashboardPage";
 import SideBar from "./components/SideBar";
-import { fetchToken } from "./actions/userActions";
+// import userActions from "./actions/userActions";
+import AuthProvider from "./context/AuthContext";
 import NoMatch from "./components/NoMatch";
 import RegistrationPage from "./containers/RegistrationPage";
 import NavBar from "./components/NavBar";
@@ -15,44 +16,35 @@ import SettingsPage from "./containers/SettingsPage";
 import FoodSearchPage from "./containers/FoodSearchPage";
 
 function App() {
-  const [user, setUser] = useState("");
-  const [token, setToken] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  // const [user, setUser] = useState("");
+  // const [token, setToken] = useState("");
+  // const [authenticated, setAuthenticated] = useState(false);
 
-  useEffect(() => {
-    fetchToken().then((token) => {
-      setToken(token);
-      fetch("/auto-login", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "X-CSRF-TOKEN": token,
-        },
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (!Object.keys(data).includes("errors")) {
-            console.log(data);
-            setUser(data);
-            setAuthenticated(true);
-          }
-        });
-    });
-  }, []);
+  // useEffect(() => {
+  //   userActions.fetchToken().then((token) => {
+  //     setToken(token);
+  //     fetch("/auto-login", {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //         "X-CSRF-TOKEN": token,
+  //       },
+  //       credentials: "include",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (!Object.keys(data).includes("errors")) {
+  //           console.log(data);
+  //           setUser(data);
+  //           setAuthenticated(true);
+  //         }
+  //       });
+  //   });
+  // }, []);
 
   return (
-    <UserContext.Provider
-      value={{
-        user,
-        setUser,
-        token,
-        setToken,
-        authenticated,
-        setAuthenticated,
-      }}
-    >
+    <AuthProvider>
       <div
         className="App"
         style={
@@ -87,7 +79,7 @@ function App() {
           {/* <Footer /> */}
         </Router>
       </div>
-    </UserContext.Provider>
+    </AuthProvider>
   );
 }
 

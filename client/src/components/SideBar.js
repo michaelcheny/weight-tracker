@@ -13,11 +13,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route } from "react-router-dom";
-import { logOut } from "../actions/userActions";
-import { UserContext } from "../context/UserContext";
+import userActions from "../actions/userActions";
+// import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
 
 const SideBar = ({ theme }) => {
-  const { setUser, token, authenticated, setAuthenticated } = useContext(UserContext);
+  const { setUser, token, authenticated, setAuthenticated } = useContext(AuthContext);
   // TODO: set up a Modal component for Log In and Sign Up
   // const { showModal, setShowModal } = useState(false)
 
@@ -32,7 +33,7 @@ const SideBar = ({ theme }) => {
                   if (selected === "logout") {
                     setUser("");
                     console.log(token);
-                    logOut(token);
+                    userActions.logOut(token);
                     setAuthenticated(false);
                   } else {
                     const to = "/" + selected;
