@@ -4,10 +4,10 @@ import userActions from "../actions/userActions";
 export const AuthContext = createContext();
 
 export default ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [user, setUser] = useState("");
+  const [token, setToken] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     userActions.fetchToken().then((token) => {
@@ -26,11 +26,11 @@ export default ({ children }) => {
           if (!Object.keys(data).includes("errors")) {
             console.log(data);
             // console.log(data);
-            if (!data.length === 0) {
-              setUser(data);
-              setAuthenticated(true);
-              setIsLoaded(true);
-            }
+            // if (!data.length === 0) {
+            setUser(data);
+            setAuthenticated(true);
+            // setIsLoaded(true);
+            // }
           }
         });
     });
@@ -38,23 +38,23 @@ export default ({ children }) => {
 
   return (
     <>
-      {isLoaded ? (
+      {/* {isLoaded ? (
         <h1>Loading...</h1>
-      ) : (
-        <AuthContext.Provider
-          value={{
-            user,
-            setUser,
-            token,
-            setToken,
-            authenticated,
-            setAuthenticated,
-          }}
-        >
-          {children}
-        </AuthContext.Provider>
-      )}{" "}
-      }
+      ) : ( */}
+      <AuthContext.Provider
+        value={{
+          user,
+          setUser,
+          token,
+          setToken,
+          authenticated,
+          setAuthenticated,
+        }}
+      >
+        {children}
+      </AuthContext.Provider>
+      {/* )}
+      } */}
     </>
   );
 };

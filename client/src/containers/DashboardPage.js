@@ -8,6 +8,7 @@ const DashboardPage = () => {
 
   return (
     <>
+      {!authenticated ? <Redirect to="/login" /> : null}
       <h1>Dashboard</h1>
       <StyledDiv>
         <h3>
@@ -22,10 +23,7 @@ const DashboardPage = () => {
         <StyledLi>Activity Level: {user.activity_level}</StyledLi>
         <StyledLi>Goal: {user.goal}</StyledLi>
       </StyledDiv>
-      <pre>
-        {!authenticated ? <Redirect to="/login" /> : null}
-        {JSON.stringify(useContext(AuthContext), null, 2)}
-      </pre>
+      <pre>{JSON.stringify(useContext(AuthContext), null, 2)}</pre>
     </>
   );
 };
