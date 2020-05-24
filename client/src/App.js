@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     fetchToken().then((token) => {
       setToken(token);
-      fetch("http://localhost:3001/auto-login", {
+      fetch("/auto-login", {
         method: "POST",
         headers: {
           Accept: "application/json",

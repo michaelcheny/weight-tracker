@@ -1,6 +1,6 @@
 export const fetchToken = async () => {
   try {
-    const res = await fetch("http://localhost:3001/auth-check", {
+    const res = await fetch("/auth-check", {
       credentials: "include",
     });
     const data = await res.json();
@@ -12,7 +12,7 @@ export const fetchToken = async () => {
 
 export const logOut = async (token) => {
   try {
-    const res = await fetch("http://localhost:3001/logout", {
+    const res = await fetch("/logout", {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -30,7 +30,7 @@ export const logOut = async (token) => {
 
 export const logIn = async (token, email, password) => {
   try {
-    const res = await fetch("http://localhost:3001/login", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -54,7 +54,7 @@ export const logIn = async (token, email, password) => {
 
 export const register = async (token, user) => {
   try {
-    const res = await fetch("http://localhost:3001/v1/users", {
+    const res = await fetch("/v1/users", {
       method: "POST",
       headers: {
         Accept: "application/json",
