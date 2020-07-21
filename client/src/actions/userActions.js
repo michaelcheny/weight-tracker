@@ -58,6 +58,7 @@ export default {
         credentials: "include",
       });
       const data = await res.json();
+      console.log(data);
       if (res.ok) {
         console.log(`Logged in as: ${data.email}`);
       } else {
