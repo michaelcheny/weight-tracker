@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <Router>
       <Switch>
         <div className="main-wrapper">
-          <LoginForm />
+          {/* <LoginForm /> */}
           <Sidebar />
           {/* <Drawer /> */}
           <div className="wrapper">

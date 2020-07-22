@@ -1,9 +1,10 @@
 import React from "react";
-
-const LoginForm = () => {
+import { useClickOutside } from "../helpers/useClickOutside";
+const LoginForm = ({ showLogin }: any) => {
+  const outsideNode = useClickOutside(() => showLogin(false));
   return (
     <div className="form-modal">
-      <form>
+      <form ref={outsideNode}>
         <h1>Log In</h1>
         <div>
           <input type="text" placeholder="Email" />

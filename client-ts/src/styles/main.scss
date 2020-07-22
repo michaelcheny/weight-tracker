@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // font-family: "Roboto";
+  // font-family: "Archivo Narrow";
 }
 
 html {
@@ -55,7 +55,8 @@ form {
   }
   .submit-button {
     color: var(--color-headings);
-    // background-color: var(--color-accent);
+    background-color: var(--bg-panel);
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -67,15 +68,15 @@ form {
   width: 80%;
   height: 80%;
   justify-content: space-evenly;
-
   h1 {
     margin: 0;
     color: var(--color-headings);
-    font-family: "Roboto";
+    font-family: "Archivo Black";
     font-size: 50px;
     letter-spacing: -20;
     // background-color: red;
   }
+
   p {
     color: var(--color-text);
     // grid-area: content;
@@ -103,5 +104,8 @@ form {
   }
   .main-wrapper {
     flex-direction: column;
+  }
+  .main-wrapper {
+    height: 100vh;
   }
 }
