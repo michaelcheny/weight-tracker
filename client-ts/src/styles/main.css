@@ -11,7 +11,10 @@
 .sidebar {
   height: 100vh;
   background-color: var(--bg-panel);
-  width: 300px;
+  width: 220px;
+}
+
+.sidebar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,22 +28,21 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.sidebar ul {
   list-style: none;
   padding: 2em 0;
   width: 100%;
 }
 
-.sidebar ul li {
+.sidebar ul .link {
   border-top: 1px solid var(--bg);
   width: 100%;
-  padding: 1.5em 0;
+  padding: 1em 0;
   text-align: center;
+  text-decoration: none;
+  color: var(--text);
 }
 
-.sidebar ul li:last-child {
+.sidebar ul .link:last-child {
   border-bottom: 1px solid var(--bg);
 }
 
@@ -102,5 +104,13 @@ body {
   color: var(--color-text);
   font-size: 1.1em;
   line-height: 1.8rem;
+}
+
+.container a {
+  text-decoration: none;
+}
+
+.container ul {
+  text-decoration: none;
 }
 /*# sourceMappingURL=main.css.map */
