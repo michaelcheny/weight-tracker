@@ -4,23 +4,26 @@ import Sidebar from "./components/Sidebar";
 // import Drawer from "./components/Drawer";
 import LandingPage from "./containers/LandingPage";
 import Dashboard from "./containers/Dashboard";
-import LoginForm from "./components/LoginForm";
+// import LoginForm from "./components/LoginForm";
+import AuthProvider from "./context/AuthContext";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Switch>
-        <div className="main-wrapper">
-          {/* <LoginForm /> */}
-          <Sidebar />
-          {/* <Drawer /> */}
-          <div className="wrapper">
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/dashboard" component={Dashboard} />
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <div className="main-wrapper">
+            {/* <LoginForm /> */}
+            <Sidebar />
+            {/* <Drawer /> */}
+            <div className="wrapper">
+              <Route path="/" exact component={LandingPage} />
+              <Route path="/dashboard" component={Dashboard} />
+            </div>
           </div>
-        </div>
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 };
 

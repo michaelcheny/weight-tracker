@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
+// type
+
 const Sidebar = () => {
-  const [loginShow, setLoginShow] = useState<boolean>(false);
+  const [loginShow, setLoginShow] = useState(false);
   return (
     <div className="sidebar">
       {loginShow && <LoginForm showLogin={setLoginShow} />}

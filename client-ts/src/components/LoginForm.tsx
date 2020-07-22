@@ -1,5 +1,6 @@
 import React from "react";
 import { useClickOutside } from "../helpers/useClickOutside";
+
 const LoginForm = ({ showLogin }: any) => {
   const outsideNode = useClickOutside(() => showLogin(false));
   return (
