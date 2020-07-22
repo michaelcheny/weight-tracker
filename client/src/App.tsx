@@ -13,6 +13,7 @@ import RegistrationPage from "./containers/RegistrationPage";
 import NavBar from "./components/NavBar";
 import SettingsPage from "./containers/SettingsPage";
 import FoodSearchPage from "./containers/FoodSearchPage";
+import GlobalStyle from "./styles/globalStyles";
 
 function App() {
   // const [user, setUser] = useState("");
@@ -43,8 +44,10 @@ function App() {
   // }, []);
 
   return (
-    <AuthProvider>
-      <div>
+    <>
+      <GlobalStyle />
+      <AuthProvider>
+        {/* <div> */}
         <Router>
           {/* <SideBar theme="#282A36" /> */}
           {/* <main> */}
@@ -62,8 +65,9 @@ function App() {
           {/* </main> */}
           {/* <Footer /> */}
         </Router>
-      </div>
-    </AuthProvider>
+        {/* </div> */}
+      </AuthProvider>
+    </>
   );
 }
 

@@ -25,12 +25,9 @@ export default ({ children }: { children: React.ReactNode }) => {
         .then((data) => {
           if (!Object.keys(data).includes("errors")) {
             console.log(data);
-            // console.log(data);
-            // if (!data.length === 0) {
+
             setUser(data);
             setAuthenticated(true);
-            // setIsLoaded(true);
-            // }
           }
         });
     });
@@ -38,9 +35,6 @@ export default ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {/* {isLoaded ? (
-        <h1>Loading...</h1>
-      ) : ( */}
       <AuthContext.Provider
         value={{
           user,
@@ -53,8 +47,6 @@ export default ({ children }: { children: React.ReactNode }) => {
       >
         {children}
       </AuthContext.Provider>
-      {/* )}
-      } */}
     </>
   );
 };
