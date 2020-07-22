@@ -22,13 +22,15 @@ export const Footer = () => {
 // export default NavBar;
 
 const StyledNav = styled.nav`
+  top: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 5.1vh;
   background-color: #282a36;
   color: white;
-  flex-shrink: 0;
+  border: 1px red solid;
+  /* flex-shrink: 0; */
 `;
 
 const StyledFooter = styled.footer`

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { UserContext } from "./context/UserContext";
 import HomePage from "./containers/HomePage";
@@ -45,25 +44,10 @@ function App() {
 
   return (
     <AuthProvider>
-      <div
-        className="App"
-        style={
-          {
-            // display: "flex",
-            //  justifyContent: "center"
-          }
-        }
-      >
+      <div>
         <Router>
           <SideBar theme="#282A36" />
-          <main
-            style={{
-              minHeight: "95vh",
-              display: "flex",
-              flexDirection: "column",
-              // alignItems: "stretch",
-            }}
-          >
+          <main>
             <NavBar />
             <Switch>
               <Route path="/" exact component={HomePage} />
