@@ -8,6 +8,11 @@
   src: url("../assets/fonts/ArchivoBlack-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url("../assets/fonts/Roboto-Regular.ttf");
+}
+
 .sidebar ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,7 +66,6 @@
   width: 100%;
   height: 80%;
   background-color: var(--bg-panel);
-  padding-top: 5em;
 }
 
 @media (max-width: 768px) {
@@ -90,8 +94,10 @@
 
 .form-modal form {
   width: 400px;
-  height: 500px;
-  border: 1px var(--bg-panel) solid;
+  height: 400px;
+  background-color: var(--bg-panel);
+  -webkit-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.4);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,14 +108,43 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3em;
+}
+
+.form-modal form div {
+  width: 350px;
+}
+
+.form-modal form div input {
+  display: block;
+  width: 100%;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+}
+
+@media (max-width: 768px) {
+  .form-modal form {
+    width: 350px;
+    height: 400px;
+  }
+  .form-modal form div {
+    width: 300px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html {
   height: 100%;
   width: 100%;
-  position: fixed;
-  margin: 0;
-  padding: 0;
   font-family: "Archivo Narrow", "Archivo Black", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,6 +159,7 @@ html {
   --bg-panel: #3d405b;
   --color-headings: #81b29a;
   --color-text: #e07a5f;
+  --color-accent: #f2cc8f;
 }
 
 body {
@@ -155,6 +191,15 @@ body {
           align-items: center;
 }
 
+form input {
+  color: var(--color-text);
+  font-size: large;
+}
+
+form .submit-button {
+  color: var(--color-headings);
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,7 +219,7 @@ body {
 .container h1 {
   margin: 0;
   color: var(--color-headings);
-  font-family: "Archivo Black";
+  font-family: "Roboto";
   font-size: 50px;
   letter-spacing: -20;
 }

@@ -11,10 +11,39 @@
 
   form {
     width: 400px;
-    height: 500px;
-    border: 1px var(--bg-panel) solid;
+    height: 400px;
+    background-color: var(--bg-panel);
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
+    padding: 3em;
+
+    div {
+      // border: 1px var(--bg) solid;
+      width: 350px;
+      input {
+        display: block;
+        width: 100%;
+        padding: 0.5em 1em;
+        margin: 0.5em 0;
+
+        // text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .form-modal {
+    form {
+      width: 350px;
+      height: 400px;
+
+      div {
+        width: 300px;
+      }
+    }
   }
 }
