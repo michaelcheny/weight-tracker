@@ -46,20 +46,20 @@ function App() {
     <AuthProvider>
       <div>
         <Router>
-          <SideBar theme="#282A36" />
-          <main>
-            <NavBar />
-            <Switch>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/profile" component={ProfilePage} />
-              <Route path="/dashboard" component={DashboardPage} />
-              <Route path="/login" component={LoginPage} />
-              <Route path="/registration" component={RegistrationPage} />
-              <Route path="/settings" component={SettingsPage} />
-              <Route path="/search" component={FoodSearchPage} />
-              <Route component={NoMatch} />
-            </Switch>
-          </main>
+          {/* <SideBar theme="#282A36" /> */}
+          {/* <main> */}
+          <NavBar />
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/profile" component={ProfilePage} />
+            <Route path="/dashboard" component={DashboardPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/registration" component={RegistrationPage} />
+            <Route path="/settings" component={SettingsPage} />
+            <Route path="/search" component={FoodSearchPage} />
+            <Route component={NoMatch} />
+          </Switch>
+          {/* </main> */}
           {/* <Footer /> */}
         </Router>
       </div>

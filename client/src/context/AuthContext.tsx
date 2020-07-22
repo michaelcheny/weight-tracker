@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import userActions from "../actions/userActions";
 
-export const AuthContext = createContext({});
+export const AuthContext: any = createContext({});
 
 export default ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<object>({});
