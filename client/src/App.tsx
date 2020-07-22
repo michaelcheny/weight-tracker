@@ -13,7 +13,7 @@ import RegistrationPage from "./containers/RegistrationPage";
 import NavBar from "./components/NavBar";
 import SettingsPage from "./containers/SettingsPage";
 import FoodSearchPage from "./containers/FoodSearchPage";
-import GlobalStyle from "./styles/globalStyles";
+import GlobalStyle, { MainWrapper, InnerWrapper } from "./styles/globalStyles";
 
 function App() {
   // const [user, setUser] = useState("");
@@ -47,25 +47,29 @@ function App() {
     <>
       <GlobalStyle />
       <AuthProvider>
-        {/* <div> */}
         <Router>
-          {/* <SideBar theme="#282A36" /> */}
-          {/* <main> */}
-          <NavBar />
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route path="/dashboard" component={DashboardPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/registration" component={RegistrationPage} />
-            <Route path="/settings" component={SettingsPage} />
-            <Route path="/search" component={FoodSearchPage} />
-            <Route component={NoMatch} />
-          </Switch>
-          {/* </main> */}
-          {/* <Footer /> */}
+          <div>
+            <MainWrapper>
+              <SideBar theme="#282A36" />
+              {/* <main> */}
+              <InnerWrapper>
+                <NavBar />
+                <Switch>
+                  <Route path="/" exact component={HomePage} />
+                  <Route path="/profile" component={ProfilePage} />
+                  <Route path="/dashboard" component={DashboardPage} />
+                  <Route path="/login" component={LoginPage} />
+                  <Route path="/registration" component={RegistrationPage} />
+                  <Route path="/settings" component={SettingsPage} />
+                  <Route path="/search" component={FoodSearchPage} />
+                  <Route component={NoMatch} />
+                </Switch>
+              </InnerWrapper>
+            </MainWrapper>
+            {/* </main> */}
+            {/* <Footer /> */}
+          </div>
         </Router>
-        {/* </div> */}
       </AuthProvider>
     </>
   );

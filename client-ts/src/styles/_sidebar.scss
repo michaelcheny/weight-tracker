@@ -1,0 +1,27 @@
+.sidebar {
+  height: 100vh;
+  background-color: var(--bg-panel);
+  // left: 0;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  ul {
+    list-style: none;
+    padding: 2em 0;
+    // border-top: 1px solid var(--bg);
+    width: 100%;
+    li {
+      border-top: 1px solid var(--bg);
+      width: 100%;
+      padding: 1.5em 0;
+      text-align: center;
+      // background-color: var(--color-headings);
+    }
+    li:last-child {
+      border-bottom: 1px solid var(--bg);
+    }
+  }
+}

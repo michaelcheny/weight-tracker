@@ -17,7 +17,7 @@ import userActions from "../actions/userActions";
 // import { UserContext } from "../context/UserContext";
 import { AuthContext } from "../context/AuthContext";
 
-const SideBar = ({ theme }) => {
+const SideBar = ({ theme }: { theme: string }) => {
   const { setUser, token, authenticated, setAuthenticated } = useContext(AuthContext);
   // TODO: set up a Modal component for Log In and Sign Up
   // const { showModal, setShowModal } = useState(false)
@@ -29,7 +29,7 @@ const SideBar = ({ theme }) => {
           render={({ location, history }) => (
             <>
               <SideNav
-                onSelect={(selected) => {
+                onSelect={(selected: any) => {
                   if (selected === "logout") {
                     setUser("");
                     console.log(token);
@@ -63,40 +63,28 @@ const SideBar = ({ theme }) => {
 
                   <NavItem eventKey="profile">
                     <NavIcon>
-                      <FontAwesomeIcon
-                        icon={faUser}
-                        style={{ fontSize: "1.75em", marginTop: 12 }}
-                      />
+                      <FontAwesomeIcon icon={faUser} style={{ fontSize: "1.75em", marginTop: 12 }} />
                     </NavIcon>
                     <NavText>Profile</NavText>
                   </NavItem>
 
                   <NavItem eventKey="search">
                     <NavIcon>
-                      <FontAwesomeIcon
-                        icon={faSearch}
-                        style={{ fontSize: "1.75em", marginTop: 12 }}
-                      />
+                      <FontAwesomeIcon icon={faSearch} style={{ fontSize: "1.75em", marginTop: 12 }} />
                     </NavIcon>
                     <NavText>Search Food</NavText>
                   </NavItem>
 
                   <NavItem eventKey="meals">
                     <NavIcon>
-                      <FontAwesomeIcon
-                        icon={faUtensils}
-                        style={{ fontSize: "1.75em", marginTop: 12 }}
-                      />
+                      <FontAwesomeIcon icon={faUtensils} style={{ fontSize: "1.75em", marginTop: 12 }} />
                     </NavIcon>
                     <NavText>Meals</NavText>
                   </NavItem>
 
                   <NavItem eventKey="settings">
                     <NavIcon>
-                      <FontAwesomeIcon
-                        icon={faUserCog}
-                        style={{ fontSize: "1.75em", marginTop: 12 }}
-                      />
+                      <FontAwesomeIcon icon={faUserCog} style={{ fontSize: "1.75em", marginTop: 12 }} />
                     </NavIcon>
                     <NavText>Settings</NavText>
                   </NavItem>
@@ -122,7 +110,7 @@ const SideBar = ({ theme }) => {
           render={({ location, history }) => (
             <>
               <SideNav
-                onSelect={(selected) => {
+                onSelect={(selected: any) => {
                   const to = "/" + selected;
                   if (location.pathname !== to) {
                     history.push(to);
@@ -131,16 +119,15 @@ const SideBar = ({ theme }) => {
                 style={{
                   backgroundColor: theme,
                   // #44475A
+                  // position: "relative",
+                  // border: "1px red solid",
                 }}
               >
                 <SideNav.Toggle />
                 <SideNav.Nav defaultSelected="dashboard">
                   <NavItem eventKey="search">
                     <NavIcon>
-                      <FontAwesomeIcon
-                        icon={faSearch}
-                        style={{ fontSize: "1.75em", marginTop: 12 }}
-                      />
+                      <FontAwesomeIcon icon={faSearch} style={{ fontSize: "1.75em", marginTop: 12 }} />
                     </NavIcon>
                     <NavText>Search Food</NavText>
                   </NavItem>
@@ -157,10 +144,7 @@ const SideBar = ({ theme }) => {
 
                   <NavItem eventKey="registration">
                     <NavIcon>
-                      <FontAwesomeIcon
-                        icon={faUserPlus}
-                        style={{ fontSize: "1.75em", marginTop: 12 }}
-                      />
+                      <FontAwesomeIcon icon={faUserPlus} style={{ fontSize: "1.75em", marginTop: 12 }} />
                     </NavIcon>
                     <NavText>Registration</NavText>
                   </NavItem>

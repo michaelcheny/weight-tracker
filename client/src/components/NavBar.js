@@ -22,23 +22,24 @@ export const Footer = () => {
 // export default NavBar;
 
 const StyledNav = styled.nav`
-  top: 0;
+  /* top: 0; */
   /* display: flex; */
   /* justify-content: space-around; */
   /* align-items: center; */
   /* min-height: 5.1vh; */
+  width: 100%;
   background-color: #282a36;
   color: white;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   /* flex-shrink: 0; */
 `;
 
 const StyledFooter = styled.footer`
-  margin-top: auto;
+  /* margin-top: auto;
   min-height: 5.1vh;
   background-color: #282a36;
   color: white;
   align-items: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; */
 `;
