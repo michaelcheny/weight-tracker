@@ -1,7 +1,7 @@
 @import "./global";
 @import "./sidebar";
 @import "./dashboard";
-
+@import "./loginform";
 html {
   height: 100%;
   width: 100%;
@@ -29,6 +29,7 @@ body {
 
 .main-wrapper {
   display: flex;
+  flex-direction: row;
   width: 100vw;
 }
 
@@ -46,7 +47,7 @@ body {
 // }
 
 .container {
-  border: 1px pink solid;
+  // border: 1px pink solid;
   display: flex;
   flex-direction: column;
   background-color: var(--bg);
@@ -58,7 +59,9 @@ body {
     margin: 0;
     color: var(--color-headings);
     font-family: "Archivo Black";
-    background-color: red;
+    font-size: 50px;
+    letter-spacing: -20;
+    // background-color: red;
   }
   p {
     color: var(--color-text);
@@ -76,7 +79,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
     // margin: 5em;
     // place-self: center;
@@ -84,5 +87,8 @@ body {
     margin: 4em;
     // justify-content: space-around;
     // align-items: center;
+  }
+  .main-wrapper {
+    flex-direction: column;
   }
 }

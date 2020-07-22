@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import LandingPage from "./containers/LandingPage";
 import Dashboard from "./containers/Dashboard";
+import LoginForm from "./components/LoginForm";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Switch>
         <div className="main-wrapper">
+          <LoginForm />
           <Sidebar />
           <div className="wrapper">
             <Route path="/" exact component={LandingPage} />

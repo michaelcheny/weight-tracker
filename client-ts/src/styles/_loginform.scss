@@ -1,0 +1,20 @@
+.form-modal {
+  z-index: 5;
+  position: fixed;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+
+  form {
+    width: 400px;
+    height: 500px;
+    border: 1px var(--bg-panel) solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
