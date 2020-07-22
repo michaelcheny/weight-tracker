@@ -1,8 +1,11 @@
 @import "./global";
 @import "./sidebar";
+@import "./dashboard";
 
 html {
   height: 100%;
+  width: 100%;
+  position: fixed;
   margin: 0;
   padding: 0;
   // width: 100%;
@@ -32,28 +35,31 @@ body {
 .wrapper {
   width: 100%;
   // height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
-  background-color: var(--bg);
-  // margin: 5em;
-  // padding: 5em;
-  height: 100%;
-  // border-radius: 15px;
+// section {
+//   border: solid 1px orange;
+//   display: flex;
+// }
 
+.container {
+  border: 1px pink solid;
   display: flex;
   flex-direction: column;
-  // grid-template-columns: 80% auto;
-  // grid-template-rows: auto auto;
-  // grid-template-areas: "title switch" "content content";
+  background-color: var(--bg);
+  width: 80%;
+  height: 80%;
+  justify-content: space-evenly;
 
   h1 {
     margin: 0;
     color: var(--color-headings);
     font-family: "Archivo Black";
-    // font-size: 200px;
+    background-color: red;
   }
-
   p {
     color: var(--color-text);
     // grid-area: content;
@@ -67,5 +73,16 @@ body {
 
   ul {
     text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    // margin: 5em;
+    // place-self: center;
+    padding-bottom: 5em;
+    margin: 4em;
+    // justify-content: space-around;
+    // align-items: center;
   }
 }

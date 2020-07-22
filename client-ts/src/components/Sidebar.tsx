@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <section className="sidebar">
+    <div className="sidebar">
       <ul>
         <Link to="/" className="link">
           adsjkfksa
@@ -15,7 +15,7 @@ const Sidebar = () => {
           adsjkfksa
         </Link>
       </ul>
-    </section>
+    </div>
   );
 };
 
