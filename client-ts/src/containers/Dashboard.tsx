@@ -34,6 +34,13 @@ const Dashboard = () => {
       ar.push(s);
     });
 
+  const calories = [
+    {
+      current: user.current,
+      goals: user.goal,
+    },
+  ];
+
   const COLORS = ["#0088FE", "#00C49F", "#FF8042"];
 
   return (
@@ -56,7 +63,18 @@ const Dashboard = () => {
         <div>Current Calories</div>
         <div>Goal</div>
         <div>Total</div>
-        <div>dfg</div>
+        <div>
+          <ResponsiveContainer width="97%" height="90%">
+            <BarChart barSize={27} data={ar}>
+              <CartesianGrid strokeDasharray="5 5" />
+              <XAxis dataKey="date"></XAxis>
+              {/* <YAxis /> */}
+              <Tooltip />
+              {/* <Legend /> */}
+              <Bar dataKey="weight" fill="#81b29a" animationEasing="linear" unit=" lbs" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
         <div>dfg</div>
         <div>
           <PieChart width={730} height={250}>
@@ -68,12 +86,13 @@ const Dashboard = () => {
               // cy={200}
               labelLine={false}
               label
-              outerRadius={80}
+              outerRadius={60}
               fill="#81b29a"
             />
             {macros.map((entry: any, index: number) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
+            <Tooltip />
             <Legend />
           </PieChart>
         </div>
