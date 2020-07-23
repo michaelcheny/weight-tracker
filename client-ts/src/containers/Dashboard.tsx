@@ -1,56 +1,41 @@
-import React from "react";
-import { BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis } from "recharts";
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-  },
-];
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../context/AuthContext";
 
+import { BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis, Label, LabelList } from "recharts";
+
+import format from "date-fns/format";
+// type WeightHist {
+//   weight: number,
+//   date: string
+// }
 const Dashboard = () => {
+  const { user, authenticated, token } = useContext(AuthContext);
+
+  const ar: object[] | undefined = [];
+  user.weight_histories &&
+    user.weight_histories.map((hist: { weight: any; created_at: any }) => {
+      const s = { weight: hist.weight, date: format(new Date(hist.created_at), "MM/dd/yy") };
+      ar.push(s);
+    });
+  console.log(ar);
+
   return (
     <section className="container">
       <h1>Dashboard</h1>
       <div className="stat-container">
-        <BarChart width={600} height={300} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+        <p style={{ marginBottom: "1em" }}>{user.first_name}</p>
+        <BarChart width={750} height={300} barSize={27} data={ar}>
+          <CartesianGrid strokeDasharray="5 5" />
+          <XAxis dataKey="date">
+            {/* <Label value="weight" offset={0} position="insideBottom" /> */}
+          </XAxis>
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" fill="#8884d8" />
-          <Bar dataKey="uv" fill="#82ca9d" />
+          {/* <Bar dataKey="weight" fill="#8884d8" /> */}
+          <Bar dataKey="weight" fill="#82ca9d">
+            <LabelList dataKey="weight" position="top" offset={5} />
+          </Bar>
         </BarChart>
       </div>
     </section>

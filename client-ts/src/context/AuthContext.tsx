@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import apiActions from "../helpers/apiActions";
 
-export const AuthContext = createContext({});
+export const AuthContext = createContext<any>({});
 
 export default ({ children }: { children: any }) => {
   const [user, setUser] = useState<object>({});

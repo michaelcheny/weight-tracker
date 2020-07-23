@@ -16,7 +16,17 @@ class SessionsController < ApplicationController
   end
 
   def auto_login
+    # date = current_user.weight_histories.created_at.strftime("%m/%d/%Y")
+    weight_hash = current_user.weight_histories.map do |his|
+      thing = {weight: his.weight, date: his.created_at.strftime("%m/%d/%Y")}
+      # binding.pry
+    end
+    # binding.pry
     if logged_in?
+      # render json: {
+      #   user: current_user,
+      #   weight: weight_hash
+      #   }, include: [:meals, :weight_histories => {only: [:weight, :created_at]}] 
       render json: current_user, include: [:meals, :weight_histories => {only: [:weight, :created_at]}]
     else
       render json: { errors: "No users logged in" }
