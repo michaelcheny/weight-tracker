@@ -23,15 +23,8 @@ class SessionsController < ApplicationController
     end
     # binding.pry
     if logged_in?
-<<<<<<< HEAD
-      # render json: {
-      #   user: current_user,
-      #   weight: weight_hash
-      #   }, include: [:meals, :weight_histories => {only: [:weight, :created_at]}] 
+ 
       render json: current_user, include: [:meals, :weight_histories => {only: [:weight, :created_at]}]
-=======
-      render json: current_user, include: [:meals]
->>>>>>> parent of 77dd56f... add new resource for weight histories array for user to store their logs, correctly rendering it in json
     else
       render json: { errors: "No users logged in" }
     end

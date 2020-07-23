@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :last_name, length: { minimum: 2 }
   
   has_many :meals       
+  has_many :weight_histories
 end
