@@ -14,15 +14,8 @@ import {
 
 import format from "date-fns/format";
 
-// import { useMedia } from "react-media";
-
-// type WeightHist {
-//   weight: number,
-//   date: string
-// }
 const Dashboard = () => {
   const { user, authenticated, token } = useContext(AuthContext);
-  // const isSmallScreen = useMedia({ query: "(max-width: 768px)" });
 
   const ar: object[] | undefined = [];
   // clones the object to new one with acceptable name for charting
@@ -47,6 +40,14 @@ const Dashboard = () => {
             <Bar dataKey="weight" fill="#81b29a" animationEasing="linear" unit=" lbs" />
           </BarChart>
         </ResponsiveContainer>
+      </div>
+      <div className="grid-container">
+        <div>dfg</div>
+        <div>dfg</div>
+        <div>dfg</div>
+        <div>dfg</div>
+        <div>dfg</div>
+        <div>f</div>
       </div>
     </section>
   );

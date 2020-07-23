@@ -17,7 +17,6 @@
     "date-fns": "^2.15.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-media": "^2.0.0-rc.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "recharts": "^1.8.5",
