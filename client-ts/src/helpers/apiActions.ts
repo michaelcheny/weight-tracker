@@ -29,7 +29,7 @@ export default {
   },
   register: async (token: string, user: object) => {
     try {
-      const res = await fetch("/v1/users", {
+      const res = await fetch("/api/v1/users", {
         method: "POST",
         headers: {
           Accept: "application/json",

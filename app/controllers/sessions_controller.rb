@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def auto_login
     if logged_in?
-      render json: current_user
+      render json: current_user, include: [:meals]
     else
       render json: { errors: "No users logged in" }
     end
