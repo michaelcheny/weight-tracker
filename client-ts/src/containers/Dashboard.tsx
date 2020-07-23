@@ -10,9 +10,18 @@ import {
   XAxis,
   YAxis,
   ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 
 import format from "date-fns/format";
+
+const macros: any = [
+  { name: "fats", value: 120 },
+  { name: "proteins", value: 120 },
+  { name: "carbs", value: 230 },
+];
 
 const Dashboard = () => {
   const { user, authenticated, token } = useContext(AuthContext);
@@ -24,6 +33,8 @@ const Dashboard = () => {
       const s = { weight: hist.weight, date: format(new Date(hist.created_at), "MM/dd/yy") };
       ar.push(s);
     });
+
+  const COLORS = ["#0088FE", "#00C49F", "#FF8042"];
 
   return (
     <section className="container">
@@ -42,12 +53,30 @@ const Dashboard = () => {
         </ResponsiveContainer>
       </div>
       <div className="grid-container">
+        <div>Current Calories</div>
+        <div>Goal</div>
+        <div>Total</div>
         <div>dfg</div>
         <div>dfg</div>
-        <div>dfg</div>
-        <div>dfg</div>
-        <div>dfg</div>
-        <div>f</div>
+        <div>
+          <PieChart width={730} height={250}>
+            <Pie
+              data={macros}
+              dataKey="value"
+              nameKey="name"
+              // cx={200}
+              // cy={200}
+              labelLine={false}
+              label
+              outerRadius={80}
+              fill="#81b29a"
+            />
+            {macros.map((entry: any, index: number) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+            <Legend />
+          </PieChart>
+        </div>
       </div>
     </section>
   );

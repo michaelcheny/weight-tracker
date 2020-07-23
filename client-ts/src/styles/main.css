@@ -96,8 +96,8 @@
 .grid-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 150px 150px 150px;
       grid-template-rows: 150px 150px 150px;
   grid-gap: 1px;
@@ -286,6 +286,7 @@ form .submit-button {
 @media (max-width: 768px) {
   .container {
     padding: 0;
+    width: 90%;
   }
   .main-wrapper {
     -webkit-box-orient: vertical;
