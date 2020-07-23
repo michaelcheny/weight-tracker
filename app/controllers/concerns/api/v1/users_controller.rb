@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     user = current_user
-    render json: user, include: [:meals], status: 200
+    render json: user, include: [:meals, :weight_histories], status: 200
   end
 
   def create 
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       log_in(user)
       cookies['logged_in'] = true
-      render json: user, include: [:meals], status: 200
+      render json: user, include: [:meals, :weight_histories], status: 200
     else
       render json: { errors: user.errors.full_messages }, status: 400
     end
