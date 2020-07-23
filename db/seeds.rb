@@ -27,15 +27,3 @@ michael = User.create(
 food1 = Meal.create(name: "scrambled eggs cooked in bacon fat", calories: 800, notes: "saved the bacon grease to cook with later")
 
 michael.meals << food1
-
-weight1 = WeightHistory.create(weight: 185)
-weight2 = WeightHistory.create(weight: 190)
-weight3 = WeightHistory.create(weight: 195)
-weight4 = WeightHistory.create(weight: 190)
-weight5 = WeightHistory.create(weight: 175)
-
-michael.weight_histories << weight1
-michael.weight_histories << weight2
-michael.weight_histories << weight3
-michael.weight_histories << weight4
-michael.weight_histories << weight5

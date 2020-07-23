@@ -80,10 +80,6 @@
   background-color: var(--bg-panel);
 }
 
-.weight-graph {
-  width: 400px;
-}
-
 @media (min-width: 768px) {
   .stat-container {
     height: 85%;

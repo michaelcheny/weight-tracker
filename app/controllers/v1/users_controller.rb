@@ -7,7 +7,11 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     user = current_user
+<<<<<<< HEAD:app/controllers/concerns/api/v1/users_controller.rb
     render json: user, include: [:meals, :weight_histories => {only: [:weight, :created_at]}], status: 200
+=======
+    render json: user, include: [:meals], status: 200
+>>>>>>> parent of 77dd56f... add new resource for weight histories array for user to store their logs, correctly rendering it in json:app/controllers/v1/users_controller.rb
   end
 
   def create 
@@ -15,7 +19,11 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       log_in(user)
       cookies['logged_in'] = true
+<<<<<<< HEAD:app/controllers/concerns/api/v1/users_controller.rb
       render json: user, include: [:meals, :weight_histories => {only: [:weight, :created_at]}], status: 200
+=======
+      render json: user, include: [:meals], status: 200
+>>>>>>> parent of 77dd56f... add new resource for weight histories array for user to store their logs, correctly rendering it in json:app/controllers/v1/users_controller.rb
     else
       render json: { errors: user.errors.full_messages }, status: 400
     end
