@@ -4,6 +4,10 @@ import { AuthContext } from "../context/AuthContext";
 import { BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis, Label, LabelList } from "recharts";
 
 import format from "date-fns/format";
+
+import { useMedia } from "react-media";
+
+const isSmallScreen = useMedia({ query: "(max-width: 599px)" });
 // type WeightHist {
 //   weight: number,
 //   date: string
@@ -23,8 +27,8 @@ const Dashboard = () => {
     <section className="container">
       <h1>Dashboard</h1>
       <div className="stat-container">
-        <p style={{ marginBottom: "1em" }}>{user.first_name}</p>
-        <BarChart width={750} height={300} barSize={27} data={ar}>
+        <p style={{ marginBottom: "1em" }}>Weight Log {user.first_name}</p>
+        <BarChart width={750} height={300} barSize={27} data={ar} className="weight-graph">
           <CartesianGrid strokeDasharray="5 5" />
           <XAxis dataKey="date">
             {/* <Label value="weight" offset={0} position="insideBottom" /> */}
