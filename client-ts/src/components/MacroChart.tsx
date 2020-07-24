@@ -10,12 +10,13 @@ const MacroChart: React.FC<any> = ({ macros }) => {
         {
           data: [macros[0].fats, macros[0].proteins, macros[0].carbs],
           // data: [122, 444, 33],
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+          backgroundColor: ["#F1E0C5", "#C9B79C", "#71816D"],
+          hoverBackgroundColor: ["#81b29a", "#81b29a", "#81b29a"],
+          // font={2}
         },
       ],
     };
-    return <Doughnut data={data} />;
+    return <Doughnut data={data} width={200} />;
   } else {
     return null;
   }

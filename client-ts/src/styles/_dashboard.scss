@@ -1,7 +1,7 @@
 .stat-container {
   width: 100%;
   height: auto;
-  background-color: var(--bg-panel);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 2em;
   margin-top: 1em;
 
@@ -13,7 +13,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 150px 150px 150px;
+  grid-template-rows: 150px 400px;
   grid-gap: 1px;
   margin-top: 2em;
 
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-panel);
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 
