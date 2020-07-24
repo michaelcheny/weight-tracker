@@ -9,18 +9,6 @@ import MacroChart from "../components/MacroChart";
 const Dashboard = () => {
   const { user, authenticated, token } = useContext(AuthContext);
 
-  // const ar: object[] | undefined = [];
-  // const labels: string[] | undefined = [];
-  // const data: number[] | undefined = [];
-  // clones the object to new one with acceptable name for charting
-  // user.weight_histories &&
-  //   user.weight_histories.map((hist: { weight: any; created_at: any }) => {
-  //     const s = { weight: hist.weight, date: format(new Date(hist.created_at), "MM/dd/yy") };
-  //     ar.push(s);
-
-  //     // labels.push(hist.created_at);
-  //   });
-
   const calories = [
     {
       name: "Macronutrients",
@@ -29,8 +17,6 @@ const Dashboard = () => {
       goals: 2500,
     },
   ];
-
-  // const COLORS = ["#0088FE", "#00C49F", "#FF8042"];
 
   return (
     <section className="container">
@@ -99,7 +85,7 @@ const Dashboard = () => {
             <Tooltip />
             <Legend />
           </PieChart> */}
-          <MacroChart />
+          <MacroChart macros={user.macros} />
         </div>
       </div>
     </section>
