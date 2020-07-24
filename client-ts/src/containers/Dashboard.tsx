@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Line } from "react-chartjs-2";
 
 import {
   BarChart,
@@ -16,6 +17,7 @@ import {
 } from "recharts";
 
 import format from "date-fns/format";
+import WeightChart from "../components/WeightChart";
 
 const macros: any = [
   { name: "fats", value: 120 },
@@ -27,11 +29,15 @@ const Dashboard = () => {
   const { user, authenticated, token } = useContext(AuthContext);
 
   const ar: object[] | undefined = [];
+  const labels: string[] | undefined = [];
+  const data: number[] | undefined = [];
   // clones the object to new one with acceptable name for charting
   user.weight_histories &&
     user.weight_histories.map((hist: { weight: any; created_at: any }) => {
       const s = { weight: hist.weight, date: format(new Date(hist.created_at), "MM/dd/yy") };
       ar.push(s);
+
+      labels.push(hist.created_at);
     });
 
   const calories = [
@@ -49,8 +55,13 @@ const Dashboard = () => {
     <section className="container">
       <h1>Dashboard</h1>
       <div className="stat-container">
-        <p style={{ marginBottom: "1em" }}>Weight Log {user.first_name}</p>
-        <ResponsiveContainer width="97%" height="90%">
+        {/* <p style={{ marginBottom: "1em" }}>Weight Log {user.first_name}</p> */}
+        {console.log(user.weight_histories)}
+        {/* <Line data={user.weight_histories} /> */}
+
+        <WeightChart weightHistory={user.weight_histories} />
+
+        {/* <ResponsiveContainer width="97%" height="90%">
           <BarChart barSize={27} data={ar}>
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date"></XAxis>
@@ -59,7 +70,7 @@ const Dashboard = () => {
             <Legend />
             <Bar dataKey="weight" fill="#81b29a" animationEasing="linear" unit=" lbs" />
           </BarChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer> */}
       </div>
       <div className="grid-container">
         <div>Current Calories</div>
