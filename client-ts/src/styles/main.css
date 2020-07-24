@@ -33,6 +33,7 @@
 }
 
 .sidebar ul .link {
+  cursor: pointer;
   padding: 1em 1em;
   text-decoration: none;
   color: var(--text);
@@ -65,12 +66,13 @@
     width: 100%;
   }
   .sidebar ul .link {
+    border-top: 1px solid var(--bg-panel);
     width: 100%;
     padding: 1em 0;
     text-align: center;
   }
   .sidebar ul .link:last-child {
-    border-bottom: 1px solid var(--bg);
+    border-bottom: 1px solid var(--bg-panel);
   }
 }
 
@@ -98,8 +100,8 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr auto;
       grid-template-columns: 1fr 1fr auto;
-  -ms-grid-rows: 150px auto;
-      grid-template-rows: 150px auto;
+  -ms-grid-rows: 150px 50%;
+      grid-template-rows: 150px 50%;
   grid-gap: 1px;
   margin-top: 2em;
 }
@@ -116,6 +118,18 @@
           align-items: center;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .form-modal {
@@ -249,7 +263,6 @@ form .submit-button {
 }
 
 .container {
-  border: 1px pink solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,6 +270,9 @@ form .submit-button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: var(--bg);
   width: 100%;
   height: 100%;

@@ -13,7 +13,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  grid-template-rows: 150px auto;
+  grid-template-rows: 150px 50%;
   grid-gap: 1px;
   margin-top: 2em;
 
@@ -26,12 +26,17 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .stat-container {
     // height: 85%;
   }
   .grid-container {
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      // height: auto;
+      // width: 100%;
+    }
   }
 }

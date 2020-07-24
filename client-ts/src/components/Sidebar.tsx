@@ -19,7 +19,9 @@ const Sidebar = () => {
         <Link to="/dashboard" className="link">
           adsjkfksa
         </Link>
-        <p onClick={() => setLoginShow(true)}>Log In</p>
+        <p onClick={() => setLoginShow(true)} className="link">
+          Log In
+        </p>
       </ul>
     </div>
   );
