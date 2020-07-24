@@ -20,9 +20,9 @@ const WeightChart: React.FC<any> = ({ weightHistory }) => {
       {
         label: "Weight",
         data,
-        backgroundColor: ["rgba(0, 196, 159,0.6)"],
+        backgroundColor: ["rgba(129, 178, 154, 0.6)"],
         borderWidth: 2,
-        lineTension: 0.1,
+        lineTension: 0,
         borderDashOffset: 0.0,
         pointBorderColor: "rgba(75,192,192,1)",
         pointBackgroundColor: "#fff",

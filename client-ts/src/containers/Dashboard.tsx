@@ -26,65 +26,14 @@ const Dashboard = () => {
 
         <WeightChart weightHistory={user.weight_histories} />
       </div>
+      {/* SECOND HALF OF SCREEN */}
       <div className="grid-container">
         <div>Current Calories</div>
         <div>Goal</div>
         <div>Total</div>
-        <div>
-          {/* <ResponsiveContainer */}
-          {/* // width="97%" height="90%" > */}
-          <BarChart
-            width={200}
-            height={400}
-            barSize={40}
-            data={calories}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar
-              dataKey="current"
-              fill={calories[0].current > calories[0].goals ? "#f00" : "#81b29a"}
-              stackId="a"
-            />
-            <Bar
-              dataKey="remainder"
-              fill={calories[0].current > calories[0].goals ? "#f00" : "#3e3"}
-              stackId="b"
-            />
-            <Bar
-              dataKey="goals"
-              fill={calories[0].current > calories[0].goals ? "#f00" : "#224"}
-              stackId="c"
-            />
-          </BarChart>
-          {/* </ResponsiveContainer> */}
-        </div>
+        <div>sdfsdf</div>
         <div>dfg</div>
         <div>
-          {/* <PieChart width={730} height={250}>
-            <Pie
-              data={macros}
-              dataKey="value"
-              nameKey="name"
-              // cx={200}
-              // cy={200}
-              labelLine={false}
-              label
-              outerRadius={60}
-              fill="#81b29a"
-            />
-            <Tooltip />
-            <Legend />
-          </PieChart> */}
           <MacroChart macros={user.macros} />
         </div>
       </div>

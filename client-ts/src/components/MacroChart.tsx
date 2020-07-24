@@ -5,18 +5,19 @@ const MacroChart: React.FC<any> = ({ macros }) => {
   console.log(macros);
   if (macros) {
     const data = {
-      labels: ["Fats", "Protein", "Carbs"],
+      labels: [`Fats: ${macros[0].fats}`, `Protein: ${macros[0].proteins}`, `Carbs: ${macros[0].carbs}`],
       datasets: [
         {
           data: [macros[0].fats, macros[0].proteins, macros[0].carbs],
-          // data: [122, 444, 33],
-          backgroundColor: ["#F1E0C5", "#C9B79C", "#71816D"],
+          backgroundColor: ["#0A686B", "#59ADB5", "#698280"],
+          borderColor: "rgba(0,0,0,0.1)",
+          borderWidth: 1,
           hoverBackgroundColor: ["#81b29a", "#81b29a", "#81b29a"],
-          // font={2}
+          // cutoutPercentage: 0,
         },
       ],
     };
-    return <Doughnut data={data} width={200} />;
+    return <Doughnut data={data} width={300} />;
   } else {
     return null;
   }
