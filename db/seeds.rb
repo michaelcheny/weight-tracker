@@ -39,3 +39,7 @@ michael.weight_histories << weight2
 michael.weight_histories << weight3
 michael.weight_histories << weight4
 michael.weight_histories << weight5 
+
+macros = Macro.create(fats: 120, proteins: 140, carbs: 260)
+
+michael.macros << macros

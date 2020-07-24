@@ -1,93 +1,42 @@
-import React, { useRef, useEffect, useState } from "react";
-// import Chart from "chart.js";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import format from "date-fns/format";
 
-// type Props = {
-//   weightHistory: number[];
-// };
-
 const WeightChart: React.FC<any> = ({ weightHistory }) => {
   let labels: string[] | undefined = [];
-  const [chartData, setChartData] = useState<object>({
-    // labels: labels,
-    // datasets: [
-    //   {
-    //     label: "chicken butt",
-    //     data: [32, 22, 23, 45, 57],
-    //     backgroundColor: ["rgba(75,192,192,0.6)"],
-    //     borderWidth: 4,
-    //   },
-    // ],
-  });
-  // const chartRef = useRef<HTMLCanvasElement>(null);
-
   let data: number[] | undefined = [];
+
+  // Push them into arrays
   weightHistory &&
     weightHistory.map((weight: { created_at: string; weight: number }) => {
-      const thing = { ...weight };
       const date = format(new Date(weight.created_at), "MM/dd/yy");
       labels?.push(date);
       data?.push(weight.weight);
     });
 
   const dataa = {
-    labels: labels,
+    labels,
     datasets: [
       {
-        label: "chicken butt",
-        data: data,
+        label: "Weight",
+        data,
         backgroundColor: ["rgba(0, 196, 159,0.6)"],
-        borderWidth: 4,
+        borderWidth: 2,
+        lineTension: 0.1,
+        borderDashOffset: 0.0,
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
       },
     ],
   };
-  // weightHistory.map((weight) => data.push(weight.weight));
-
-  const addData = () => {
-    // if (weightHistory) {
-    // for (let i = 0; i < weightHistory.length; i++) {
-    //   labels.push(weightHistory[i].created_at);
-    //   data.push(weightHistory[i].weight);
-    // }
-    // for (const i of weightHistory) {
-    //   console.log(i);
-    // }
-    // for (let i in weightHistory) {
-    //   labels.push(weightHistory[i].created_at);
-    //   data.push(weightHistory[i].weight);
-    // }
-    // }
-  };
-  const chart = () => {
-    setChartData({
-      labels: labels,
-      datasets: [
-        {
-          label: "chicken butt",
-          data: data,
-          backgroundColor: ["rgba(0, 196, 159,0.6)"],
-          borderWidth: 4,
-        },
-      ],
-    });
-  };
-
-  // let myChart;
-  // useEffect(() => {
-  //   addData();
-  //   chart();
-  // myChart = new Chart(chartRef, {
-  //   type: "line",
-  // });
-  // }, []);
-
-  return (
-    <>
-      {console.log(labels)}
-      <Line data={dataa} height={80} />
-    </>
-  );
+  return <Line data={dataa} height={90} type="line" />;
 };
 
 export default WeightChart;

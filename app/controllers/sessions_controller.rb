@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     # binding.pry
     if logged_in?
  
-      render json: current_user, include: [:meals, :weight_histories => {only: [:weight, :created_at]}]
+      render json: current_user, include: [:meals, :macros, :weight_histories => {only: [:weight, :created_at]}]
     else
       render json: { errors: "No users logged in" }
     end

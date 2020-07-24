@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :macros
-  resources :weight_histories
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
- namespace :api do 
-  namespace :v1 do
-    
-    resources :users do
-      resources :meals
-      resource :weight_histories
+  namespace :api do 
+    namespace :v1 do
+      
+      resources :users do
+        resources :meals
+        resource :weight_histories
+        resources :macros
       root to: "home#index"
 
     end
