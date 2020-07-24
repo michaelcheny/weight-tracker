@@ -24,7 +24,7 @@ michael = User.create(
   goal: "lose half a pound a week",  
 )
 
-food1 = Meal.create(name: "scrambled eggs cooked in bacon fat", calories: 800, notes: "saved the bacon grease to cook with later")
+food1 = Meal.create(name: "scrambled eggs cooked in bacon fat", calories: 800, description: "saved the bacon grease to cook with later")
 
 michael.meals << food1
 

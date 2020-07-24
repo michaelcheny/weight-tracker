@@ -13,4 +13,5 @@ class User < ApplicationRecord
   
   has_many :meals       
   has_many :weight_histories
+  has_many :macros
 end

@@ -36,12 +36,14 @@ const Dashboard = () => {
 
   const calories = [
     {
-      current: user.current,
-      goals: user.goal,
+      name: "Macronutrients",
+      current: 2300,
+      remainder: 1200,
+      goals: 2500,
     },
   ];
 
-  const COLORS = ["#0088FE", "#00C49F", "#FF8042"];
+  // const COLORS = ["#0088FE", "#00C49F", "#FF8042"];
 
   return (
     <section className="container">
@@ -64,16 +66,42 @@ const Dashboard = () => {
         <div>Goal</div>
         <div>Total</div>
         <div>
-          <ResponsiveContainer width="97%" height="90%">
-            <BarChart barSize={27} data={ar}>
-              <CartesianGrid strokeDasharray="5 5" />
-              <XAxis dataKey="date"></XAxis>
-              {/* <YAxis /> */}
-              <Tooltip />
-              {/* <Legend /> */}
-              <Bar dataKey="weight" fill="#81b29a" animationEasing="linear" unit=" lbs" />
-            </BarChart>
-          </ResponsiveContainer>
+          {/* <ResponsiveContainer */}
+          {/* // width="97%" height="90%" > */}
+          <BarChart
+            width={200}
+            height={400}
+            barSize={40}
+            data={calories}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar
+              dataKey="current"
+              fill={calories[0].current > calories[0].goals ? "#f00" : "#81b29a"}
+              stackId="a"
+            />
+            <Bar
+              dataKey="remainder"
+              fill={calories[0].current > calories[0].goals ? "#f00" : "#3e3"}
+              stackId="b"
+            />
+            <Bar
+              dataKey="goals"
+              fill={calories[0].current > calories[0].goals ? "#f00" : "#224"}
+              stackId="c"
+            />
+          </BarChart>
+          {/* </ResponsiveContainer> */}
         </div>
         <div>dfg</div>
         <div>
@@ -89,9 +117,9 @@ const Dashboard = () => {
               outerRadius={60}
               fill="#81b29a"
             />
-            {macros.map((entry: any, index: number) => (
+            {/* {macros.map((entry: any, index: number) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
+            ))} */}
             <Tooltip />
             <Legend />
           </PieChart>

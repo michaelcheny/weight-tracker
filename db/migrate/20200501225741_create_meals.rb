@@ -4,8 +4,8 @@ class CreateMeals < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: true
 
       t.string :name
+      t.string :description, default: nil
       t.integer :calories
-      t.string :notes
 
       t.timestamps
     end
