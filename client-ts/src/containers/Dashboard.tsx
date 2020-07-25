@@ -1,28 +1,17 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-
-import { BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import WeightChart from "../components/WeightChart";
 import MacroChart from "../components/MacroChart";
 
 const Dashboard = () => {
-  const { user, authenticated, token } = useContext(AuthContext);
-
-  const calories = [
-    {
-      name: "Macronutrients",
-      current: 2300,
-      remainder: 1200,
-      goals: 2500,
-    },
-  ];
+  const { user, authenticated } = useContext(AuthContext);
 
   return (
     <section className="container">
       <h1>Dashboard</h1>
       <div className="stat-container">
-        <p style={{ marginBottom: "1em" }}>Weight Log {user.first_name}</p>
+        <p style={{ marginBottom: "1em" }}>Current weight: {user.weight}</p>
 
         <WeightChart weightHistory={user.weight_histories} />
       </div>

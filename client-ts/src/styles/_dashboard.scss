@@ -12,10 +12,11 @@
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 150px 50%;
   grid-gap: 1px;
   margin-top: 2em;
+  width: 100%;
 
   div {
     display: flex;

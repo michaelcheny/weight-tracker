@@ -98,12 +98,13 @@
 .grid-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr auto;
-      grid-template-columns: 1fr 1fr auto;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 150px 50%;
       grid-template-rows: 150px 50%;
   grid-gap: 1px;
   margin-top: 2em;
+  width: 100%;
 }
 
 .grid-container div {
@@ -191,6 +192,13 @@
   .form-modal form div {
     width: 300px;
   }
+}
+
+.error-container {
+  border-radius: 2px;
+  padding: 1em 1.3em;
+  background-color: rgba(255, 0, 0, 0.4);
+  color: var(-color--headings);
 }
 
 * {
