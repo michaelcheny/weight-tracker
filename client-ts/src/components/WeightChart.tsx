@@ -2,24 +2,29 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import format from "date-fns/format";
 
-const WeightChart: React.FC<any> = ({ weightHistory }) => {
-  let labels: string[] | undefined = [];
-  let data: number[] | undefined = [];
+interface WeightGraphProps {
+  weightHistory: object[] | any;
+}
 
+const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {
+  let labels: string[] | undefined = [];
+  let weights: number[] | undefined = [];
+
+  console.log(weightHistory);
   // Push them into arrays
   weightHistory &&
     weightHistory.map((weight: { created_at: string; weight: number }) => {
       const date = format(new Date(weight.created_at), "MM/dd/yy");
       labels?.push(date);
-      data?.push(weight.weight);
+      weights?.push(weight.weight);
     });
 
-  const dataa = {
+  const data = {
     labels,
     datasets: [
       {
         label: "Weight",
-        data,
+        data: weights,
         backgroundColor: ["rgba(129, 178, 154, 0.6)"],
         borderWidth: 2,
         lineTension: 0,
@@ -36,7 +41,7 @@ const WeightChart: React.FC<any> = ({ weightHistory }) => {
       },
     ],
   };
-  return <Line data={dataa} height={90} type="line" />;
+  return <Line data={data} height={90} type="line" />;
 };
 
 export default WeightChart;
