@@ -39,6 +39,9 @@
         width: 100%;
         padding: 1em 0;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .link:last-child {
         border-bottom: 1px solid var(--bg-panel);
