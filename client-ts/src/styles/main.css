@@ -36,8 +36,13 @@
           align-items: center;
   -ms-grid-columns: 30px 90px;
       grid-template-columns: 30px 90px;
-  gap: 5px;
-  padding: 0.35em 0;
+  gap: 10px;
+  padding: 0.5em 0;
+}
+
+.sidebar ul .link div:hover .menu-icon {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 @media (min-width: 768px) {
@@ -59,30 +64,17 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     list-style: none;
     padding: 2em 0;
     width: 100%;
   }
-  .sidebar ul div {
-    padding: 0.1em 20px;
-  }
   .sidebar ul .link {
     border-top: 1px solid var(--bg-panel);
     width: 100%;
-    padding: 1em 0;
-    text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    padding: 0.6em 0;
+  }
+  .sidebar ul .link div {
+    padding: 0.3em 0;
   }
   .sidebar ul .link:last-child {
     border-bottom: 1px solid var(--bg-panel);
