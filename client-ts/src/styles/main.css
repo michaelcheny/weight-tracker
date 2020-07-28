@@ -28,15 +28,16 @@
 .sidebar ul .link div {
   display: -ms-grid;
   display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-grid-columns: 30px 90px;
       grid-template-columns: 30px 90px;
-}
-
-.sidebar ul .link .menu-icon {
-  color: pink;
+  gap: 5px;
+  padding: 0.35em 0;
 }
 
 @media (min-width: 768px) {
@@ -66,6 +67,9 @@
     padding: 2em 0;
     width: 100%;
   }
+  .sidebar ul div {
+    padding: 0.1em 20px;
+  }
   .sidebar ul .link {
     border-top: 1px solid var(--bg-panel);
     width: 100%;
@@ -88,7 +92,7 @@
 
 .stat-container {
   width: 100%;
-  height: auto;
+  height: 400px;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 2em;
   margin-top: 1em;

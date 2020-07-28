@@ -19,14 +19,16 @@
       div {
         // background-color: magenta;
         display: grid;
-        // justify-content: space-between;
+        justify-content: center;
         align-items: center;
         // grid-template-rows: 20px 130px;
         grid-template-columns: 30px 90px;
+        gap: 5px;
+        padding: 0.35em 0;
       }
       .menu-icon {
         // float: left;
-        color: pink;
+        // color: pink;
         // background-color: yellow;
       }
 
@@ -52,6 +54,10 @@
       padding: 2em 0;
       // border-top: 1px solid var(--bg);
       width: 100%;
+
+      div {
+        padding: 0.1em 20px;
+      }
       .link {
         border-top: 1px solid var(--bg-panel);
         width: 100%;
