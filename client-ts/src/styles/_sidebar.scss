@@ -1,5 +1,4 @@
 .sidebar {
-  // width: 300px;
   display: flex;
 
   ul {
@@ -17,16 +16,11 @@
         grid-template-columns: 30px 90px;
         gap: 10px;
         padding: 0.5em 0;
+        transition: 300ms ease-in-out;
 
-        // .menu-icon {
-        //   transition: all 200ms linear;
-        // }
-
-        // &:hover {
-        //   .menu-icon {
-        //     transform: rotate(90deg);
-        //   }
-        // }
+        &:hover {
+          background-color: var(--color-accent);
+        }
       }
     }
   }
@@ -39,22 +33,19 @@
     width: 60px;
 
     ul {
-      flex-direction: row;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      list-style: none;
       padding: 2em 0;
       width: 100%;
 
       .link {
         border-top: 1px solid var(--bg-panel);
         width: 100%;
-        padding: 0.6em 0;
 
         div {
           display: flex;
-          padding: 0.3em 0;
+          padding: 1em 0;
 
           span {
             display: none;

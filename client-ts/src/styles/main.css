@@ -38,6 +38,12 @@
       grid-template-columns: 30px 90px;
   gap: 10px;
   padding: 0.5em 0;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+.sidebar ul .link div:hover {
+  background-color: var(--color-accent);
 }
 
 @media (min-width: 768px) {
@@ -47,32 +53,28 @@
     width: 60px;
   }
   .sidebar ul {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    list-style: none;
     padding: 2em 0;
     width: 100%;
   }
   .sidebar ul .link {
     border-top: 1px solid var(--bg-panel);
     width: 100%;
-    padding: 0.6em 0;
   }
   .sidebar ul .link div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 0.3em 0;
+    padding: 1em 0;
   }
   .sidebar ul .link div span {
     display: none;
