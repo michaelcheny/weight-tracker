@@ -42,9 +42,9 @@ const Dashboard = () => {
           {goalConverter(user.goal)}
           <span className="head">Caloric Goal</span>
         </div>
-        <div>
-          <MacroChart macros={user.macros} />
+        <div className="macros">
           <span className="head">Macros</span>
+          <MacroChart macros={user.macros} />
         </div>
         {/* <div>Total</div> */}
         <div>sdfsdf</div>

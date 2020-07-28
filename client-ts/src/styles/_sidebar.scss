@@ -4,6 +4,9 @@
   ul {
     background-color: var(--bg-secondary);
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
     .link {
       cursor: pointer;
       text-decoration: none;
@@ -13,11 +16,12 @@
         display: grid;
         justify-content: center;
         align-items: center;
-        grid-template-columns: 30px 90px;
-        gap: 10px;
-        padding: 0.5em 0;
+        padding: 1em;
         transition: 300ms ease-in-out;
 
+        span {
+          display: none;
+        }
         &:hover {
           background-color: var(--color-accent);
         }
@@ -33,7 +37,6 @@
     width: 60px;
 
     ul {
-      display: flex;
       flex-direction: column;
       justify-content: flex-start;
       padding: 2em 0;
@@ -46,10 +49,6 @@
         div {
           display: flex;
           padding: 1em 0;
-
-          span {
-            display: none;
-          }
         }
       }
 
@@ -68,6 +67,8 @@
       .link {
         div {
           display: grid;
+          grid-template-columns: 30px 90px;
+          gap: 10px;
 
           span {
             display: inline-block;

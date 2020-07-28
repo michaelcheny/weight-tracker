@@ -17,6 +17,12 @@
 .sidebar ul {
   background-color: var(--bg-secondary);
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .sidebar ul .link {
@@ -34,12 +40,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-columns: 30px 90px;
-      grid-template-columns: 30px 90px;
-  gap: 10px;
-  padding: 0.5em 0;
+  padding: 1em;
   -webkit-transition: 300ms ease-in-out;
   transition: 300ms ease-in-out;
+}
+
+.sidebar ul .link div span {
+  display: none;
 }
 
 .sidebar ul .link div:hover {
@@ -53,9 +60,6 @@
     width: 60px;
   }
   .sidebar ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -76,9 +80,6 @@
     display: flex;
     padding: 1em 0;
   }
-  .sidebar ul .link div span {
-    display: none;
-  }
   .sidebar ul .link:last-child {
     border-bottom: 1px solid var(--bg-panel);
   }
@@ -91,6 +92,9 @@
   .sidebar ul .link div {
     display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 30px 90px;
+        grid-template-columns: 30px 90px;
+    gap: 10px;
   }
   .sidebar ul .link div span {
     display: inline-block;
@@ -140,12 +144,12 @@
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
+  min-height: 80px;
 }
 
 .grid-container div .head {
   color: gray;
   font-size: 12px;
-  font-family: var(--font-normal);
   position: absolute;
   left: 10px;
   top: 10px;

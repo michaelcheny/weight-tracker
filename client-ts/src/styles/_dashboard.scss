@@ -25,15 +25,20 @@
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.1);
     position: relative;
+    min-height: 80px;
     .head {
       color: gray;
       font-size: 12px;
-      font-family: var(--font-normal);
+      // font-family: var(--font-normal);
       position: absolute;
       left: 10px;
       top: 10px;
     }
   }
+
+  // .macros {
+  //   flex-direction: column;
+  // }
 }
 
 @media (min-width: 768px) {

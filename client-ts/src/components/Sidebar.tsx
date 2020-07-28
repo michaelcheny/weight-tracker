@@ -10,9 +10,11 @@ import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 
 const Sidebar = () => {
   const [loginShow, setLoginShow] = useState(false);
+  const [menuShow, setMenuShow] = useState(true);
   return (
     <div className="sidebar">
       {loginShow && <LoginForm showLogin={setLoginShow} />}
+
       <ul>
         <Link to="/dashboard" className="link">
           <div>
@@ -50,6 +52,8 @@ const Sidebar = () => {
             <span className="titles">Log In</span>
           </div>
         </p>
+        {/* <button onClick=(() => setMenuShow(prv => !prv))>hide and showwwww</button> */}
+        {/* <button onClick={() => setMenuShow((prev) => !prev)}>thingy</button> */}
       </ul>
     </div>
   );
