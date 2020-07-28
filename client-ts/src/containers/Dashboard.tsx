@@ -14,8 +14,7 @@ const Dashboard = () => {
     <section className="container">
       <h1>Dashboard</h1>
       <div className="stat-container">
-        <p style={{ marginBottom: "1em" }}>Current weight: {user.weight}</p>
-
+        <p>Current weight: {user.weight}</p>
         <WeightChart weightHistory={user.weight_histories} />
       </div>
       {/* SECOND HALF OF SCREEN */}

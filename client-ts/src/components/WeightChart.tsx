@@ -26,7 +26,8 @@ const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {
         label: "Weight",
         data: weights,
         // fill: false,
-        // maintainAspectRaio: false,
+        // responsive: true,
+        // maintainAspectRaio: t
         backgroundColor: ["rgba(129, 178, 154, 0.6)"],
         borderWidth: 2,
         lineTension: 0,
@@ -43,7 +44,7 @@ const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {
       },
     ],
   };
-  return <Line data={data} type="line" />;
+  return <Line data={data} />;
 };
 
 export default WeightChart;

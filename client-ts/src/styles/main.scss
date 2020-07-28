@@ -34,11 +34,14 @@ html {
 body {
   background-color: var(--bg);
   color: var(--color-text);
+  min-width: 0;
+  min-height: 0;
 }
 
 .main-wrapper {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  // flex-direction: row;
+  grid-template-columns: 200px auto;
   width: 100vw;
 }
 
@@ -48,7 +51,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 form {
@@ -74,6 +77,8 @@ form {
   height: 100%;
   padding: 2em;
   // overflow: hidden;
+  min-width: 0;
+  min-height: 0;
 
   h1 {
     margin: 0;
@@ -111,6 +116,7 @@ form {
     // align-items: center;
   }
   .main-wrapper {
+    display: flex;
     flex-direction: column;
   }
   .main-wrapper {

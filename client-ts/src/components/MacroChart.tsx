@@ -17,7 +17,7 @@ const MacroChart: React.FC<any> = ({ macros }) => {
         },
       ],
     };
-    return <Doughnut data={data} width={300} />;
+    return <Doughnut data={data} />;
   } else {
     return null;
   }
