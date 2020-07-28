@@ -16,7 +16,7 @@ const App: React.FC = () => {
             {/* <LoginForm /> */}
             <Sidebar />
             {/* <Drawer /> */}
-            <div className="wrapper">
+            <div className="content-wrapper">
               <Route path="/" exact component={LandingPage} />
               <Route path="/dashboard" component={Dashboard} />
             </div>
