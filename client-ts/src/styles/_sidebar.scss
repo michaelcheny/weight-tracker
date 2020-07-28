@@ -1,5 +1,5 @@
 .sidebar {
-  // width: 100vw;
+  // width: 300px;
   display: flex;
 
   ul {
@@ -23,6 +23,7 @@
     height: 100vh;
     background-color: var(--bg-panel);
     // left: 0;
+    min-width: 150px;
     ul {
       flex-direction: row;
       display: flex;
