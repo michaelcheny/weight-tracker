@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import apiActions from "../helpers/apiActions";
 import LoginForm from "./LoginForm";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
@@ -12,7 +13,7 @@ import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 const Sidebar = () => {
   const [loginShow, setLoginShow] = useState(false);
 
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, setAuthenticated, setUser, token } = useContext(AuthContext);
 
   return (
     <div className="sidebar">
@@ -43,7 +44,14 @@ const Sidebar = () => {
             <span className="titles">Home</span>
           </div>
         </Link>
-        <p className="link">
+        <p
+          className="link"
+          onClick={() => {
+            apiActions.logOut(token);
+            setAuthenticated(false);
+            setUser({});
+          }}
+        >
           <div>
             <ExitToAppIcon className="menu-icon" />
             <span className="titles">Log Out</span>

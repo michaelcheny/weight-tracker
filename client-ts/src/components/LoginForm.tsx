@@ -29,6 +29,7 @@ const LoginForm = ({ showLogin }: any) => {
       if (!Object.keys(data).includes("errors")) {
         setUser(data);
         setAuthenticated(true);
+        showLogin(false);
       } else {
         setError(true);
         setErrMsgs(data.errors);
