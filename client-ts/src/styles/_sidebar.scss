@@ -3,18 +3,36 @@
   display: flex;
 
   ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     background-color: var(--bg-secondary);
     // height: 5vh;
     width: 100%;
     .link {
       cursor: pointer;
-      padding: 1em 1em;
+      // padding: 1em 1em;
       text-decoration: none;
       color: var(--text);
+
+      div {
+        // background-color: magenta;
+        display: grid;
+        // justify-content: space-between;
+        align-items: center;
+        // grid-template-rows: 20px 130px;
+        grid-template-columns: 30px 90px;
+      }
+      .menu-icon {
+        // float: left;
+        color: pink;
+        // background-color: yellow;
+      }
+
+      span {
+        // background-color: orange;
+      }
     }
   }
 }

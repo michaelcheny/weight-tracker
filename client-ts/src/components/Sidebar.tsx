@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-
-// type
+import FastfoodIcon from "@material-ui/icons/Fastfood";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
+import HomeIcon from "@material-ui/icons/Home";
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 
 const Sidebar = () => {
   const [loginShow, setLoginShow] = useState(false);
@@ -12,17 +15,40 @@ const Sidebar = () => {
       {loginShow && <LoginForm showLogin={setLoginShow} />}
       <ul>
         <Link to="/dashboard" className="link">
-          <DashboardIcon />
-          Dashboard
+          <div>
+            <DashboardIcon className="menu-icon" />
+            <span>Dashboard</span>
+          </div>
         </Link>
-        <Link to="/dashboard" className="link">
-          adsjkfksa
+        <Link to="/meals" className="link">
+          <div>
+            <FastfoodIcon className="menu-icon" />
+            <span>Meals</span>
+          </div>
+        </Link>
+        <Link to="/workouts" className="link">
+          <div>
+            <FitnessCenterIcon className="menu-icon" />
+            <span>Workouts</span>
+          </div>
         </Link>
         <Link to="/" className="link">
-          adsjkfksa
+          <div>
+            <HomeIcon className="menu-icon" />
+            <span>Home</span>
+          </div>
         </Link>
+        <p className="link">
+          <div>
+            <ExitToAppIcon className="menu-icon" />
+            <span>Log Out</span>
+          </div>
+        </p>
         <p onClick={() => setLoginShow(true)} className="link">
-          Log In
+          <div>
+            <MeetingRoomIcon className="menu-icon" />
+            <span>Log In</span>
+          </div>
         </p>
       </ul>
     </div>

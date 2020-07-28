@@ -15,28 +15,28 @@
 }
 
 .sidebar ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: var(--bg-secondary);
   width: 100%;
 }
 
 .sidebar ul .link {
   cursor: pointer;
-  padding: 1em 1em;
   text-decoration: none;
   color: var(--text);
+}
+
+.sidebar ul .link div {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: 30px 90px;
+      grid-template-columns: 30px 90px;
+}
+
+.sidebar ul .link .menu-icon {
+  color: pink;
 }
 
 @media (min-width: 768px) {
