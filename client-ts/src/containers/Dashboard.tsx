@@ -10,6 +10,21 @@ defaults.global.maintainAspectRatio = false;
 const Dashboard = () => {
   const { user, authenticated } = useContext(AuthContext);
 
+  const goalConverter = (goal: number) => {
+    switch (goal) {
+      case -2:
+        return "Lose 2 pound a week";
+      case -1:
+        return "Lost 1 pound a week";
+      case 0:
+        return "Maintain weight";
+      case 1:
+        return "Gain 1 pound a week";
+      case 2:
+        return "Gain 2 pounds a week";
+    }
+  };
+
   return (
     <section className="container">
       <h1>Dashboard</h1>
@@ -19,14 +34,21 @@ const Dashboard = () => {
       </div>
       {/* SECOND HALF OF SCREEN */}
       <div className="grid-container">
-        <div>Current Calories</div>
-        <div>Goal</div>
-        <div>Total</div>
-        <div>sdfsdf</div>
-        <div>dfg</div>
+        <div>
+          {user.current_calories || 1200}
+          <span className="head">Current calories</span>
+        </div>
+        <div>
+          {goalConverter(user.goal)}
+          <span className="head">Caloric Goal</span>
+        </div>
         <div>
           <MacroChart macros={user.macros} />
+          <span className="head">Macros</span>
         </div>
+        {/* <div>Total</div> */}
+        <div>sdfsdf</div>
+        <div>dfg</div>
       </div>
     </section>
   );

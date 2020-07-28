@@ -40,16 +40,11 @@
   padding: 0.5em 0;
 }
 
-.sidebar ul .link div:hover .menu-icon {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
 @media (min-width: 768px) {
   .sidebar {
     height: 100vh;
     background-color: var(--bg-panel);
-    width: 200px;
+    width: 50px;
   }
   .sidebar ul {
     -webkit-box-orient: horizontal;
@@ -74,10 +69,29 @@
     padding: 0.6em 0;
   }
   .sidebar ul .link div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     padding: 0.3em 0;
+  }
+  .sidebar ul .link div span {
+    display: none;
   }
   .sidebar ul .link:last-child {
     border-bottom: 1px solid var(--bg-panel);
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 200px;
+  }
+  .sidebar ul .link div {
+    display: -ms-grid;
+    display: grid;
+  }
+  .sidebar ul .link div span {
+    display: inline-block;
   }
 }
 
@@ -100,15 +114,14 @@
 }
 
 .grid-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 250px 1fr;
+      grid-template-rows: 1fr 250px 1fr;
+  grid-gap: 3px;
   width: 100%;
-  height: 400px;
   margin-top: 2em;
 }
 
@@ -124,17 +137,23 @@
           align-items: center;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.grid-container div .head {
+  color: gray;
+  font-size: 12px;
+  font-family: var(--font-normal);
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 @media (min-width: 768px) {
   .grid-container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-    grid-gap: 3px;
+    height: 400px;
   }
 }
 
@@ -230,6 +249,7 @@ html {
   --color-headings: #81b29a;
   --color-text: #e07a5f;
   --color-accent: #f2cc8f;
+  --font-header: "Archivo Black";
 }
 
 body {

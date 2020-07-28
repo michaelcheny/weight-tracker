@@ -21,7 +21,7 @@ michael = User.create(
   activity_level: "3", 
   bmr: 1818, 
   tdee: 2817, 
-  goal: "lose half a pound a week",  
+  goal: 0,  
 )
 
 food1 = Meal.create(name: "scrambled eggs cooked in bacon fat", calories: 800, description: "saved the bacon grease to cook with later")

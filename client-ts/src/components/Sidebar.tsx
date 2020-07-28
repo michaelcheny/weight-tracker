@@ -17,37 +17,37 @@ const Sidebar = () => {
         <Link to="/dashboard" className="link">
           <div>
             <DashboardIcon className="menu-icon" />
-            <span>Dashboard</span>
+            <span className="titles">Dashboard</span>
           </div>
         </Link>
         <Link to="/meals" className="link">
           <div>
             <FastfoodIcon className="menu-icon" />
-            <span>Meals</span>
+            <span className="titles">Meals</span>
           </div>
         </Link>
         <Link to="/workouts" className="link">
           <div>
             <FitnessCenterIcon className="menu-icon" />
-            <span>Workouts</span>
+            <span className="titles">Workouts</span>
           </div>
         </Link>
         <Link to="/" className="link">
           <div>
             <HomeIcon className="menu-icon" />
-            <span>Home</span>
+            <span className="titles">Home</span>
           </div>
         </Link>
         <p className="link">
           <div>
             <ExitToAppIcon className="menu-icon" />
-            <span>Log Out</span>
+            <span className="titles">Log Out</span>
           </div>
         </p>
         <p onClick={() => setLoginShow(true)} className="link">
           <div>
             <MeetingRoomIcon className="menu-icon" />
-            <span>Log In</span>
+            <span className="titles">Log In</span>
           </div>
         </p>
       </ul>
