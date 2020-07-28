@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { useClickOutside } from "../helpers/useClickOutside";
 import apiActions from "../helpers/apiActions";
 import { AuthContext } from "../context/AuthContext";
-// import { eventNames } from "process";
 import Errors from "../components/Errors";
 
 type Input = {

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import LoginForm from "./LoginForm";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
@@ -10,7 +11,9 @@ import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 
 const Sidebar = () => {
   const [loginShow, setLoginShow] = useState(false);
-  const [menuShow, setMenuShow] = useState(true);
+
+  const { authenticated } = useContext(AuthContext);
+
   return (
     <div className="sidebar">
       {loginShow && <LoginForm showLogin={setLoginShow} />}
@@ -46,14 +49,14 @@ const Sidebar = () => {
             <span className="titles">Log Out</span>
           </div>
         </p>
-        <p onClick={() => setLoginShow(true)} className="link">
-          <div>
-            <MeetingRoomIcon className="menu-icon" />
-            <span className="titles">Log In</span>
-          </div>
-        </p>
-        {/* <button onClick=(() => setMenuShow(prv => !prv))>hide and showwwww</button> */}
-        {/* <button onClick={() => setMenuShow((prev) => !prev)}>thingy</button> */}
+        {!authenticated && (
+          <p onClick={() => setLoginShow(true)} className="link">
+            <div>
+              <MeetingRoomIcon className="menu-icon" />
+              <span className="titles">Log In</span>
+            </div>
+          </p>
+        )}
       </ul>
     </div>
   );
