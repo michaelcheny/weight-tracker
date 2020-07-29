@@ -20,43 +20,53 @@ const Sidebar = () => {
       {loginShow && <LoginForm showLogin={setLoginShow} />}
 
       <ul>
-        <Link to="/dashboard" className="link">
-          <div>
-            <DashboardIcon className="menu-icon" />
-            <span className="titles">Dashboard</span>
-          </div>
-        </Link>
-        <Link to="/meals" className="link">
-          <div>
-            <FastfoodIcon className="menu-icon" />
-            <span className="titles">Meals</span>
-          </div>
-        </Link>
-        <Link to="/workouts" className="link">
-          <div>
-            <FitnessCenterIcon className="menu-icon" />
-            <span className="titles">Workouts</span>
-          </div>
-        </Link>
-        <Link to="/" className="link">
-          <div>
-            <HomeIcon className="menu-icon" />
-            <span className="titles">Home</span>
-          </div>
-        </Link>
-        <p
-          className="link"
-          onClick={() => {
-            apiActions.logOut(token);
-            setAuthenticated(false);
-            setUser({});
-          }}
-        >
-          <div>
-            <ExitToAppIcon className="menu-icon" />
-            <span className="titles">Log Out</span>
-          </div>
-        </p>
+        {authenticated && (
+          <Link to="/dashboard" className="link">
+            <div>
+              <DashboardIcon className="menu-icon" />
+              <span className="titles">Dashboard</span>
+            </div>
+          </Link>
+        )}
+        {authenticated && (
+          <Link to="/meals" className="link">
+            <div>
+              <FastfoodIcon className="menu-icon" />
+              <span className="titles">Meals</span>
+            </div>
+          </Link>
+        )}
+        {authenticated && (
+          <Link to="/workouts" className="link">
+            <div>
+              <FitnessCenterIcon className="menu-icon" />
+              <span className="titles">Workouts</span>
+            </div>
+          </Link>
+        )}
+        {!authenticated && (
+          <Link to="/" className="link">
+            <div>
+              <HomeIcon className="menu-icon" />
+              <span className="titles">Home</span>
+            </div>
+          </Link>
+        )}
+        {authenticated && (
+          <p
+            className="link"
+            onClick={() => {
+              apiActions.logOut(token);
+              setAuthenticated(false);
+              setUser({});
+            }}
+          >
+            <div>
+              <ExitToAppIcon className="menu-icon" />
+              <span className="titles">Log Out</span>
+            </div>
+          </p>
+        )}
         {!authenticated && (
           <p onClick={() => setLoginShow(true)} className="link">
             <div>

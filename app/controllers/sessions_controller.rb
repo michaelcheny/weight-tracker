@@ -4,7 +4,11 @@ class SessionsController < ApplicationController
     if user && user.valid_password?(params[:user][:password])
       log_in(user)
       cookies['logged_in'] = logged_in?
-      render json: user, status: 200
+      render json: user, include: [
+        :meals, 
+        :macros => {only: [:fats, :proteins, :carbs]}, 
+        :weight_histories => {only: [:weight, :created_at]}
+      ], status: 200
     else
       render json: { errors: ['Invalid credentials'] }, status: 401
     end

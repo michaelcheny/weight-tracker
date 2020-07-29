@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import format from "date-fns/format";
 
 interface WeightGraphProps {
-  weightHistory: object[] | any;
+  weightHistory?: object[] | any;
 }
 
 const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {

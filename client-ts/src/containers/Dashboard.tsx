@@ -8,7 +8,7 @@ import { defaults } from "react-chartjs-2";
 defaults.global.maintainAspectRatio = false;
 
 const Dashboard = () => {
-  const { user, authenticated } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const goalConverter = (goal: number) => {
     switch (goal) {
