@@ -9,7 +9,7 @@ const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {
   let labels: string[] | undefined = [];
   let weights: number[] | undefined = [];
 
-  console.log(weightHistory);
+  // console.log(weightHistory);
   // Push them into arrays
   weightHistory &&
     weightHistory.map((weight: { date: string; weight: number }) => {

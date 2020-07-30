@@ -1,3 +1,7 @@
 class MealSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :description, :calories
+
+  def time
+    object.created_at.strftime('%m/%e/%y , %l:%M %p')
+  end
 end
