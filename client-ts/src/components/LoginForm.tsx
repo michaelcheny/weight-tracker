@@ -9,7 +9,11 @@ type Input = {
   password: string;
 };
 
-const LoginForm = ({ showLogin }: any) => {
+type LoginFormProps = {
+  showLogin: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const LoginForm = ({ showLogin }: LoginFormProps) => {
   const { token, setUser, setAuthenticated } = useContext(AuthContext);
 
   const [input, setInput] = useState<Input>({
@@ -17,8 +21,8 @@ const LoginForm = ({ showLogin }: any) => {
     password: "",
   });
 
-  const [error, setError] = useState(false);
-  const [errMsgs, setErrMsgs] = useState<any>([]);
+  const [error, setError] = useState<boolean>(false);
+  const [errMsgs, setErrMsgs] = useState<string[]>([]);
 
   const handleLogin = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -41,7 +45,8 @@ const LoginForm = ({ showLogin }: any) => {
     // });
   };
 
-  const handleChange = (event: any) => setInput({ ...input, [event.target.name]: event.target.value });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setInput({ ...input, [event.target.name]: event.target.value });
 
   const outsideNode = useClickOutside(() => showLogin(false));
   return (

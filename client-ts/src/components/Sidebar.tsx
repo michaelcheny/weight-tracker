@@ -11,7 +11,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 
 const Sidebar = () => {
-  const [loginShow, setLoginShow] = useState(false);
+  const [loginShow, setLoginShow] = useState<boolean>(false);
 
   const { authenticated, setAuthenticated, setUser, token } = useContext(AuthContext);
 
