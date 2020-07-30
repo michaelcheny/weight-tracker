@@ -1,7 +1,15 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-const MacroChart: React.FC<any> = ({ macros }) => {
+type MacroChartProps = {
+  macros: {
+    fats: number;
+    proteins: number;
+    carbs: number;
+  };
+};
+
+const MacroChart = ({ macros }: MacroChartProps) => {
   console.log(macros);
   if (macros) {
     const data = {

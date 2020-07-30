@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-
 import WeightChart from "../components/WeightChart";
 import MacroChart from "../components/MacroChart";
 import { defaults } from "react-chartjs-2";
