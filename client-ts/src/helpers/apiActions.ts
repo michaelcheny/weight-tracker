@@ -1,5 +1,26 @@
+interface User {
+  activity_level: number;
+  age: number;
+  bmr: number;
+  created_at: string;
+  current_calories: number | undefined;
+  email: string;
+  first_name: string;
+  gender: string;
+  goal: number;
+  height: number;
+  id: number;
+  last_name: string;
+  macros: object[];
+  meals: object[];
+  tdee: number;
+  updated_at: string;
+  weight: number;
+  weight_histories: object[];
+}
+
 export default {
-  fetchToken: async () => {
+  fetchToken: async (): Promise<string> => {
     try {
       const res = await fetch("/auth-check", {
         credentials: "include",
@@ -8,6 +29,7 @@ export default {
       return data.csrf_auth_token;
     } catch (error) {
       console.log(error);
+      return error.message;
     }
   },
   logOut: async (token: string) => {
@@ -25,9 +47,10 @@ export default {
       return data;
     } catch (error) {
       console.log(error);
+      return error.message;
     }
   },
-  register: async (token: string, user: object) => {
+  register: async (token: string, user: object): Promise<User | string> => {
     try {
       const res = await fetch("/api/v1/users", {
         method: "POST",
@@ -43,9 +66,10 @@ export default {
       return data;
     } catch (error) {
       console.log(error);
+      return error.message;
     }
   },
-  logIn: async (token: string, email: string, password: string) => {
+  logIn: async (token: string, email: string, password: string): Promise<User | any> => {
     try {
       const res = await fetch("/login", {
         method: "POST",
@@ -67,6 +91,7 @@ export default {
       return data;
     } catch (error) {
       console.log(error);
+      // return error;
     }
   },
 };

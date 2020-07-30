@@ -3,8 +3,8 @@ import React from "react";
 const LandingPage = () => {
   return (
     <div className="container">
-      <h1>suhh duudeee</h1>
-      <p>sjdfkjsjfhsdjhfjk</p>
+      <h1>My Fitness Buddy</h1>
+      <p>yoyoo</p>
     </div>
   );
 };
