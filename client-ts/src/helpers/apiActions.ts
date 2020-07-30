@@ -17,6 +17,7 @@ interface User {
   updated_at: string;
   weight: number;
   weight_histories: object[];
+  errors?: string[];
 }
 
 export default {
@@ -69,7 +70,7 @@ export default {
       return error.message;
     }
   },
-  logIn: async (token: string, email: string, password: string): Promise<User | any> => {
+  logIn: async (token: string, email: string, password: string): Promise<User> => {
     try {
       const res = await fetch("/login", {
         method: "POST",
@@ -91,7 +92,7 @@ export default {
       return data;
     } catch (error) {
       console.log(error);
-      // return error;
+      return error.message;
     }
   },
 };

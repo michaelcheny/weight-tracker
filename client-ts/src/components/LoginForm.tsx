@@ -22,7 +22,7 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
   });
 
   const [error, setError] = useState<boolean>(false);
-  const [errMsgs, setErrMsgs] = useState<string[]>([]);
+  const [errMsgs, setErrMsgs] = useState<string[] | undefined>([]);
 
   const handleLogin = (event: { preventDefault: () => void }) => {
     event.preventDefault();
