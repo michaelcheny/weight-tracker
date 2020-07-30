@@ -33,7 +33,7 @@ export default {
       return error.message;
     }
   },
-  logOut: async (token: string) => {
+  logOut: async (token: string): Promise<User> => {
     try {
       const res = await fetch("/logout", {
         method: "DELETE",

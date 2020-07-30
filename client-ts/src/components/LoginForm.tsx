@@ -61,6 +61,7 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
             placeholder="Email"
             value={input.email}
             onChange={handleChange}
+            required
           />
           <input
             type="password"
@@ -68,6 +69,7 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
             placeholder="Password"
             value={input.password}
             onChange={handleChange}
+            required
           />
           <input type="submit" value="Log In" className="submit-button" />
         </div>
