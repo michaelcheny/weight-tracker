@@ -30,7 +30,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <div className="stat-container">
         <p>Current weight: {user.weight}</p>
-        <WeightChart weightHistory={user.weight_histories} />
+        <WeightChart weightHistory={user.weight_log} />
       </div>
       {/* SECOND HALF OF SCREEN */}
       <div className="grid-container">

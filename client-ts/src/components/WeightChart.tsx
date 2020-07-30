@@ -1,6 +1,5 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import format from "date-fns/format";
 
 interface WeightGraphProps {
   weightHistory?: object[] | any;
@@ -13,9 +12,8 @@ const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {
   console.log(weightHistory);
   // Push them into arrays
   weightHistory &&
-    weightHistory.map((weight: { created_at: string; weight: number }) => {
-      const date = format(new Date(weight.created_at), "MM/dd/yy");
-      labels?.push(date);
+    weightHistory.map((weight: { date: string; weight: number }) => {
+      labels?.push(weight.date);
       weights?.push(weight.weight);
     });
 

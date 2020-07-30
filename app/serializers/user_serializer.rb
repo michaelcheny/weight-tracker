@@ -7,7 +7,7 @@ class UserSerializer < ActiveModel::Serializer
   def weight_log
     object.weight_histories.map do |key|
       date = key.created_at.strftime('%m/%d/%Y')
-      return h = {date: date, weight: key.weight}
+       h = {date: date, weight: key.weight}
     end
   end
 
