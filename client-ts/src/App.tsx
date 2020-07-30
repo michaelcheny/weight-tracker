@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import LandingPage from "./containers/LandingPage";
 import Dashboard from "./containers/Dashboard";

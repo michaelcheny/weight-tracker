@@ -12,7 +12,7 @@ const WeightChart: React.FC<WeightGraphProps> = ({ weightLog }) => {
   // console.log(weightHistory);
   // Push them into arrays
   weightLog &&
-    weightLog.map((weight: { date: string; weight: number }) => {
+    weightLog.forEach((weight: { date: string; weight: number }): void => {
       labels?.push(weight.date);
       weights?.push(weight.weight);
     });
