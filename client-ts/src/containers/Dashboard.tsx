@@ -30,7 +30,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <div className="stat-container">
         <p>Current weight: {user.weight}</p>
-        <WeightChart weightHistory={user.weight_log} />
+        <WeightChart weightLog={user.weight_histories} />
       </div>
       {/* SECOND HALF OF SCREEN */}
       <div className="grid-container">
@@ -44,7 +44,7 @@ const Dashboard = () => {
         </div>
         <div className="macros">
           <span className="head">Macros</span>
-          <MacroChart macros={user.macros} />
+          <MacroChart macros={user.macro} />
         </div>
         {/* <div>Total</div> */}
         <div>sdfsdf</div>

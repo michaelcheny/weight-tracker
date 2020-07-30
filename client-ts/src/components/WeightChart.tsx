@@ -2,17 +2,17 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 interface WeightGraphProps {
-  weightHistory?: object[] | any;
+  weightLog?: object[] | any;
 }
 
-const WeightChart: React.FC<WeightGraphProps> = ({ weightHistory }) => {
+const WeightChart: React.FC<WeightGraphProps> = ({ weightLog }) => {
   let labels: string[] | undefined = [];
   let weights: number[] | undefined = [];
 
   // console.log(weightHistory);
   // Push them into arrays
-  weightHistory &&
-    weightHistory.map((weight: { date: string; weight: number }) => {
+  weightLog &&
+    weightLog.map((weight: { date: string; weight: number }) => {
       labels?.push(weight.date);
       weights?.push(weight.weight);
     });
