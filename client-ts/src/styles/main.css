@@ -229,6 +229,10 @@
   color: var(-color--headings);
 }
 
+.error-container p {
+  font-size: 12px;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -51,7 +51,7 @@ export default {
       return error.message;
     }
   },
-  register: async (token: string, user: object): Promise<User | string> => {
+  register: async (token: string, user: object): Promise<User> => {
     try {
       const res = await fetch("/api/v1/users", {
         method: "POST",

@@ -42,19 +42,19 @@
 }
 
 @media (min-width: 768px) {
-  .stat-container {
-    // height: 350px;
-  }
+  // .stat-container {
+  // height: 350px;
+  // }
   .grid-container {
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr;
     // grid-template-rows: 1fr 1fr;
     height: 400px;
 
-    div {
-      // overflow: hidden;
-      // height: auto;
-      // width: 100%;
-    }
+    // div {
+    // overflow: hidden;
+    // height: auto;
+    // width: 100%;
+    // }
   }
 }

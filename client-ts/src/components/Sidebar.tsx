@@ -3,21 +3,25 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import apiActions from "../helpers/apiActions";
 import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import HomeIcon from "@material-ui/icons/Home";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 const Sidebar = () => {
   const [loginShow, setLoginShow] = useState<boolean>(false);
+  const [signupShow, setSignupShow] = useState<boolean>(false);
 
   const { authenticated, setAuthenticated, setUser, token } = useContext(AuthContext);
 
   return (
     <div className="sidebar">
       {loginShow && <LoginForm showLogin={setLoginShow} />}
+      {signupShow && <SignupForm showSignup={setSignupShow} />}
 
       <ul>
         {authenticated && (
@@ -73,6 +77,14 @@ const Sidebar = () => {
             <div>
               <MeetingRoomIcon className="menu-icon" />
               <span className="titles">Log In</span>
+            </div>
+          </div>
+        )}
+        {!authenticated && (
+          <div onClick={() => setSignupShow(true)} className="link">
+            <div>
+              <PersonAddIcon className="menu-icon" />
+              <span className="titles">Register</span>
             </div>
           </div>
         )}
