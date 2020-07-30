@@ -53,10 +53,11 @@ const Sidebar = () => {
           </Link>
         )}
         {authenticated && (
-          <p
+          <div
             className="link"
             onClick={() => {
               apiActions.logOut(token);
+              apiActions.fetchToken();
               setAuthenticated(false);
               setUser({});
             }}
@@ -65,15 +66,15 @@ const Sidebar = () => {
               <ExitToAppIcon className="menu-icon" />
               <span className="titles">Log Out</span>
             </div>
-          </p>
+          </div>
         )}
         {!authenticated && (
-          <p onClick={() => setLoginShow(true)} className="link">
+          <div onClick={() => setLoginShow(true)} className="link">
             <div>
               <MeetingRoomIcon className="menu-icon" />
               <span className="titles">Log In</span>
             </div>
-          </p>
+          </div>
         )}
       </ul>
     </div>
