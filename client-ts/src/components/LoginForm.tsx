@@ -39,10 +39,6 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
         setErrMsgs(data.errors);
       }
     });
-    // setInput({
-    //   email: "",
-    //   password: "",
-    // });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>

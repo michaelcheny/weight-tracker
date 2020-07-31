@@ -34,7 +34,6 @@ export default ({ children }: { children: any }) => {
         .then((data) => {
           if (!Object.keys(data).includes("errors")) {
             console.log(data);
-
             setUser(data);
             setAuthenticated(true);
           }

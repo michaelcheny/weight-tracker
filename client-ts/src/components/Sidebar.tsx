@@ -16,7 +16,7 @@ const Sidebar = () => {
   const [loginShow, setLoginShow] = useState<boolean>(false);
   const [signupShow, setSignupShow] = useState<boolean>(false);
 
-  const { authenticated, setAuthenticated, setUser, token } = useContext(AuthContext);
+  const { authenticated, setAuthenticated, setUser, token, setToken } = useContext(AuthContext);
 
   return (
     <div className="sidebar">
@@ -59,9 +59,9 @@ const Sidebar = () => {
         {authenticated && (
           <div
             className="link"
-            onClick={() => {
-              apiActions.logOut(token);
-              apiActions.fetchToken();
+            onClick={async () => {
+              await apiActions.logOut(token);
+              setToken(await apiActions.fetchToken());
               setAuthenticated(false);
               setUser({});
             }}
