@@ -1,5 +1,5 @@
 namespace :db do
-  desc 'Reset macronutrients back to 0 everyday at 12:00am.'
+  desc 'Reset macronutrients back to 0.'
   task :reset_macros => :environment do
     Macro.update_all(fats: 0, proteins: 0, carbs: 0)
   end
