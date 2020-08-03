@@ -1,9 +1,11 @@
 div .macro-container {
-  background: none;
+  // background: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
 
-  .chart {
-    height: 80%;
-  }
+  // .chart {
+  //   height: 80%;
+  // }
 }

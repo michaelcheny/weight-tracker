@@ -61,23 +61,34 @@ const MacroChart = ({ macros }: MacroChartProps) => {
 
 export default MacroChart;
 
-function Example(props: any) {
+function Example({
+  label,
+  description,
+  children,
+}: {
+  label?: string;
+  description?: string;
+  children?: any;
+}) {
   return (
-    <div style={{ background: "none" }}>
-      <div
+    <div
+      style={{ background: "none", border: "1px gray solid", display: "flex", flexDirection: "column" }}
+    >
+      {/* <div
         style={{
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
           background: "none",
           border: "2px green solid",
         }}
-      >
-        <div style={{ width: "40%", background: "none" }}>
-          <h3>{props.label}</h3>
-          <p>{props.description}</p>
-        </div>
-        <div style={{ width: "50%", background: "none", border: "1px red solid" }}>{props.children}</div>
+      > */}
+      <div style={{ background: "none", height: 0 }}>
+        <h4>{label}</h4>
+        <p>{description}</p>
       </div>
+      <div style={{ width: "120px", background: "none", border: "1px red solid" }}>{children}</div>
+      {/* </div> */}
     </div>
   );
 }
