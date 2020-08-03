@@ -37,6 +37,7 @@ const Dashboard = () => {
           {user.current_calories || 1200}
           <span className="head">Current calories</span>
         </div>
+        <div>sdfsdf</div>
         <div>
           {goalConverter(user.goal)}
           <span className="head">Caloric Goal</span>
@@ -46,7 +47,6 @@ const Dashboard = () => {
           <MacroChart macros={user.macro} />
         </div>
         {/* <div>Total</div> */}
-        <div>sdfsdf</div>
         <div>dfg</div>
       </div>
     </section>

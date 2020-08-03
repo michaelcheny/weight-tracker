@@ -91,7 +91,12 @@ function Example({
 }) {
   return (
     <div
-      style={{ background: "none", border: "1px gray solid", display: "flex", flexDirection: "column" }}
+      style={{
+        background: "none",
+        border: "1px gray solid",
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
       {/* <div
         style={{
@@ -106,7 +111,15 @@ function Example({
         <h4>{label}</h4>
         <p>{description}</p>
       </div>
-      <div style={{ width: "135px", background: "none", border: "1px red solid" }}>{children}</div>
+      <div
+        style={{
+          width: "135px",
+          background: "none",
+          // border: "1px red solid"
+        }}
+      >
+        {children}
+      </div>
       {/* </div> */}
     </div>
   );
