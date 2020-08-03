@@ -27,10 +27,32 @@ const MacroChart = ({ macros }: MacroChartProps) => {
     //     },
     //   ],
     // };
+
+    const fatGoal = 120;
+    const proteinGoal = 150;
+    const carbGoal = 260;
+
     return (
-      <Example label="fats" description="hadslf">
-        <CircularProgressbar value={macros.fats} text="" />
-      </Example>
+      <div className="macro-container">
+        <Example label="Fats">
+          <CircularProgressbar
+            value={macros.fats}
+            maxValue={fatGoal}
+            text={`${macros.fats}g`}
+            className="chart"
+          />
+        </Example>
+        <Example label="Proteins">
+          <CircularProgressbar
+            value={macros.proteins}
+            maxValue={proteinGoal}
+            text={`${macros.proteins}g`}
+          />
+        </Example>
+        <Example label="carbs">
+          <CircularProgressbar value={macros.carbs} maxValue={carbGoal} text={`${macros.carbs}g`} />
+        </Example>
+      </div>
     ); // return <Doughnut data={data} />;
   } else {
     return null;
@@ -42,13 +64,19 @@ export default MacroChart;
 function Example(props: any) {
   return (
     <div style={{ background: "none" }}>
-      {/* <hr style={{ border: "2px solid #ddd" }} /> */}
-      <div style={{ display: "flex", background: "none" }}>
-        <div style={{ width: "90%", background: "none", paddingRight: 30 }}>{props.children}</div>
-        <div style={{ width: "90%", background: "none" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          background: "none",
+          border: "2px green solid",
+        }}
+      >
+        <div style={{ width: "40%", background: "none" }}>
           <h3>{props.label}</h3>
           <p>{props.description}</p>
         </div>
+        <div style={{ width: "50%", background: "none", border: "1px red solid" }}>{props.children}</div>
       </div>
     </div>
   );

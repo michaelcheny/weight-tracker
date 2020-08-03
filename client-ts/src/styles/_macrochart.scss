@@ -1,0 +1,9 @@
+div .macro-container {
+  background: none;
+  display: flex;
+  justify-content: center;
+
+  .chart {
+    height: 80%;
+  }
+}
