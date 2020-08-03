@@ -1,9 +1,15 @@
 import React from "react";
+import { useClickOutside } from "../helpers/useClickOutside";
 
-const WeightUpdateForm = () => {
+type showFormProps = {
+  showForm: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const WeightUpdateForm = ({ showForm }: showFormProps) => {
+  const outsideNode = useClickOutside(() => showForm(false));
   return (
     <div className="form-modal">
-      <form></form>
+      <form ref={outsideNode}></form>
     </div>
   );
 };

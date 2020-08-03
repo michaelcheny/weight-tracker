@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {showWeightForm && <WeightUpdateForm />}
+      {showWeightForm && <WeightUpdateForm showForm={setShowWeightForm} />}
       <section className="container">
         <h1>Dashboard</h1>
         <div className="stat-container">
