@@ -38,9 +38,9 @@ const MacroChart = ({ macros }: MacroChartProps) => {
           <CircularProgressbar
             value={macros.fats}
             maxValue={fatGoal}
-            text={`${macros.fats}g/${fatGoal}g`}
+            text={`${macros.fats}g`}
             styles={buildStyles({
-              textSize: "13px",
+              textSize: "20px",
               textColor: "#e07a5f",
               pathColor: "#81b29a",
               // trailColor: "pink",
@@ -51,21 +51,21 @@ const MacroChart = ({ macros }: MacroChartProps) => {
           <CircularProgressbar
             value={macros.proteins}
             maxValue={proteinGoal}
-            text={`${macros.proteins}g/${proteinGoal}g`}
+            text={`${macros.proteins}g`}
             styles={buildStyles({
-              textSize: "13px",
+              textSize: "20px",
               textColor: "#e07a5f",
               pathColor: "#81b29a",
             })}
           />
         </Example>
-        <Example label="carbs">
+        <Example label="Carbs">
           <CircularProgressbar
             value={macros.carbs}
             maxValue={carbGoal}
-            text={`${macros.carbs}g/${carbGoal}g`}
+            text={`${macros.carbs}g`}
             styles={buildStyles({
-              textSize: "13px",
+              textSize: "20px",
               textColor: "#e07a5f",
               pathColor: "#81b29a",
             })}
@@ -93,9 +93,10 @@ function Example({
     <div
       style={{
         background: "none",
-        border: "1px gray solid",
+        // border: "1px gray solid",
         display: "flex",
         flexDirection: "column",
+        marginBottom: "1em",
       }}
     >
       {/* <div
