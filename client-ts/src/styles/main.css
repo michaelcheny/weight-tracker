@@ -240,6 +240,7 @@
 }
 
 div .macro-container {
+  background: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -247,7 +248,7 @@ div .macro-container {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   height: 100%;
-  width: 100%;
+  width: 500px;
 }
 
 * {

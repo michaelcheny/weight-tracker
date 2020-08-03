@@ -1,6 +1,6 @@
 import React from "react";
 // import { Doughnut } from "react-chartjs-2";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 type MacroChartProps = {
@@ -38,19 +38,38 @@ const MacroChart = ({ macros }: MacroChartProps) => {
           <CircularProgressbar
             value={macros.fats}
             maxValue={fatGoal}
-            text={`${macros.fats}g`}
-            className="chart"
+            text={`${macros.fats}g/${fatGoal}g`}
+            styles={buildStyles({
+              textSize: "13px",
+              textColor: "#e07a5f",
+              pathColor: "#81b29a",
+              // trailColor: "pink",
+            })}
           />
         </Example>
         <Example label="Proteins">
           <CircularProgressbar
             value={macros.proteins}
             maxValue={proteinGoal}
-            text={`${macros.proteins}g`}
+            text={`${macros.proteins}g/${proteinGoal}g`}
+            styles={buildStyles({
+              textSize: "13px",
+              textColor: "#e07a5f",
+              pathColor: "#81b29a",
+            })}
           />
         </Example>
         <Example label="carbs">
-          <CircularProgressbar value={macros.carbs} maxValue={carbGoal} text={`${macros.carbs}g`} />
+          <CircularProgressbar
+            value={macros.carbs}
+            maxValue={carbGoal}
+            text={`${macros.carbs}g/${carbGoal}g`}
+            styles={buildStyles({
+              textSize: "13px",
+              textColor: "#e07a5f",
+              pathColor: "#81b29a",
+            })}
+          />
         </Example>
       </div>
     ); // return <Doughnut data={data} />;
@@ -87,7 +106,7 @@ function Example({
         <h4>{label}</h4>
         <p>{description}</p>
       </div>
-      <div style={{ width: "120px", background: "none", border: "1px red solid" }}>{children}</div>
+      <div style={{ width: "135px", background: "none", border: "1px red solid" }}>{children}</div>
       {/* </div> */}
     </div>
   );
