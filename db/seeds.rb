@@ -29,7 +29,7 @@ food1 = Meal.create(name: "scrambled eggs cooked in bacon fat", calories: 800, d
 
 michael.meals << food1
 
-weight1 = WeightHistory.create(weight: 185)
+weight1 = WeightHistory.create(weight: 180)
 weight2 = WeightHistory.create(weight: 190)
 weight3 = WeightHistory.create(weight: 195)
 weight4 = WeightHistory.create(weight: 190)

@@ -36,9 +36,10 @@
     }
   }
 
-  // .macros {
-  //   flex-direction: column;
-  // }
+  .macros {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 @media (min-width: 768px) {

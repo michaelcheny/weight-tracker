@@ -154,6 +154,12 @@
   top: 10px;
 }
 
+.grid-container .macros {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 @media (min-width: 768px) {
   .grid-container {
     display: -ms-grid;
