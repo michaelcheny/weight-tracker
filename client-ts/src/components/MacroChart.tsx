@@ -1,5 +1,4 @@
 import React from "react";
-// import { Doughnut } from "react-chartjs-2";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -14,20 +13,6 @@ type MacroChartProps = {
 const MacroChart = ({ macros }: MacroChartProps) => {
   console.log(macros);
   if (macros) {
-    // const data = {
-    //   labels: [`Fats: ${macros.fats}`, `Protein: ${macros.proteins}`, `Carbs: ${macros.carbs}`],
-    //   datasets: [
-    //     {
-    //       data: [macros.fats, macros.proteins, macros.carbs],
-    //       backgroundColor: ["#0A686B", "#59ADB5", "#698280"],
-    //       borderColor: "rgba(0,0,0,0.1)",
-    //       borderWidth: 1,
-    //       hoverBackgroundColor: ["#81b29a", "#81b29a", "#81b29a"],
-    //       // cutoutPercentage: 0,
-    //     },
-    //   ],
-    // };
-
     const fatGoal = 120;
     const proteinGoal = 150;
     const carbGoal = 260;
@@ -72,7 +57,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
           />
         </Example>
       </div>
-    ); // return <Doughnut data={data} />;
+    );
   } else {
     return null;
   }

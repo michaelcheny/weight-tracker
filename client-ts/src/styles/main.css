@@ -118,6 +118,22 @@
           justify-content: center;
 }
 
+.stat-container button {
+  float: right;
+  padding: 0.5em 1em;
+  border-radius: 2px;
+  border: none;
+  font-weight: 550;
+  color: var(--color-accent);
+  background-color: var(--color-text);
+}
+
+.stat-container button:hover {
+  cursor: pointer;
+  color: gray;
+  background-color: var(--color-headings);
+}
+
 .grid-container {
   display: -ms-grid;
   display: grid;
