@@ -123,8 +123,8 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 250px 1fr;
-      grid-template-rows: 1fr 250px 1fr;
+  -ms-grid-rows: 1fr 250px 220px;
+      grid-template-rows: 1fr 250px 220px;
   grid-gap: 5px;
   width: 100%;
   margin-top: 2em;
@@ -170,11 +170,23 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding-top: 1em;
+  font-size: 14px;
 }
 
-.grid-container .macro-goals-container p {
-  padding-bottom: 1em;
-  font-size: 24px;
+.grid-container .macro-goals-container .macro-goal-content {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 0 0.5em;
+}
+
+.grid-container .macro-goals-container .macro-goal-content p {
+  padding-bottom: 0.5em;
+  font-size: 18px;
 }
 
 @media (min-width: 768px) {
@@ -191,6 +203,24 @@
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 3;
+  }
+  .grid-container .macro-goals-container {
+    padding-top: 1em;
+    font-size: 15px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .grid-container .macro-goals-container .macro-goal-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .grid-container .macro-goals-container .macro-goal-content p {
+    padding-bottom: 0.5em;
+    font-size: 20px;
   }
 }
 
@@ -275,6 +305,31 @@ div .macro-container {
           justify-content: space-evenly;
   height: 100%;
   width: 550px;
+}
+
+div .macro-headers {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div .macro-headers p {
+  font-size: 14px;
+}
+
+div .macro-chart {
+  width: 135px;
+  background: none;
+  padding-bottom: 1em;
+}
+
+.macro-goal {
+  font-size: 12px;
 }
 
 * {

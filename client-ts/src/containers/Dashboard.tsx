@@ -50,12 +50,18 @@ const Dashboard = () => {
         <div>
           <span className="head">Daily Macronutrient Goal</span>
           <div className="macro-goals-container">
-            <h4>Fats</h4>
-            <p>120g</p>
-            <h4>Proteins</h4>
-            <p>150g</p>
-            <h4>Carbs</h4>
-            <p>260g</p>
+            <div className="macro-goal-content">
+              <h4>Fats</h4>
+              <p>120g</p>
+            </div>
+            <div className="macro-goal-content">
+              <h4>Proteins</h4>
+              <p>150g</p>
+            </div>
+            <div className="macro-goal-content">
+              <h4>Carbs</h4>
+              <p>260g</p>
+            </div>
           </div>
         </div>
       </div>

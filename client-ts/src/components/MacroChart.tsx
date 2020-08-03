@@ -34,7 +34,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
 
     return (
       <div className="macro-container">
-        <Example label="Fats">
+        <Example label="Fats" description={`Goal: ${fatGoal}g`}>
           <CircularProgressbar
             value={macros.fats}
             maxValue={fatGoal}
@@ -47,7 +47,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
             })}
           />
         </Example>
-        <Example label="Proteins">
+        <Example label="Proteins" description={`Goal: ${proteinGoal}g`}>
           <CircularProgressbar
             value={macros.proteins}
             maxValue={proteinGoal}
@@ -59,7 +59,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
             })}
           />
         </Example>
-        <Example label="Carbs">
+        <Example label="Carbs" description={`Goal: ${carbGoal}g`}>
           <CircularProgressbar
             value={macros.carbs}
             maxValue={carbGoal}
@@ -87,7 +87,7 @@ function Example({
 }: {
   label?: string;
   description?: string;
-  children?: any;
+  children?: React.ReactNode;
 }) {
   return (
     <div
@@ -108,19 +108,11 @@ function Example({
           border: "2px green solid",
         }}
       > */}
-      <div style={{ background: "none", height: 0 }}>
+      <div className="macro-headers">
         <h4>{label}</h4>
-        <p>{description}</p>
       </div>
-      <div
-        style={{
-          width: "135px",
-          background: "none",
-          // border: "1px red solid"
-        }}
-      >
-        {children}
-      </div>
+      <div className="macro-chart">{children}</div>
+      {/* <p style={{ fontSize: 14 }}>{description}</p> */}
       {/* </div> */}
     </div>
   );

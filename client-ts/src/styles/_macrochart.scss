@@ -9,3 +9,27 @@ div .macro-container {
   //   height: 80%;
   // }
 }
+
+div .macro-headers {
+  background: none;
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    // padding-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+div .macro-chart {
+  width: 135px;
+  background: none;
+  padding-bottom: 1em;
+}
+
+.macro-goal {
+  font-size: 12px;
+}
