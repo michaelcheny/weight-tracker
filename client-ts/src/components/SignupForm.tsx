@@ -19,9 +19,16 @@ type SignupFormProps = {
 const SignupForm = ({ showSignup }: SignupFormProps) => {
   const { token, setUser, setAuthenticated } = useContext(AuthContext);
 
-  const { register, handleSubmit, watch, errors } = useForm<Inputs>();
-  const onSubmit = (data: any) => {
+  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const onSubmit = (data: Inputs) => {
     console.log(data);
+    apiActions.register(token, data).then((data) => {
+      if (!Object.keys(data).includes("errors")) {
+        setUser(data);
+        setAuthenticated(true);
+        showSignup(false);
+      }
+    });
   };
 
   // const [input, setInput] = useState<Inputs>({
@@ -60,14 +67,21 @@ const SignupForm = ({ showSignup }: SignupFormProps) => {
       <form ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
         <h1>Register</h1>
         <div>
-          <input name="email" ref={register({ required: true })} placeholder="Email" />
+          <input name="email" type="email" ref={register({ required: true })} placeholder="Email" />
           {errors.email && <span>This field is required</span>}
 
-          <input name="password" ref={register({ required: true })} placeholder="Password" />
+          <input
+            name="password"
+            type="password"
+            ref={register({ required: true, minLength: 6, maxLength: 30 })}
+            placeholder="Password"
+          />
           {errors.password && <span>This field is required</span>}
+
           <input
             name="password_confirmation"
-            ref={register({ required: true })}
+            type="password"
+            ref={register({ required: true, minLength: 6, maxLength: 30 })}
             placeholder="Confirm Password"
           />
           {errors.password_confirmation && <span>Please confirm your password</span>}
