@@ -4,7 +4,9 @@ import apiActions from "../helpers/apiActions";
 import { AuthContext } from "../context/AuthContext";
 import Errors from "../components/Errors";
 
-type Input = {
+import { useForm } from "react-hook-form";
+
+type Inputs = {
   email: string;
   password: string;
   password_confirmation: string;
@@ -17,46 +19,63 @@ type SignupFormProps = {
 const SignupForm = ({ showSignup }: SignupFormProps) => {
   const { token, setUser, setAuthenticated } = useContext(AuthContext);
 
-  const [input, setInput] = useState<Input>({
-    email: "",
-    password: "",
-    password_confirmation: "",
-  });
-
-  const [error, setError] = useState<boolean>(false);
-  const [errMsgs, setErrMsgs] = useState<string[] | undefined>([]);
-
-  const handleSubmit = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
-    console.log(token);
-    console.log(
-      `email: ${input.email}; password: ${input.password}; passwordconf: ${input.password_confirmation}`
-    );
-    apiActions.register(token, input).then((data) => {
-      if (!Object.keys(data).includes("errors")) {
-        setUser(data);
-        setAuthenticated(true);
-        showSignup(false);
-      } else {
-        setError(true);
-        setErrMsgs(data.errors);
-      }
-    });
-    // setInput({
-    //   email: "",
-    //   password: "",
-    // });
+  const { register, handleSubmit, watch, errors } = useForm<Inputs>();
+  const onSubmit = (data: any) => {
+    console.log(data);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setInput({ ...input, [event.target.name]: event.target.value });
+  // const [input, setInput] = useState<Inputs>({
+  //   email: "",
+  //   password: "",
+  //   password_confirmation: "",
+  // });
+
+  // const [error, setError] = useState<boolean>(false);
+  // const [errMsgs, setErrMsgs] = useState<string[] | undefined>([]);
+
+  // const handleSubmit = (event: { preventDefault: () => void }) => {
+  //   event.preventDefault();
+  //   console.log(token);
+  //   console.log(
+  //     `email: ${input.email}; password: ${input.password}; passwordconf: ${input.password_confirmation}`
+  //   );
+  //   apiActions.register(token, input).then((data) => {
+  //     if (!Object.keys(data).includes("errors")) {
+  //       setUser(data);
+  //       setAuthenticated(true);
+  //       showSignup(false);
+  //     } else {
+  //       setError(true);
+  //       setErrMsgs(data.errors);
+  //     }
+  //   });
+  // };
+
+  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+  //   setInput({ ...input, [event.target.name]: event.target.value });
 
   const outsideNode = useClickOutside(() => showSignup(false));
   return (
     <div className="form-modal">
-      <form ref={outsideNode} onSubmit={handleSubmit}>
+      <form ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
         <h1>Register</h1>
-        {error && <Errors errors={errMsgs} />}
+        <div>
+          <input name="email" ref={register({ required: true })} placeholder="Email" />
+          {errors.email && <span>This field is required</span>}
+
+          <input name="password" ref={register({ required: true })} placeholder="Password" />
+          {errors.password && <span>This field is required</span>}
+          <input
+            name="password_confirmation"
+            ref={register({ required: true })}
+            placeholder="Confirm Password"
+          />
+          {errors.password_confirmation && <span>Please confirm your password</span>}
+
+          <input type="submit" />
+        </div>
+
+        {/* {error && <Errors errors={errMsgs} />}
         <div>
           <input
             type="text"
@@ -83,7 +102,7 @@ const SignupForm = ({ showSignup }: SignupFormProps) => {
             required
           />
           <input type="submit" value="Register" className="submit-button" />
-        </div>
+        </div> */}
       </form>
     </div>
   );

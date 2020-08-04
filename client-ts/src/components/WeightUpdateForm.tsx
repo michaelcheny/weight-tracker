@@ -22,6 +22,7 @@ const WeightUpdateForm = ({ showForm }: showFormProps) => {
           onChange={(e) => setNewWeight(e.target.value)}
           value={newWeight}
           placeholder="How much do you weigh today?"
+          className="weight-form"
         />
       </form>
     </div>

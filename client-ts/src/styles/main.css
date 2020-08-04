@@ -291,6 +291,11 @@
   margin: 0.5em 0;
 }
 
+.form-modal form .weight-form {
+  width: 80%;
+  padding: 0.5em;
+}
+
 @media (min-width: 768px) {
   .form-modal form {
     width: 420px;
