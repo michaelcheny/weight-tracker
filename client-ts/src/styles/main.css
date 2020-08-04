@@ -258,9 +258,7 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.form-modal .signup-form {
-  width: 350px;
-  height: 400px;
+.form-modal form {
   background-color: var(--bg-secondary);
   -webkit-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.4);
           box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.4);
@@ -280,20 +278,45 @@
   padding: 3em;
 }
 
-.form-modal .signup-form div {
+.form-modal .signup-form {
+  width: 350px;
+  height: 400px;
+}
+
+.form-modal .complete-user-form {
+  width: 90%;
+  height: 90%;
+}
+
+.form-modal .weight-form {
+  width: 80%;
+  padding: 0.5em;
+}
+
+.form-modal div {
   width: 300px;
 }
 
-.form-modal .signup-form div input {
+.form-modal div input {
   display: block;
   width: 100%;
-  padding: 0.5em 1em;
+  height: 50px;
+  color: darkslategray;
   margin: 0.5em 0;
+  padding-left: 1em;
 }
 
-.form-modal .signup-form .weight-form {
-  width: 80%;
-  padding: 0.5em;
+.form-modal div .height {
+  width: 60px;
+}
+
+.form-modal div select {
+  width: 100%;
+  height: 50px;
+  margin: 0.5em 0;
+  font-size: medium;
+  color: darkslategray;
+  padding-left: 1em;
 }
 
 @media (min-width: 768px) {
