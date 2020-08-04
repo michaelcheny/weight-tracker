@@ -53,6 +53,7 @@ class Api::V1::UsersController < ApplicationController
       :bmr,
       :tdee,
       :goal
+      :current_calories
     )
   end
   

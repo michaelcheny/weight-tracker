@@ -4,6 +4,7 @@ import WeightChart from "../components/WeightChart";
 import MacroChart from "../components/MacroChart";
 import WeightUpdateForm from "../components/WeightUpdateForm";
 import { defaults } from "react-chartjs-2";
+import CompleteUserForm from "../components/CompleteUserForm";
 
 defaults.global.maintainAspectRatio = false;
 
@@ -26,8 +27,28 @@ const Dashboard = () => {
     }
   };
 
+  const completeUserSignup = () => {
+    if (
+      !user.activity_level ||
+      !user.age ||
+      !user.bmr ||
+      !user.current_calories ||
+      !user.gender ||
+      // !user.goal ||
+      !user.height ||
+      !user.tdee ||
+      !user.weight
+    ) {
+      return <CompleteUserForm />;
+    } else {
+      return null;
+    }
+  };
+
   return (
     <>
+      {console.log(user)}
+      {completeUserSignup()}
       {showWeightForm && <WeightUpdateForm showForm={setShowWeightForm} />}
       <section className="container">
         <h1>Dashboard</h1>

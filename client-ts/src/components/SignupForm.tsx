@@ -34,7 +34,7 @@ const SignupForm = ({ showSignup }: SignupFormProps) => {
   const outsideNode = useClickOutside(() => showSignup(false));
   return (
     <div className="form-modal">
-      <form ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
+      <form className="signup-form" ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
         <h1>Register</h1>
         <div>
           <input name="email" type="email" ref={register({ required: true })} placeholder="Email" />
@@ -56,7 +56,7 @@ const SignupForm = ({ showSignup }: SignupFormProps) => {
           />
           {errors.password_confirmation && <span>Please confirm your password</span>}
 
-          <input type="submit" />
+          <input type="submit" className="submit-button" value="Register" />
         </div>
       </form>
     </div>

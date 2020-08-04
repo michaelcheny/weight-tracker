@@ -258,7 +258,7 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.form-modal form {
+.form-modal .signup-form {
   width: 350px;
   height: 400px;
   background-color: var(--bg-secondary);
@@ -280,18 +280,18 @@
   padding: 3em;
 }
 
-.form-modal form div {
+.form-modal .signup-form div {
   width: 300px;
 }
 
-.form-modal form div input {
+.form-modal .signup-form div input {
   display: block;
   width: 100%;
   padding: 0.5em 1em;
   margin: 0.5em 0;
 }
 
-.form-modal form .weight-form {
+.form-modal .signup-form .weight-form {
   width: 80%;
   padding: 0.5em;
 }

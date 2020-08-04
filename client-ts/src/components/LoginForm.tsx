@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useClickOutside } from "../helpers/useClickOutside";
 import apiActions from "../helpers/apiActions";
 import { AuthContext } from "../context/AuthContext";
@@ -17,6 +17,8 @@ type LoginFormProps = {
 const LoginForm = ({ showLogin }: LoginFormProps) => {
   const { token, setUser, setAuthenticated } = useContext(AuthContext);
 
+  const [error, setError] = useState<boolean>(false);
+
   const { register, handleSubmit, errors } = useForm<Input>();
 
   const onSubmit = (data: Input) => {
@@ -26,6 +28,8 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
         setUser(data);
         setAuthenticated(true);
         showLogin(false);
+      } else {
+        setError(true);
       }
     });
   };
@@ -34,19 +38,19 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
 
   return (
     <div className="form-modal">
-      <form ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
+      <form className="signup-form" ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
         <h1>Log In</h1>
-        {/* {error && <Errors errors={errMsgs} />} */}
+        {error && "Invalid Credentials"}
         <div>
           <input type="text" name="email" placeholder="Email" ref={register({ required: true })} />
-          {errors.email && <span>This field is required</span>}
+          {errors.email && "This field is required"}
           <input
             type="password"
             name="password"
             placeholder="Password"
             ref={register({ required: true })}
           />
-          {errors.password && <span>This field is required</span>}
+          {errors.password && "This field is required"}
           <input type="submit" value="Log In" className="submit-button" />
         </div>
       </form>
