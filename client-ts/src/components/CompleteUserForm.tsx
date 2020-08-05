@@ -94,7 +94,7 @@ const CompleteUserForm = () => {
             name="activity_level"
             placeholder="Activity level"
             id="activity_level"
-            defaultValue="3"
+            defaultValue={user.activity_level || 1}
             ref={register}
           >
             <option value="1">Lazy</option>
@@ -105,7 +105,7 @@ const CompleteUserForm = () => {
           </select>
           {/* GOAL */}
           <label id="goal">Goal</label>
-          <select name="goal" id="goal" ref={register} defaultValue="3">
+          <select name="goal" id="goal" ref={register} defaultValue={user.goal || 1}>
             <option value="1">Lose 1 pound a week</option>
             <option value="2">Lose 1/2 pound a week</option>
             <option value="3">Maintain weight</option>

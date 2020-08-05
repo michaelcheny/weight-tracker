@@ -28,17 +28,7 @@ const Dashboard = () => {
   };
 
   const completeUserSignup = () => {
-    if (
-      !user.activity_level ||
-      !user.age ||
-      !user.bmr ||
-      // !user.current_calories ||
-      !user.gender ||
-      !user.goal ||
-      !user.height ||
-      !user.tdee ||
-      !user.weight
-    ) {
+    if (!user.age || !user.bmr || !user.gender || !user.height || !user.tdee || !user.weight) {
       return <CompleteUserForm />;
     } else {
       return null;
@@ -62,11 +52,12 @@ const Dashboard = () => {
         {/* SECOND HALF OF SCREEN */}
         <div className="grid-container">
           <div>
-            {user.current_calories || 1200}
+            {user.current_calories || 0}
             <span className="head">Current calories</span>
           </div>
           <div>
-            <span className="head">Something</span>sdfsdf
+            <span className="head">Recommended Calories</span>
+            {user.tdee}
           </div>
           <div>
             {goalConverter(user.goal)}
