@@ -32,7 +32,7 @@ const Dashboard = () => {
       !user.activity_level ||
       !user.age ||
       !user.bmr ||
-      !user.current_calories ||
+      // !user.current_calories ||
       !user.gender ||
       !user.goal ||
       !user.height ||

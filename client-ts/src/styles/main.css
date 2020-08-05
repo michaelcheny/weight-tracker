@@ -276,6 +276,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 3em;
+  overflow: auto;
 }
 
 .form-modal .signup-form {
@@ -285,8 +286,8 @@
 }
 
 .form-modal .complete-user-form {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
 }
 
 .form-modal .weight-form {

@@ -40,9 +40,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :gender
       t.integer :bmr
       t.integer :tdee
-      t.integer :activity_level
-      t.integer :goal
-      t.integer :current_calories
+      t.integer :activity_level, default: 1
+      t.integer :goal, default: 3
+      t.integer :current_calories, default: 0
       t.timestamps null: false
     end
 
