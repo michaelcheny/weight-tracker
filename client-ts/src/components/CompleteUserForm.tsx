@@ -18,7 +18,7 @@ const CompleteUserForm = () => {
 
   return (
     <div className="form-modal">
-      <form className="complete-user-form">
+      <form className="complete-user-form" onSubmit={handleSubmit(onSubmit)}>
         <h2>Welcome! Please complete your account to begin using.</h2>
         <div>
           {/* ACTIVITY LEVEL */}
@@ -28,6 +28,7 @@ const CompleteUserForm = () => {
             placeholder="Activity level"
             id="activity_level"
             defaultValue="3"
+            ref={register}
           >
             <option value="1">Lazy</option>
             <option value="2">Sort of Lazy</option>
@@ -37,18 +38,18 @@ const CompleteUserForm = () => {
           </select>
           {/* GENDER */}
           <label id="gender">Gender</label>
-          <select name="gender" id="gender" defaultValue="male">
+          <select name="gender" id="gender" defaultValue="male" ref={register}>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
           {/* AGE */}
           <label id="age">Age</label>
-          <input type="number" name="age" id="" min="1" max="120" defaultValue="50" />
+          <input type="number" name="age" id="" min="1" max="120" defaultValue="50" ref={register} />
           {/* HEIGHT */}
           <label id="height">Height</label>
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
             <div style={{ display: "inline", width: "170px" }}>
-              <select name="height-feet" id="height-feet" className="height" defaultValue="5">
+              <select name="feet" id="feet" className="height" defaultValue="5" ref={register}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -57,21 +58,21 @@ const CompleteUserForm = () => {
                 <option value="6">6</option>
                 <option value="7">7</option>
               </select>
-              <label id="height-feet"> Feet</label>
+              <label id="feet"> Feet</label>
             </div>
             <div style={{ display: "inline" }}>
-              <select name="height-inch" id="height-inch" className="height" defaultValue="1">
+              <select name="inches" id="inches" className="height" defaultValue="1" ref={register}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
               </select>
-              <label id="height-inch"> Inches</label>
+              <label id="inches"> Inches</label>
             </div>
           </div>
           {/* WEIGHT */}
           <label id="weight">Weight</label>
-          <input type="number" name="weight" defaultValue="100" />
+          <input type="number" name="weight" defaultValue="100" ref={register} />
           <input type="submit" value="Update" className="submit-button" />
         </div>
       </form>
