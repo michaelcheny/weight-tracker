@@ -17,7 +17,7 @@ const CompleteUserForm = () => {
 
   const { register, errors, handleSubmit } = useForm<Inputs>();
 
-  const onSubmit = (data: Inputs) => {
+  const onSubmit = async (data: Inputs) => {
     // console.log(data);
 
     const userAttributes = {
@@ -29,7 +29,8 @@ const CompleteUserForm = () => {
     };
 
     console.log(userAttributes);
-    api.update(token, userAttributes, user.id);
+    const updatedUser = await api.update(token, userAttributes, user.id);
+    console.log(updatedUser);
   };
 
   return (

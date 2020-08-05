@@ -31,6 +31,32 @@ class ApplicationController < ActionController::API
 
   # HELPERS
 
+  def calculate_bmr(user)
+    # binding.pry
+    if user.gender == "male"
+      bmr = (10 * (user.weight * 0.4535934)) + (6.25 * (user.height * 2.54)) - (5 * user.age) + 5
+    elsif user.gender == "female"
+      bmr = (10 * (user.weight * 0.4535934)) + (6.25 * (user.height * 2.54)) - (5 * user.age) - 161
+    end
+    return bmr.to_i
+  end
+
+  def calculate_tdee(user, bmr)
+    if user.activity_level == 1
+      multiplier = 1.2
+    elsif user.activity_level == 2
+      multiplier = 1.375
+    elsif user.activity_level == 3
+      multiplier = 1.55
+    elsif user.activity_level == 4
+      multiplier = 1.725
+    elsif user.activity_level == 5
+      multiplier = 1.95
+    end
+    tdee = user.bmr * multiplier
+    return tdee.to_i
+  end
+
   private
 
   def set_csrf_cookie
