@@ -27,6 +27,7 @@ const CompleteUserForm = () => {
       gender: data.gender,
       weight: Number(data.weight),
       height: Number(data.feet) * 12 + Number(data.inches),
+      goal: Number(data.goal),
     };
 
     // console.log(userAttributes);
@@ -40,7 +41,7 @@ const CompleteUserForm = () => {
   return (
     <div className="form-modal">
       <form className="complete-user-form" onSubmit={handleSubmit(onSubmit)}>
-        <h2>Welcome! Please complete your account to begin using.</h2>
+        <h3>Welcome! Please complete your account to begin using.</h3>
         <div>
           {/* GENDER */}
           <label id="gender">Gender</label>
@@ -54,7 +55,7 @@ const CompleteUserForm = () => {
           {/* HEIGHT */}
           <label id="height">Height</label>
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <div style={{ display: "inline", width: "170px" }}>
+            <div style={{ display: "inline", width: "210px" }}>
               <select name="feet" id="feet" className="height" defaultValue="5" ref={register}>
                 <option value="1">1</option>
                 <option value="2">2</option>

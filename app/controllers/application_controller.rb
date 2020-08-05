@@ -54,7 +54,7 @@ class ApplicationController < ActionController::API
       multiplier = 1.95
     end
     tdee = bmr * multiplier
-    binding.pry
+    # binding.pry
     return tdee.to_i
   end
 

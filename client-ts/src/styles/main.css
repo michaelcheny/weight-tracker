@@ -246,6 +246,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  top: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -254,7 +255,6 @@
           align-items: center;
   height: 100%;
   width: 100%;
-  margin-right: 200px;
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -281,6 +281,7 @@
 .form-modal .signup-form {
   width: 350px;
   height: 400px;
+  padding: 2em;
 }
 
 .form-modal .complete-user-form {
@@ -300,7 +301,7 @@
 .form-modal div input {
   display: block;
   width: 100%;
-  height: 50px;
+  height: 40px;
   color: darkslategray;
   margin: 0.5em 0;
   padding-left: 1em;
@@ -312,7 +313,7 @@
 
 .form-modal div select {
   width: 100%;
-  height: 50px;
+  height: 40px;
   margin: 0.5em 0;
   font-size: medium;
   color: darkslategray;
@@ -320,12 +321,26 @@
 }
 
 @media (min-width: 768px) {
+  .form-modal {
+    margin-right: 60px;
+  }
   .form-modal form {
     width: 420px;
     height: 400px;
   }
   .form-modal form div {
     width: 360px;
+  }
+  .form-modal .signup-form {
+    width: 400px;
+    height: 400px;
+    padding: 2em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form-modal {
+    margin-right: 200px;
   }
 }
 

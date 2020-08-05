@@ -14,16 +14,16 @@ const Dashboard = () => {
 
   const goalConverter = (goal: number) => {
     switch (goal) {
-      case -2:
-        return "Lose 2 pound a week";
-      case -1:
-        return "Lost 1 pound a week";
-      case 0:
-        return "Maintain weight";
       case 1:
-        return "Gain 1 pound a week";
+        return "Lose 1 pound a week";
       case 2:
-        return "Gain 2 pounds a week";
+        return "Lost 1/2 pound a week";
+      case 3:
+        return "Maintain weight";
+      case 4:
+        return "Gain 1/2 pound a week";
+      case 5:
+        return "Gain 1 pounds a week";
     }
   };
 
