@@ -53,7 +53,8 @@ class ApplicationController < ActionController::API
     elsif user.activity_level == 5
       multiplier = 1.95
     end
-    tdee = user.bmr * multiplier
+    tdee = bmr * multiplier
+    binding.pry
     return tdee.to_i
   end
 

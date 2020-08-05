@@ -34,7 +34,7 @@ const Dashboard = () => {
       !user.bmr ||
       !user.current_calories ||
       !user.gender ||
-      // !user.goal ||
+      !user.goal ||
       !user.height ||
       !user.tdee ||
       !user.weight

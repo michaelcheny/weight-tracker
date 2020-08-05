@@ -10,12 +10,13 @@ type Inputs = {
   feet: number;
   inches: number;
   weight: number;
+  goal: number;
 };
 
 const CompleteUserForm = () => {
   const { user, setUser, token } = useContext(AuthContext);
 
-  const { register, errors, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit = async (data: Inputs) => {
     // console.log(data);
@@ -28,9 +29,12 @@ const CompleteUserForm = () => {
       height: Number(data.feet) * 12 + Number(data.inches),
     };
 
-    console.log(userAttributes);
+    // console.log(userAttributes);
     const updatedUser = await api.update(token, userAttributes, user.id);
     console.log(updatedUser);
+    // ADD METHOD TO LOG WEIGHT
+
+    setUser(updatedUser);
   };
 
   return (
@@ -46,7 +50,7 @@ const CompleteUserForm = () => {
           </select>
           {/* AGE */}
           <label id="age">Age</label>
-          <input type="number" name="age" id="age" min="1" max="120" defaultValue="50" ref={register} />
+          <input type="number" name="age" id="" min="1" max="120" defaultValue="50" ref={register} />
           {/* HEIGHT */}
           <label id="height">Height</label>
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
@@ -97,6 +101,15 @@ const CompleteUserForm = () => {
             <option value="3">Not Lazy</option>
             <option value="4">Active</option>
             <option value="5">Very Active</option>
+          </select>
+          {/* GOAL */}
+          <label id="goal">Goal</label>
+          <select name="goal" id="goal" ref={register} defaultValue="3">
+            <option value="1">Lose 1 pound a week</option>
+            <option value="2">Lose 1/2 pound a week</option>
+            <option value="3">Maintain weight</option>
+            <option value="4">Gain 1/2 pound a week</option>
+            <option value="5">Gain 1 pound a week</option>
           </select>
           {/* SUBMIT */}
           <input type="submit" value="Update" className="submit-button" />

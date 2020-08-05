@@ -27,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
       bmr = calculate_bmr(user)
       tdee = calculate_tdee(user, bmr)
       user.update(bmr: bmr, tdee: tdee)
-      binding.pry
+      # binding.pry
       render json: user, status: 200
     else
       render json: { errors: user.errors.full_messages }, status: 400
