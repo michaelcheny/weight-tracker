@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../context/AuthContext";
+import api from "../helpers/apiActions";
 
 type Inputs = {
   activity_level: number;
   gender: string;
   age: number;
-  height: number;
+  feet: number;
+  inches: number;
   weight: number;
 };
 
 const CompleteUserForm = () => {
+  const { user, setUser, token } = useContext(AuthContext);
+
   const { register, errors, handleSubmit } = useForm<Inputs>();
 
   const onSubmit = (data: Inputs) => {
-    console.log(data);
+    // console.log(data);
+
+    const userAttributes = {
+      activity_level: Number(data.activity_level),
+      age: Number(data.age),
+      gender: data.gender,
+      weight: Number(data.weight),
+      height: Number(data.feet) * 12 + Number(data.inches),
+    };
+
+    console.log(userAttributes);
+    api.update(token, userAttributes, user.id);
   };
 
   return (
@@ -21,21 +37,6 @@ const CompleteUserForm = () => {
       <form className="complete-user-form" onSubmit={handleSubmit(onSubmit)}>
         <h2>Welcome! Please complete your account to begin using.</h2>
         <div>
-          {/* ACTIVITY LEVEL */}
-          <label id="activity_level">Activity Level</label>
-          <select
-            name="activity_level"
-            placeholder="Activity level"
-            id="activity_level"
-            defaultValue="3"
-            ref={register}
-          >
-            <option value="1">Lazy</option>
-            <option value="2">Sort of Lazy</option>
-            <option value="3">Not Lazy</option>
-            <option value="4">Active</option>
-            <option value="5">Very Active</option>
-          </select>
           {/* GENDER */}
           <label id="gender">Gender</label>
           <select name="gender" id="gender" defaultValue="male" ref={register}>
@@ -44,7 +45,7 @@ const CompleteUserForm = () => {
           </select>
           {/* AGE */}
           <label id="age">Age</label>
-          <input type="number" name="age" id="" min="1" max="120" defaultValue="50" ref={register} />
+          <input type="number" name="age" id="age" min="1" max="120" defaultValue="50" ref={register} />
           {/* HEIGHT */}
           <label id="height">Height</label>
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
@@ -66,6 +67,14 @@ const CompleteUserForm = () => {
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
               <label id="inches"> Inches</label>
             </div>
@@ -73,6 +82,22 @@ const CompleteUserForm = () => {
           {/* WEIGHT */}
           <label id="weight">Weight</label>
           <input type="number" name="weight" defaultValue="100" ref={register} />
+          {/* ACTIVITY LEVEL */}
+          <label id="activity_level">Activity Level</label>
+          <select
+            name="activity_level"
+            placeholder="Activity level"
+            id="activity_level"
+            defaultValue="3"
+            ref={register}
+          >
+            <option value="1">Lazy</option>
+            <option value="2">Sort of Lazy</option>
+            <option value="3">Not Lazy</option>
+            <option value="4">Active</option>
+            <option value="5">Very Active</option>
+          </select>
+          {/* SUBMIT */}
           <input type="submit" value="Update" className="submit-button" />
         </div>
       </form>

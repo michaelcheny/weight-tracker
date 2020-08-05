@@ -29,6 +29,8 @@ class ApplicationController < ActionController::API
     render json: {error: "Not Authorized"}, status: 401
   end
 
+  # HELPERS
+
   private
 
   def set_csrf_cookie

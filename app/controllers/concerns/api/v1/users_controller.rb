@@ -22,7 +22,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    user = current_user
+    user = User.find(params[:id])
+    binding.pry
+    
     if user.update(user_params)
       render json: user, status: 200
     else
@@ -52,7 +54,7 @@ class Api::V1::UsersController < ApplicationController
       :activity_level,
       :bmr,
       :tdee,
-      :goal
+      :goal,
       :current_calories
     )
   end

@@ -1,4 +1,5 @@
 interface User {
+  // id?: number;
   activity_level: number;
   age: number;
   bmr: number;
@@ -86,6 +87,31 @@ export default {
       console.log(data);
       if (res.ok) {
         console.log(`Logged in as: ${data.email}`);
+      } else {
+        console.log(data.errors);
+      }
+      return data;
+    } catch (error) {
+      console.log(error);
+      return error.message;
+    }
+  },
+  update: async (token: string, user: object, id: number): Promise<User> => {
+    try {
+      const res = await fetch(`/api/v1/users/${id}`, {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": token,
+        },
+        body: JSON.stringify({ user }),
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log(data);
+      if (res.ok) {
+        console.log("Successfully Updated");
       } else {
         console.log(data.errors);
       }
