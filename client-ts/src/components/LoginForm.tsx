@@ -1,9 +1,12 @@
 import React, { useState, useContext } from "react";
 import { useClickOutside } from "../helpers/useClickOutside";
-import apiActions from "../helpers/apiActions";
+// import apiActions from "../helpers/apiActions";
 import { AuthContext } from "../context/AuthContext";
 // import Errors from "../components/Errors";
 import { useForm } from "react-hook-form";
+import { useAppDispatch } from "../store";
+import { saveToken, setAuthState } from "../features/auth/authSlice";
+import { setUser, fetchUser } from "../features/auth/userSlice";
 
 type Input = {
   email: string;
@@ -15,6 +18,8 @@ type LoginFormProps = {
 };
 
 const LoginForm = ({ showLogin }: LoginFormProps) => {
+  const dispatch = useAppDispatch();
+
   const { token, setUser, setAuthenticated } = useContext(AuthContext);
 
   const [error, setError] = useState<boolean>(false);
@@ -23,15 +28,26 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
 
   const onSubmit = (data: Input) => {
     console.log(data);
-    apiActions.logIn(token, data.email, data.password).then((data) => {
-      if (!Object.keys(data).includes("errors")) {
-        setUser(data);
-        setAuthenticated(true);
-        showLogin(false);
-      } else {
-        setError(true);
-      }
-    });
+    const loginInfo = { token, email: data.email, password: data.password };
+    // redux stuff
+    const thing = dispatch(fetchUser(loginInfo));
+    if (!Object.keys(thing).includes("errors")) {
+      showLogin(false);
+      dispatch(setAuthState(true));
+    } else {
+      setError(true);
+    }
+    console.log(thing);
+    // apiActions.logIn(token, data.email, data.password).then((data) => {
+    //   if (!Object.keys(data).includes("errors")) {
+    //     // setUser(data);
+    //     // setAuthenticated(true);
+
+    //     dispa
+    //     dispatch(setUser(data));
+    //   } else {
+    //   }
+    // });
   };
 
   const outsideNode = useClickOutside(() => showLogin(false));

@@ -17,5 +17,5 @@ export interface User {
   updated_at: string;
   weight: number;
   weight_histories: object[];
-  errors?: string[];
+  errors?: object[] | string[] | undefined;
 }
