@@ -27,26 +27,18 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
   const { register, handleSubmit, errors } = useForm<Input>();
 
   const onSubmit = async (data: Input) => {
-    console.log(data);
+    // console.log(data);
     const loginInfo = { token, email: data.email, password: data.password };
     // redux stuff
     const response = await dispatch(fetchUser(loginInfo));
-    if (response.payload === "404") {
+    // console.log(response);
+    if (response.payload === "401") {
       setError(true);
     } else {
       showLogin(false);
       dispatch(setAuthState(true));
+      // TODO SET UP AUTH WUTH REDUX
     }
-    // apiActions.logIn(token, data.email, data.password).then((data) => {
-    //   if (!Object.keys(data).includes("errors")) {
-    //     // setUser(data);
-    //     // setAuthenticated(true);
-
-    //     dispa
-    //     dispatch(setUser(data));
-    //   } else {
-    //   }
-    // });
   };
 
   const outsideNode = useClickOutside(() => showLogin(false));
