@@ -86,7 +86,7 @@ export default {
       });
       const data = await res.json();
       console.log(data);
-      // if (res.ok) {
+      if (!res.ok) throw new Error("404");
       //   console.log(`Logged in as: ${data.email}`);
       // } else {
       //   console.log(data.errors);

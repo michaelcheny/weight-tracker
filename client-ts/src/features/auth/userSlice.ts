@@ -28,7 +28,7 @@ export const fetchUser = createAsyncThunk(
   async (loginInfo: LoginAttributes) => {
     const { token, email, password } = loginInfo;
     const userData = await userApi.logIn(token, email, password);
-    console.log(userData);
+    // console.log(userData);
     return userData as User;
   }
 );
@@ -47,9 +47,9 @@ const user = createSlice({
 
       return (state = action.payload);
     });
-    builder.addCase(fetchUser.rejected, (state, action) => {
-      return state?.errors?.push(action.payload);
-    });
+    // builder.addCase(fetchUser.rejected, (state, action) => {
+    //   return state?.errors?.push(action.payload);
+    // });
   },
 });
 

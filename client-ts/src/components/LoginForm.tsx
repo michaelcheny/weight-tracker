@@ -26,18 +26,17 @@ const LoginForm = ({ showLogin }: LoginFormProps) => {
 
   const { register, handleSubmit, errors } = useForm<Input>();
 
-  const onSubmit = (data: Input) => {
+  const onSubmit = async (data: Input) => {
     console.log(data);
     const loginInfo = { token, email: data.email, password: data.password };
     // redux stuff
-    const thing = dispatch(fetchUser(loginInfo));
-    if (!Object.keys(thing).includes("errors")) {
+    const response = await dispatch(fetchUser(loginInfo));
+    if (response.payload === "404") {
+      setError(true);
+    } else {
       showLogin(false);
       dispatch(setAuthState(true));
-    } else {
-      setError(true);
     }
-    console.log(thing);
     // apiActions.logIn(token, data.email, data.password).then((data) => {
     //   if (!Object.keys(data).includes("errors")) {
     //     // setUser(data);
