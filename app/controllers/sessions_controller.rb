@@ -17,11 +17,6 @@ class SessionsController < ApplicationController
 
   def auto_login
     if logged_in?
-      # render json: current_user, include: [
-      #   :meals, 
-      #   :macros => {only: [:fats, :proteins, :carbs]}, 
-      #   :weight_histories => {only: [:weight, :created_at]}
-      # ]
       render json: current_user
     else
       render json: { errors: "No users logged in" }

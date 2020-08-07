@@ -18,10 +18,10 @@ michael = User.create(
   age: 28, 
   height: 69, 
   weight: 180, 
-  activity_level: "3", 
+  activity_level: 3,
   bmr: 1818, 
   tdee: 2817, 
-  goal: 0,  
+  goal: 3,  
   current_calories: 1650
 )
 

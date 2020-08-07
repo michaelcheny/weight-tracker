@@ -32,7 +32,6 @@ class ApplicationController < ActionController::API
   # HELPERS
 
   def calculate_bmr(user)
-    # binding.pry
     if user.gender == "male"
       bmr = (10 * (user.weight * 0.4535934)) + (6.25 * (user.height * 2.54)) - (5 * user.age) + 5
     elsif user.gender == "female"
@@ -54,7 +53,6 @@ class ApplicationController < ActionController::API
       multiplier = 1.95
     end
     tdee = bmr * multiplier
-    # binding.pry
     return tdee.to_i
   end
 
