@@ -11,9 +11,10 @@ type Input = {
 
 type showFormProps = {
   showForm: React.Dispatch<React.SetStateAction<boolean>>;
+  currentWeight: number;
 };
 
-const WeightUpdateForm = ({ showForm }: showFormProps) => {
+const WeightUpdateForm = ({ showForm, currentWeight }: showFormProps) => {
   const { token, user, setUser } = useContext(AuthContext);
 
   const { register, handleSubmit, errors } = useForm<Input>();
@@ -35,7 +36,12 @@ const WeightUpdateForm = ({ showForm }: showFormProps) => {
       <form ref={outsideNode} onSubmit={handleSubmit(onSubmit)}>
         <h1>Log yo weight</h1>
         <div>
-          <input name="weight" type="number" ref={register({ required: true, min: 50, max: 500 })} />
+          <input
+            name="weight"
+            type="number"
+            defaultValue={currentWeight}
+            ref={register({ required: true, min: 50, max: 500 })}
+          />
           {errors.weight && <span>poopity whoop</span>}
 
           <input type="submit" />

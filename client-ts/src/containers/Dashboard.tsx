@@ -39,7 +39,7 @@ const Dashboard = () => {
     <>
       {console.log(user)}
       {completeUserSignup()}
-      {showWeightForm && <WeightUpdateForm showForm={setShowWeightForm} />}
+      {showWeightForm && <WeightUpdateForm currentWeight={user.weight} showForm={setShowWeightForm} />}
       <section className="container">
         <h1>Dashboard</h1>
         <div className="stat-container">
