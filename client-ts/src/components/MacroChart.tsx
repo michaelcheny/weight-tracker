@@ -19,38 +19,38 @@ const MacroChart = ({ macros }: MacroChartProps) => {
 
     return (
       <div className="macro-container">
-        <Example label="Fats" description={`Goal: ${fatGoal}g`}>
+        <Example label="Fats (g)" description={`Goal: ${fatGoal}g`}>
           <CircularProgressbar
             value={macros.fats}
             maxValue={fatGoal}
-            text={`${macros.fats}g`}
+            text={`${macros.fats}/${fatGoal}`}
             styles={buildStyles({
-              textSize: "20px",
+              textSize: "16px",
               textColor: "#e07a5f",
               pathColor: "#81b29a",
               // trailColor: "pink",
             })}
           />
         </Example>
-        <Example label="Proteins" description={`Goal: ${proteinGoal}g`}>
+        <Example label="Proteins (g)" description={`Goal: ${proteinGoal}g`}>
           <CircularProgressbar
             value={macros.proteins}
             maxValue={proteinGoal}
-            text={`${macros.proteins}g`}
+            text={`${macros.proteins}/${proteinGoal}`}
             styles={buildStyles({
-              textSize: "20px",
+              textSize: "16px",
               textColor: "#e07a5f",
               pathColor: "#81b29a",
             })}
           />
         </Example>
-        <Example label="Carbs" description={`Goal: ${carbGoal}g`}>
+        <Example label="Carbs (g)" description={`Goal: ${carbGoal}g`}>
           <CircularProgressbar
             value={macros.carbs}
             maxValue={carbGoal}
-            text={`${macros.carbs}g`}
+            text={`${macros.carbs}/${carbGoal}`}
             styles={buildStyles({
-              textSize: "20px",
+              textSize: "16px",
               textColor: "#e07a5f",
               pathColor: "#81b29a",
             })}
