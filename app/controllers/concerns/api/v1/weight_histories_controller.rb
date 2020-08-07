@@ -4,11 +4,11 @@ class Api::V1::WeightHistoriesController < ApplicationController
     # binding.pry
     # user = User.find(params[:user_id])
     weight = WeightHistory.new(weight_params)
-    binding.pry
+    # binding.pry
     if weight.save
       # user.weight_histories << weight
       # user.weight_histories.create(weight)
-      binding.pry
+      # binding.pry
       render json: weight, status: 200
     else
       render json: {errors: ['Error logging']}, status: 401
