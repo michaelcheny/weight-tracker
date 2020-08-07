@@ -121,4 +121,24 @@ export default {
       return error.message;
     }
   },
+  logWeight: async (token: string, weight: number, user_id: number): Promise<User> => {
+    try {
+      const res = await fetch(`/api/v1/users/${user_id}/weight_histories`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": token,
+        },
+        body: JSON.stringify({ weight_histories: { weight, user_id } }),
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return error.message;
+    }
+  },
 };

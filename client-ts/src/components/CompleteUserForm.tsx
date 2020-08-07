@@ -29,6 +29,7 @@ const CompleteUserForm = () => {
       height: Number(data.feet) * 12 + Number(data.inches),
       goal: Number(data.goal),
     };
+    await api.logWeight(token, Number(data.weight), user.id);
 
     // console.log(userAttributes);
     const updatedUser = await api.update(token, userAttributes, user.id);
