@@ -64,7 +64,7 @@ const Dashboard = () => {
             <span className="head">Current Goal</span>
           </div>
           <div className="macros">
-            <span className="head">Macros</span>
+            <span className="head">Macros (grams)</span>
             <MacroChart macros={user.macro} />
           </div>
           {/* <div>Total</div> */}

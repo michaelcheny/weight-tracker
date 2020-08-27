@@ -19,7 +19,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
 
     return (
       <div className="macro-container">
-        <Example label="Fats (g)" description={`Goal: ${fatGoal}g`}>
+        <Example label="Fats" description={`Goal: ${fatGoal}g`}>
           <CircularProgressbar
             value={macros.fats}
             maxValue={fatGoal}
@@ -32,7 +32,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
             })}
           />
         </Example>
-        <Example label="Proteins (g)" description={`Goal: ${proteinGoal}g`}>
+        <Example label="Proteins" description={`Goal: ${proteinGoal}g`}>
           <CircularProgressbar
             value={macros.proteins}
             maxValue={proteinGoal}
@@ -44,7 +44,7 @@ const MacroChart = ({ macros }: MacroChartProps) => {
             })}
           />
         </Example>
-        <Example label="Carbs (g)" description={`Goal: ${carbGoal}g`}>
+        <Example label="Carbs" description={`Goal: ${carbGoal}g`}>
           <CircularProgressbar
             value={macros.carbs}
             maxValue={carbGoal}
