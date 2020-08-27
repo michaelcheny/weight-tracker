@@ -1,6 +1,6 @@
-import React from "react";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import React from 'react';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 type MacroChartProps = {
   macros: {
@@ -8,51 +8,53 @@ type MacroChartProps = {
     proteins: number;
     carbs: number;
   };
+  macroGoal: {
+    fats: number;
+    proteins: number;
+    carbs: number;
+  };
 };
 
-const MacroChart = ({ macros }: MacroChartProps) => {
+const MacroChart = ({ macros, macroGoal }: MacroChartProps) => {
   console.log(macros);
-  if (macros) {
-    const fatGoal = 120;
-    const proteinGoal = 150;
-    const carbGoal = 260;
-
+  console.log(macroGoal);
+  if (macros && macroGoal) {
     return (
       <div className="macro-container">
-        <Example label="Fats" description={`Goal: ${fatGoal}g`}>
+        <Example label="Fats" description={`Goal: ${macroGoal.fats}g`}>
           <CircularProgressbar
             value={macros.fats}
-            maxValue={fatGoal}
-            text={`${macros.fats}/${fatGoal}`}
+            maxValue={macroGoal.fats}
+            text={`${macros.fats}/${macroGoal.fats}`}
             styles={buildStyles({
-              textSize: "16px",
-              textColor: "#e07a5f",
-              pathColor: "#81b29a",
+              textSize: '16px',
+              textColor: '#e07a5f',
+              pathColor: '#81b29a',
               // trailColor: "pink",
             })}
           />
         </Example>
-        <Example label="Proteins" description={`Goal: ${proteinGoal}g`}>
+        <Example label="Proteins" description={`Goal: ${macroGoal.proteins}g`}>
           <CircularProgressbar
             value={macros.proteins}
-            maxValue={proteinGoal}
-            text={`${macros.proteins}/${proteinGoal}`}
+            maxValue={macroGoal.proteins}
+            text={`${macros.proteins}/${macroGoal.proteins}`}
             styles={buildStyles({
-              textSize: "16px",
-              textColor: "#e07a5f",
-              pathColor: "#81b29a",
+              textSize: '16px',
+              textColor: '#e07a5f',
+              pathColor: '#81b29a',
             })}
           />
         </Example>
-        <Example label="Carbs" description={`Goal: ${carbGoal}g`}>
+        <Example label="Carbs" description={`Goal: ${macroGoal.carbs}g`}>
           <CircularProgressbar
             value={macros.carbs}
-            maxValue={carbGoal}
-            text={`${macros.carbs}/${carbGoal}`}
+            maxValue={macroGoal.carbs}
+            text={`${macros.carbs}/${macroGoal.carbs}`}
             styles={buildStyles({
-              textSize: "16px",
-              textColor: "#e07a5f",
-              pathColor: "#81b29a",
+              textSize: '16px',
+              textColor: '#e07a5f',
+              pathColor: '#81b29a',
             })}
           />
         </Example>
@@ -77,11 +79,11 @@ function Example({
   return (
     <div
       style={{
-        background: "none",
+        background: 'none',
         // border: "1px gray solid",
-        display: "flex",
-        flexDirection: "column",
-        marginBottom: "1em",
+        display: 'flex',
+        flexDirection: 'column',
+        marginBottom: '1em',
       }}
     >
       {/* <div

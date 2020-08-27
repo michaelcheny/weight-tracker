@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import WeightChart from "../components/WeightChart";
-import MacroChart from "../components/MacroChart";
-import WeightUpdateForm from "../components/WeightUpdateForm";
-import { defaults } from "react-chartjs-2";
-import CompleteUserForm from "../components/CompleteUserForm";
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import WeightChart from '../components/WeightChart';
+import MacroChart from '../components/MacroChart';
+import WeightUpdateForm from '../components/WeightUpdateForm';
+import { defaults } from 'react-chartjs-2';
+import CompleteUserForm from '../components/CompleteUserForm';
 
 defaults.global.maintainAspectRatio = false;
 
@@ -15,20 +15,27 @@ const Dashboard = () => {
   const goalConverter = (goal: number) => {
     switch (goal) {
       case 1:
-        return "Lose 1 pound a week";
+        return 'Lose 1 pound a week';
       case 2:
-        return "Lost 1/2 pound a week";
+        return 'Lost 1/2 pound a week';
       case 3:
-        return "Maintain weight";
+        return 'Maintain weight';
       case 4:
-        return "Gain 1/2 pound a week";
+        return 'Gain 1/2 pound a week';
       case 5:
-        return "Gain 1 pounds a week";
+        return 'Gain 1 pounds a week';
     }
   };
 
   const completeUserSignup = () => {
-    if (!user.age || !user.bmr || !user.gender || !user.height || !user.tdee || !user.weight) {
+    if (
+      !user.age ||
+      !user.bmr ||
+      !user.gender ||
+      !user.height ||
+      !user.tdee ||
+      !user.weight
+    ) {
       return <CompleteUserForm />;
     } else {
       return null;
@@ -39,7 +46,9 @@ const Dashboard = () => {
     <>
       {console.log(user)}
       {completeUserSignup()}
-      {showWeightForm && <WeightUpdateForm currentWeight={user.weight} showForm={setShowWeightForm} />}
+      {showWeightForm && (
+        <WeightUpdateForm currentWeight={user.weight} showForm={setShowWeightForm} />
+      )}
       <section className="container">
         <h1>Dashboard</h1>
         <div className="stat-container">
@@ -65,7 +74,7 @@ const Dashboard = () => {
           </div>
           <div className="macros">
             <span className="head">Macros (grams)</span>
-            <MacroChart macros={user.macro} />
+            <MacroChart macros={user.macro} macroGoal={user.macro_goal} />
           </div>
           {/* <div>Total</div> */}
           <div>

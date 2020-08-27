@@ -12,6 +12,8 @@ export interface User {
   id: number;
   last_name: string;
   macros: object[];
+  macro: object;
+  macro_goal: object;
   meals: object[];
   tdee: number;
   updated_at: string;
