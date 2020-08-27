@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_103036) do
+ActiveRecord::Schema.define(version: 2020_08_27_063446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "macros", force: :cascade do |t|
+  create_table "macro_goals", force: :cascade do |t|
     t.integer "fats"
     t.integer "proteins"
     t.integer "carbs"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_macro_goals_on_user_id"
+  end
+
+  create_table "macros", force: :cascade do |t|
+    t.integer "fats", default: 0
+    t.integer "proteins", default: 0
+    t.integer "carbs", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,9 +64,9 @@ ActiveRecord::Schema.define(version: 2020_07_23_103036) do
     t.string "gender"
     t.integer "bmr"
     t.integer "tdee"
-    t.integer "activity_level"
-    t.integer "goal"
-    t.integer "current_calories"
+    t.integer "activity_level", default: 1
+    t.integer "goal", default: 3
+    t.integer "current_calories", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -71,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_103036) do
     t.index ["user_id"], name: "index_weight_histories_on_user_id"
   end
 
+  add_foreign_key "macro_goals", "users"
   add_foreign_key "macros", "users"
   add_foreign_key "meals", "users"
   add_foreign_key "weight_histories", "users"

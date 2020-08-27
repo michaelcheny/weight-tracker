@@ -41,7 +41,7 @@ michael.weight_histories << weight3
 michael.weight_histories << weight4
 michael.weight_histories << weight5 
 
-macros = Macro.create(fats: 120, proteins: 140, carbs: 260)
-
+macros = Macro.create(fats: 40, proteins: 140, carbs: 160)
+macro_goals = MacroGoal.create(fats: 55, proteins: 250, carbs: 250)
 michael.macro = macros
-# << macros
+michael.macro_goal = macro_goals

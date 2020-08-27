@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :meals
         resource :weight_histories
         resources :macros
+        resources :macro_goals
       root to: "home#index"
 
     end

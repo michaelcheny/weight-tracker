@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
       bmr = calculate_bmr(user)
       tdee = calculate_tdee(user, bmr)
       macros = calculate_macros(user, tdee)
-      user.update(bmr: bmr, tdee: tdee, macro: macros)
+      user.update(bmr: bmr, tdee: tdee, macro_goal: macros)
       # binding.pry
       render json: user, status: 200
     else
