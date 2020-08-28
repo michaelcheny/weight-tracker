@@ -27,7 +27,7 @@ const MacroChart = ({ macros, macroGoal }: MacroChartProps) => {
             maxValue={macroGoal.fats}
             text={`${macros.fats}/${macroGoal.fats}`}
             styles={buildStyles({
-              textSize: '16px',
+              textSize: '15px',
               textColor: '#e07a5f',
               pathColor: '#81b29a',
               // trailColor: "pink",
@@ -40,7 +40,7 @@ const MacroChart = ({ macros, macroGoal }: MacroChartProps) => {
             maxValue={macroGoal.proteins}
             text={`${macros.proteins}/${macroGoal.proteins}`}
             styles={buildStyles({
-              textSize: '16px',
+              textSize: '15px',
               textColor: '#e07a5f',
               pathColor: '#81b29a',
             })}
@@ -52,7 +52,7 @@ const MacroChart = ({ macros, macroGoal }: MacroChartProps) => {
             maxValue={macroGoal.carbs}
             text={`${macros.carbs}/${macroGoal.carbs}`}
             styles={buildStyles({
-              textSize: '16px',
+              textSize: '15px',
               textColor: '#e07a5f',
               pathColor: '#81b29a',
             })}

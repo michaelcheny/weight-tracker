@@ -12,6 +12,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create 
     user = User.new(user_params)
+    user.macro = Macro.new(fats: 0, proteins: 0, carbs: 0)
     if user.save
       log_in(user)
       cookies['logged_in'] = true
@@ -29,7 +30,6 @@ class Api::V1::UsersController < ApplicationController
       tdee = calculate_tdee(user, bmr)
       macros = calculate_macros(user, tdee)
       user.update(bmr: bmr, tdee: tdee, macro_goal: macros)
-      # binding.pry
       render json: user, status: 200
     else
       render json: { errors: user.errors.full_messages }, status: 400

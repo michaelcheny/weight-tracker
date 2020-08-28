@@ -57,20 +57,11 @@ class ApplicationController < ActionController::API
   end
 
   def calculate_macros(user, tdee)
-    # 2500
-    # 20% Fats ~ 55.55
+    # 20% Fats | 40% Proteins | 40% Carbs 
     fats = (tdee * 0.2) / 9
-    # 40% Proteins ~ 250
     proteins = (tdee * 0.4) / 4
-    # 40% Carbs ~ 250
     carbs = (tdee * 0.4) / 4
-
-    # binding.pry
-    m = Macro.new(fats: fats, proteins: proteins, carbs: carbs)
-    binding.pry
-    return m
-    # user.macro = m
-    # user.save
+    return MacroGoal.new(fats: fats, proteins: proteins, carbs: carbs)
   end
 
   private
