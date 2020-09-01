@@ -21,7 +21,6 @@ class Api::V1::UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: 400
     end
   end
-  # TODOS: ADD MACRO GOAL ATTRIBUTE TO USER OR ADD CURRENT MACROS
 
   def update
     user = User.find(params[:id])
