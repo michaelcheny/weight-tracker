@@ -19,9 +19,7 @@ const WeightUpdateForm = ({ showForm, currentWeight }: showFormProps) => {
 
   const { register, handleSubmit, errors } = useForm<Input>();
   const onSubmit = async (data: Input) => {
-    // console.log(data);
-    // link to backend and update weight here
-    const weight = await api.logWeight(token, Number(data.weight), user.id);
+    await api.logWeight(token, Number(data.weight), user.id);
 
     const updatedUser = await api.update(token, { weight: Number(data.weight) }, user.id);
 
@@ -30,6 +28,7 @@ const WeightUpdateForm = ({ showForm, currentWeight }: showFormProps) => {
     //   ...prev,
     //   weight_histories: [...prev.weight_histories, weight],
     // }));
+
     setUser(updatedUser);
     showForm(false);
   };

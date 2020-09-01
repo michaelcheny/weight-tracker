@@ -44,7 +44,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {console.log(user)}
+      {/* {console.log(user)} */}
       {completeUserSignup()}
       {showWeightForm && (
         <WeightUpdateForm currentWeight={user.weight} showForm={setShowWeightForm} />

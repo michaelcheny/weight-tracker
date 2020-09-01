@@ -1,6 +1,7 @@
 Dashboard:
-[] Display user stats
-[] Allow user to change weight height age, etc
+[x] Display user stats
+[] Allow user to change height age, etc
+[x] Update weight
 [] progess bar??
 [] user progress stuffs???
 
