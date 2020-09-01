@@ -69,6 +69,7 @@ const Dashboard = () => {
             {user.tdee}
           </div>
           <div>
+            {/* *TODO: Turn this into clickable goal selector */}
             {goalConverter(user.goal)}
             <span className="head">Current Goal</span>
           </div>
@@ -79,7 +80,9 @@ const Dashboard = () => {
           {/* <div>Total</div> */}
           <div>
             <span className="head">Daily Macronutrient Goal</span>
-            <div className="macro-goals-container">
+            {/* *TODOS: Turn this into clickable macro ratio selector?? */}
+            Macro ratio selection here
+            {/* <div className="macro-goals-container">
               <div className="macro-goal-content">
                 <h4>Fats</h4>
                 <p>120g</p>
@@ -92,7 +95,7 @@ const Dashboard = () => {
                 <h4>Carbs</h4>
                 <p>260g</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
