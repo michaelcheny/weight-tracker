@@ -1,7 +1,11 @@
 Dashboard:
 [x] Display user stats
-[] Allow user to change height age, etc
 [x] Update weight
+[] Allow user to change height age, etc
+[] Allow user to change macro ratio based on goals
+[] List different ratios and let user click and select -- highlight selected
+[] The two sections on the bottom are clickables
+[] Allow goal change when user click current goal
 [] progess bar??
 [] user progress stuffs???
 
