@@ -25,11 +25,14 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
+    # binding.pry
     if user.update(user_params)
       bmr = calculate_bmr(user)
       tdee = calculate_tdee(user, bmr)
-      macros = calculate_macros(user, tdee)
+      macros = calculate_macros(tdee)
+      # binding.pry
       user.update(bmr: bmr, tdee: tdee, macro_goal: macros)
+      # binding.pry
       render json: user, status: 200
     else
       render json: { errors: user.errors.full_messages }, status: 400

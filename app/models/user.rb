@@ -14,5 +14,5 @@ class User < ApplicationRecord
   has_many :meals       
   has_many :weight_histories
   has_one :macro
-  has_one :macro_goal
+  has_one :macro_goal, dependent: :destroy
 end

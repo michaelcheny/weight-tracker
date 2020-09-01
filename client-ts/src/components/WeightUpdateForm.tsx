@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { useClickOutside } from "../helpers/useClickOutside";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../context/AuthContext";
-import api from "../helpers/apiActions";
-import { User } from "../interfaces/user.interface";
+import React, { useContext } from 'react';
+import { useClickOutside } from '../helpers/useClickOutside';
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../context/AuthContext';
+import api from '../helpers/apiActions';
+import { User } from '../interfaces/user.interface';
 
 type Input = {
   weight: string;
@@ -19,14 +19,18 @@ const WeightUpdateForm = ({ showForm, currentWeight }: showFormProps) => {
 
   const { register, handleSubmit, errors } = useForm<Input>();
   const onSubmit = async (data: Input) => {
-    console.log(data);
+    // console.log(data);
     // link to backend and update weight here
     const weight = await api.logWeight(token, Number(data.weight), user.id);
-    console.log(weight);
-    setUser((prev: User) => ({
-      ...prev,
-      weight_histories: [...prev.weight_histories, weight],
-    }));
+
+    const updatedUser = await api.update(token, { weight: Number(data.weight) }, user.id);
+
+    // console.log(newWeight);
+    // setUser((prev: User) => ({
+    //   ...prev,
+    //   weight_histories: [...prev.weight_histories, weight],
+    // }));
+    setUser(updatedUser);
     showForm(false);
   };
 

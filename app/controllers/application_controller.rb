@@ -56,7 +56,7 @@ class ApplicationController < ActionController::API
     return tdee.to_i
   end
 
-  def calculate_macros(user, tdee)
+  def calculate_macros(tdee)
     # 20% Fats | 40% Proteins | 40% Carbs 
     fats = (tdee * 0.2) / 9
     proteins = (tdee * 0.4) / 4
