@@ -66,9 +66,6 @@
     // color: gray;
     font-size: 14px;
 
-    // h4 {
-    //   color: "black";
-    // }
     .macro-goal-content {
       background: none;
       display: flex;
@@ -85,9 +82,6 @@
 }
 
 @media (min-width: 768px) {
-  // .stat-container {
-  // height: 350px;
-  // }
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -98,12 +92,6 @@
       grid-column-start: 1;
       grid-column-end: 3;
     }
-
-    // div {
-    // overflow: hidden;
-    // height: auto;
-    // width: 100%;
-    // }
 
     .macro-goals-container {
       padding-top: 1em;

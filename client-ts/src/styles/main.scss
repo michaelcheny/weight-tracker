@@ -1,9 +1,9 @@
-@import "./global";
-@import "./sidebar";
-@import "./dashboard";
-@import "./formModal";
-@import "./errors";
-@import "./macrochart";
+@import './global';
+@import './sidebar';
+@import './dashboard';
+@import './formModal';
+@import './errors';
+@import './macrochart';
 
 * {
   margin: 0;
@@ -12,8 +12,8 @@
 }
 
 html {
-  font-family: "Archivo Narrow", "Archivo Black", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-    Arial, sans-serif;
+  font-family: 'Archivo Narrow', 'Archivo Black', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ html {
   --color-text: #e07a5f;
   --color-accent: #f2cc8f;
   // --font-normal: "Archivo Narrow";
-  --font-header: "Archivo Black";
+  --font-header: 'Archivo Black';
 }
 
 body {
@@ -68,13 +68,11 @@ form {
   max-width: 1400px;
   height: 100%;
   padding: 2em;
-  // min-width: 0;
-  // min-height: 0;
 
   h1 {
     margin: 0;
     color: var(--color-headings);
-    font-family: "Archivo Black";
+    font-family: 'Archivo Black';
     font-size: 50px;
     letter-spacing: -20;
   }
@@ -95,17 +93,17 @@ form {
 }
 
 @media (min-width: 768px) {
-  .container {
-    // padding: 0;
-    // width: 90%;
-  }
+  // .container {
+  // padding: 0;
+  // width: 90%;
+  // }
   .main-wrapper {
     display: grid;
     grid-template-columns: 60px auto;
   }
-  .main-wrapper {
-    // height: 100vh;
-  }
+  // .main-wrapper {
+  // height: 100vh;
+  // }
 }
 
 @media (min-width: 1200px) {
