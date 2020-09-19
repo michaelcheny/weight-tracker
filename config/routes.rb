@@ -8,9 +8,9 @@ Rails.application.routes.draw do
         resource :weight_histories
         resources :macros
         resources :macro_goals
+        
+      end
       root to: "home#index"
-
-    end
   end
 end
 
