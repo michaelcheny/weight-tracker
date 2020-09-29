@@ -1,13 +1,15 @@
 import React from 'react';
+import dotenv from 'dotenv';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import LandingPage from './containers/LandingPage';
 import Dashboard from './containers/Dashboard';
 import AuthProvider from './context/AuthContext';
-
 import AuthenticatedRoute from './routes/AuthenticatedRoute';
 import UnauthenticatedRoute from './routes/UnauthenticatedRoute';
 import MealsPage from './containers/MealsPage';
+
+dotenv.config();
 
 const App: React.FC = () => {
   return (
