@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import Meal from '../components/MealsPage/Meal';
 import { AuthContext } from '../context/AuthContext';
 const axios = require('axios');
 
@@ -11,6 +12,7 @@ const MealsPage = () => {
   // console.log(process.env.REACT_APP_FOOD_DB_ID);
   const [input, setInput] = useState('apple');
   const [yesEat, setYesEat] = useState(true);
+  const [results, setResults] = useState([]);
   const { user } = useContext(AuthContext);
 
   const getFoodInfo = async (e: any) => {
@@ -18,6 +20,7 @@ const MealsPage = () => {
     try {
       const response = await axios.get(`${URLMAIN}${input}${URLAUTH}`);
       console.log(response);
+      setResults(response.data.hints);
     } catch (err) {
       console.error(err);
     }
@@ -35,9 +38,16 @@ const MealsPage = () => {
               type="text"
               placeholder={input}
               onChange={(e) => setInput(e.target.value)}
+              className=""
             />
           </form>
           <button onClick={getFoodInfo}>Should I Eat This?</button>
+        </div>
+        <div>
+          {results.map((res, i) => {
+            // console.log(res)
+            return <Meal meal={res} key={i} />;
+          })}
         </div>
       </section>
     </>
