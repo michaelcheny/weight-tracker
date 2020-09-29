@@ -11,7 +11,7 @@ const URLAUTH = `&app_id=${process.env.REACT_APP_FOOD_DB_ID}&app_key=${process.e
 const MealsPage = () => {
   // console.log(process.env.REACT_APP_FOOD_DB_ID);
   const [input, setInput] = useState('apple');
-  const [yesEat, setYesEat] = useState(true);
+  const [moreResults, setMoreResults] = useState(false);
   const [results, setResults] = useState([]);
   const { user } = useContext(AuthContext);
 
@@ -20,6 +20,7 @@ const MealsPage = () => {
     try {
       const response = await axios.get(`${URLMAIN}${input}${URLAUTH}`);
       console.log(response);
+      if (response.data._links.next) setMoreResults(true);
       setResults(response.data.hints);
     } catch (err) {
       console.error(err);
@@ -44,11 +45,19 @@ const MealsPage = () => {
           <button onClick={getFoodInfo}>Should I Eat This?</button>
         </div>
         <div>
-          {results.map((res, i) => {
-            // console.log(res)
-            return <Meal meal={res} key={i} />;
-          })}
+          {results.map((res, i) => (
+            <Meal meal={res} key={i} />
+          ))}
         </div>
+        {moreResults && (
+          <button
+          // onClick={
+          // TODO: MAKE THIS LOAD MORE ON CLICK
+          // }
+          >
+            Load more results
+          </button>
+        )}
       </section>
     </>
   );

@@ -14,6 +14,7 @@ interface MealProps {
         ENERC_KCAL: Number;
         FAT: Number;
         PROCNT: Number;
+        FIBTG: Number;
       };
       servingSizes: Object[];
     };
@@ -23,11 +24,16 @@ interface MealProps {
 const Meal: React.FC<MealProps> = ({ meal }) => {
   console.log(meal);
   return (
+    // TODOS: CSS THIS THANG UP
     <div>
       {meal.food.label}
       <img src={meal.food.image} alt={meal.food.label} />
       content: {meal.food.foodContentsLabel}
-      nutriants: calories: {meal.food.nutrients.ENERC_KCAL}
+      nutrients: calories: {meal.food.nutrients.ENERC_KCAL}
+      fats: {meal.food.nutrients.FAT}
+      proteins: {meal.food.nutrients.PROCNT}
+      carbs: {meal.food.nutrients.CHOCDF}
+      fiber: {meal.food.nutrients.FIBTG}
     </div>
   );
 };
