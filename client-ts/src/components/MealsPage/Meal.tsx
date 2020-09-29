@@ -3,11 +3,12 @@ import React from 'react';
 interface MealProps {
   meal: {
     food: {
-      category: String;
-      categoryLabel: String;
-      foodContentsLabel: String;
-      foodId: String;
-      label: String;
+      category: string;
+      categoryLabel: string;
+      foodContentsLabel: string;
+      foodId: string;
+      image: string;
+      label: string;
       nutrients: {
         CHOCDF: Number;
         ENERC_KCAL: Number;
@@ -20,7 +21,15 @@ interface MealProps {
 }
 
 const Meal: React.FC<MealProps> = ({ meal }) => {
-  return <div>{meal.food.label}</div>;
+  console.log(meal);
+  return (
+    <div>
+      {meal.food.label}
+      <img src={meal.food.image} alt={meal.food.label} />
+      content: {meal.food.foodContentsLabel}
+      nutriants: calories: {meal.food.nutrients.ENERC_KCAL}
+    </div>
+  );
 };
 
 export default Meal;
